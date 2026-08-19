@@ -1,6 +1,10 @@
 int main() {
-    int a = 10;
-    int b = 20;
-    int c = a + b;
-    return c;
+    int sum = 0;
+
+    for (int i = 0; i < 100; i++) {
+        sum += i * 2;
+    }
+
+    return sum;
 }
+
