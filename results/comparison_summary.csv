@@ -1,0 +1,16 @@
+program,o0_time_ms,o2_time_ms,o3_time_ms,ml_time_ms,ml_speedup_vs_o2,ml_speedup_vs_o3,ml_beats_o2,ml_beats_o3
+binary_search,59.798,64.0037,62.5597,46.8584,1.366,1.335,YES,YES
+bit_manipulation,7.694,5.6275,2.5257,3.8656,1.456,0.653,YES,NO
+branch_heavy,2.3836,1.7597,1.6646,1.7596,1.0,0.946,YES,NO
+bubble_sort,2.0953,2.2598,2.3814,1.5481,1.46,1.538,YES,YES
+collatz,169.156,58.1641,63.1875,96.292,0.604,0.656,NO,NO
+factorial,11.9802,3.5416,3.351,9.0017,0.393,0.372,NO,NO
+fibonacci,5.5029,5.3043,5.4616,5.439,0.975,1.004,NO,YES
+hash_table,5.2543,4.1538,3.6388,3.8307,1.084,0.95,YES,NO
+linear_search,123.3202,129.4905,116.4436,112.1757,1.154,1.038,YES,YES
+matrix_multiply,2.986,2.6639,1.7121,2.2454,1.186,0.762,YES,NO
+nested_loops,40.7098,37.3747,37.1655,37.123,1.007,1.001,YES,YES
+prime_sieve,0.861,0.892,1.1869,0.8801,1.014,1.349,YES,YES
+sample,0.8632,0.9215,0.974,0.9735,0.947,1.001,NO,YES
+string_reverse,19.5444,11.484,12.8392,12.6491,0.908,1.015,NO,YES
+vector_dot_product,106.7256,19.7095,19.2579,75.5607,0.261,0.255,NO,NO

@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" width="100%" height="100%" style="background:#ffffff; font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;">
+  <style>
+    .title { font-size: 18px; font-weight: bold; fill: #1e293b; }
+    .axis-label { font-size: 12px; fill: #64748b; font-weight: 500; }
+    .cat-label { font-size: 11px; fill: #334155; }
+    .grid { stroke: #e2e8f0; stroke-dasharray: 3,3; }
+    .bar:hover { opacity: 0.85; }
+  </style>
+  <text x="450.0" y="30" text-anchor="middle" class="title">Execution Time Comparison: ML-Selected vs -O2 vs -O3</text>
+  <line x1="80" y1="60.0" x2="740" y2="60.0" class="grid" />
+  <text x="70" y="64.0" text-anchor="end" class="axis-label">148.91</text>
+  <line x1="80" y1="130.0" x2="740" y2="130.0" class="grid" />
+  <text x="70" y="134.0" text-anchor="end" class="axis-label">119.13</text>
+  <line x1="80" y1="200.0" x2="740" y2="200.0" class="grid" />
+  <text x="70" y="204.0" text-anchor="end" class="axis-label">89.35</text>
+  <line x1="80" y1="270.0" x2="740" y2="270.0" class="grid" />
+  <text x="70" y="274.0" text-anchor="end" class="axis-label">59.57</text>
+  <line x1="80" y1="340.0" x2="740" y2="340.0" class="grid" />
+  <text x="70" y="344.0" text-anchor="end" class="axis-label">29.78</text>
+  <line x1="80" y1="410.0" x2="740" y2="410.0" class="grid" />
+  <text x="70" y="414.0" text-anchor="end" class="axis-label">0.00</text>
+  <text transform="rotate(-90)" x="-235.0" y="25" text-anchor="middle" class="axis-label">Execution Time (ms) [Lower is Better]</text>
+  <line x1="80" y1="410" x2="740" y2="410" stroke="#94a3b8" stroke-width="1.5" />
+  <text transform="rotate(-35 102.0 425)" x="102.0" y="425" text-anchor="end" class="cat-label">binary_search</text>
+  <rect x="86.6" y="259.6" width="9.2" height="150.4" fill="#3b82f6" rx="2" class="bar"><title>-O2 (Default) on binary_search: 64.004</title></rect>
+  <rect x="96.9" y="263.0" width="9.2" height="147.0" fill="#10b981" rx="2" class="bar"><title>-O3 (Default) on binary_search: 62.560</title></rect>
+  <rect x="107.1" y="299.9" width="9.2" height="110.1" fill="#8b5cf6" rx="2" class="bar"><title>ML-Selected on binary_search: 46.858</title></rect>
+  <text transform="rotate(-35 146.0 425)" x="146.0" y="425" text-anchor="end" class="cat-label">bit_manipulation</text>
+  <rect x="130.6" y="396.8" width="9.2" height="13.2" fill="#3b82f6" rx="2" class="bar"><title>-O2 (Default) on bit_manipulation: 5.628</title></rect>
+  <rect x="140.9" y="404.1" width="9.2" height="5.9" fill="#10b981" rx="2" class="bar"><title>-O3 (Default) on bit_manipulation: 2.526</title></rect>
+  <rect x="151.1" y="400.9" width="9.2" height="9.1" fill="#8b5cf6" rx="2" class="bar"><title>ML-Selected on bit_manipulation: 3.866</title></rect>
+  <text transform="rotate(-35 190.0 425)" x="190.0" y="425" text-anchor="end" class="cat-label">branch_heavy</text>
+  <rect x="174.6" y="405.9" width="9.2" height="4.1" fill="#3b82f6" rx="2" class="bar"><title>-O2 (Default) on branch_heavy: 1.760</title></rect>
+  <rect x="184.9" y="406.1" width="9.2" height="3.9" fill="#10b981" rx="2" class="bar"><title>-O3 (Default) on branch_heavy: 1.665</title></rect>
+  <rect x="195.1" y="405.9" width="9.2" height="4.1" fill="#8b5cf6" rx="2" class="bar"><title>ML-Selected on branch_heavy: 1.760</title></rect>
+  <text transform="rotate(-35 234.0 425)" x="234.0" y="425" text-anchor="end" class="cat-label">bubble_sort</text>
+  <rect x="218.6" y="404.7" width="9.2" height="5.3" fill="#3b82f6" rx="2" class="bar"><title>-O2 (Default) on bubble_sort: 2.260</title></rect>
+  <rect x="228.9" y="404.4" width="9.2" height="5.6" fill="#10b981" rx="2" class="bar"><title>-O3 (Default) on bubble_sort: 2.381</title></rect>
+  <rect x="239.1" y="406.4" width="9.2" height="3.6" fill="#8b5cf6" rx="2" class="bar"><title>ML-Selected on bubble_sort: 1.548</title></rect>
+  <text transform="rotate(-35 278.0 425)" x="278.0" y="425" text-anchor="end" class="cat-label">collatz</text>
+  <rect x="262.6" y="273.3" width="9.2" height="136.7" fill="#3b82f6" rx="2" class="bar"><title>-O2 (Default) on collatz: 58.164</title></rect>
+  <rect x="272.9" y="261.5" width="9.2" height="148.5" fill="#10b981" rx="2" class="bar"><title>-O3 (Default) on collatz: 63.188</title></rect>
+  <rect x="283.1" y="183.7" width="9.2" height="226.3" fill="#8b5cf6" rx="2" class="bar"><title>ML-Selected on collatz: 96.292</title></rect>
+  <text transform="rotate(-35 322.0 425)" x="322.0" y="425" text-anchor="end" class="cat-label">factorial</text>
+  <rect x="306.6" y="401.7" width="9.2" height="8.3" fill="#3b82f6" rx="2" class="bar"><title>-O2 (Default) on factorial: 3.542</title></rect>
+  <rect x="316.9" y="402.1" width="9.2" height="7.9" fill="#10b981" rx="2" class="bar"><title>-O3 (Default) on factorial: 3.351</title></rect>
+  <rect x="327.1" y="388.8" width="9.2" height="21.2" fill="#8b5cf6" rx="2" class="bar"><title>ML-Selected on factorial: 9.002</title></rect>
+  <text transform="rotate(-35 366.0 425)" x="366.0" y="425" text-anchor="end" class="cat-label">fibonacci</text>
+  <rect x="350.6" y="397.5" width="9.2" height="12.5" fill="#3b82f6" rx="2" class="bar"><title>-O2 (Default) on fibonacci: 5.304</title></rect>
+  <rect x="360.9" y="397.2" width="9.2" height="12.8" fill="#10b981" rx="2" class="bar"><title>-O3 (Default) on fibonacci: 5.462</title></rect>
+  <rect x="371.1" y="397.2" width="9.2" height="12.8" fill="#8b5cf6" rx="2" class="bar"><title>ML-Selected on fibonacci: 5.439</title></rect>
+  <text transform="rotate(-35 410.0 425)" x="410.0" y="425" text-anchor="end" class="cat-label">hash_table</text>
+  <rect x="394.6" y="400.2" width="9.2" height="9.8" fill="#3b82f6" rx="2" class="bar"><title>-O2 (Default) on hash_table: 4.154</title></rect>
+  <rect x="404.9" y="401.4" width="9.2" height="8.6" fill="#10b981" rx="2" class="bar"><title>-O3 (Default) on hash_table: 3.639</title></rect>
+  <rect x="415.1" y="401.0" width="9.2" height="9.0" fill="#8b5cf6" rx="2" class="bar"><title>ML-Selected on hash_table: 3.831</title></rect>
+  <text transform="rotate(-35 454.0 425)" x="454.0" y="425" text-anchor="end" class="cat-label">linear_search</text>
+  <rect x="438.6" y="105.7" width="9.2" height="304.3" fill="#3b82f6" rx="2" class="bar"><title>-O2 (Default) on linear_search: 129.490</title></rect>
+  <rect x="448.9" y="136.3" width="9.2" height="273.7" fill="#10b981" rx="2" class="bar"><title>-O3 (Default) on linear_search: 116.444</title></rect>
+  <rect x="459.1" y="146.3" width="9.2" height="263.7" fill="#8b5cf6" rx="2" class="bar"><title>ML-Selected on linear_search: 112.176</title></rect>
+  <text transform="rotate(-35 498.0 425)" x="498.0" y="425" text-anchor="end" class="cat-label">matrix_multiply</text>
+  <rect x="482.6" y="403.7" width="9.2" height="6.3" fill="#3b82f6" rx="2" class="bar"><title>-O2 (Default) on matrix_multiply: 2.664</title></rect>
+  <rect x="492.9" y="406.0" width="9.2" height="4.0" fill="#10b981" rx="2" class="bar"><title>-O3 (Default) on matrix_multiply: 1.712</title></rect>
+  <rect x="503.1" y="404.7" width="9.2" height="5.3" fill="#8b5cf6" rx="2" class="bar"><title>ML-Selected on matrix_multiply: 2.245</title></rect>
+  <text transform="rotate(-35 542.0 425)" x="542.0" y="425" text-anchor="end" class="cat-label">nested_loops</text>
+  <rect x="526.6" y="322.2" width="9.2" height="87.8" fill="#3b82f6" rx="2" class="bar"><title>-O2 (Default) on nested_loops: 37.375</title></rect>
+  <rect x="536.9" y="322.6" width="9.2" height="87.4" fill="#10b981" rx="2" class="bar"><title>-O3 (Default) on nested_loops: 37.166</title></rect>
+  <rect x="547.1" y="322.7" width="9.2" height="87.3" fill="#8b5cf6" rx="2" class="bar"><title>ML-Selected on nested_loops: 37.123</title></rect>
+  <text transform="rotate(-35 586.0 425)" x="586.0" y="425" text-anchor="end" class="cat-label">prime_sieve</text>
+  <rect x="570.6" y="407.9" width="9.2" height="2.1" fill="#3b82f6" rx="2" class="bar"><title>-O2 (Default) on prime_sieve: 0.892</title></rect>
+  <rect x="580.9" y="407.2" width="9.2" height="2.8" fill="#10b981" rx="2" class="bar"><title>-O3 (Default) on prime_sieve: 1.187</title></rect>
+  <rect x="591.1" y="407.9" width="9.2" height="2.1" fill="#8b5cf6" rx="2" class="bar"><title>ML-Selected on prime_sieve: 0.880</title></rect>
+  <text transform="rotate(-35 630.0 425)" x="630.0" y="425" text-anchor="end" class="cat-label">sample</text>
+  <rect x="614.6" y="407.8" width="9.2" height="2.2" fill="#3b82f6" rx="2" class="bar"><title>-O2 (Default) on sample: 0.921</title></rect>
+  <rect x="624.9" y="407.7" width="9.2" height="2.3" fill="#10b981" rx="2" class="bar"><title>-O3 (Default) on sample: 0.974</title></rect>
+  <rect x="635.1" y="407.7" width="9.2" height="2.3" fill="#8b5cf6" rx="2" class="bar"><title>ML-Selected on sample: 0.974</title></rect>
+  <text transform="rotate(-35 674.0 425)" x="674.0" y="425" text-anchor="end" class="cat-label">string_reverse</text>
+  <rect x="658.6" y="383.0" width="9.2" height="27.0" fill="#3b82f6" rx="2" class="bar"><title>-O2 (Default) on string_reverse: 11.484</title></rect>
+  <rect x="668.9" y="379.8" width="9.2" height="30.2" fill="#10b981" rx="2" class="bar"><title>-O3 (Default) on string_reverse: 12.839</title></rect>
+  <rect x="679.1" y="380.3" width="9.2" height="29.7" fill="#8b5cf6" rx="2" class="bar"><title>ML-Selected on string_reverse: 12.649</title></rect>
+  <text transform="rotate(-35 718.0 425)" x="718.0" y="425" text-anchor="end" class="cat-label">vector_dot_product</text>
+  <rect x="702.6" y="363.7" width="9.2" height="46.3" fill="#3b82f6" rx="2" class="bar"><title>-O2 (Default) on vector_dot_product: 19.709</title></rect>
+  <rect x="712.9" y="364.7" width="9.2" height="45.3" fill="#10b981" rx="2" class="bar"><title>-O3 (Default) on vector_dot_product: 19.258</title></rect>
+  <rect x="723.1" y="232.4" width="9.2" height="177.6" fill="#8b5cf6" rx="2" class="bar"><title>ML-Selected on vector_dot_product: 75.561</title></rect>
+  <rect x="760" y="70" width="14" height="14" fill="#3b82f6" rx="3" />
+  <text x="782" y="81" class="axis-label" fill="#1e293b">-O2 (Default)</text>
+  <rect x="760" y="94" width="14" height="14" fill="#10b981" rx="3" />
+  <text x="782" y="105" class="axis-label" fill="#1e293b">-O3 (Default)</text>
+  <rect x="760" y="118" width="14" height="14" fill="#8b5cf6" rx="3" />
+  <text x="782" y="129" class="axis-label" fill="#1e293b">ML-Selected</text>
+</svg>
