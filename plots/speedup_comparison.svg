@@ -8,64 +8,64 @@
   </style>
   <text x="450.0" y="30" text-anchor="middle" class="title">Relative Speedup of ML-Guided Strategy (> 1.0x indicates ML is Faster)</text>
   <line x1="80" y1="60.0" x2="740" y2="60.0" class="grid" />
-  <text x="70" y="64.0" text-anchor="end" class="axis-label">1.77</text>
+  <text x="70" y="64.0" text-anchor="end" class="axis-label">15.64</text>
   <line x1="80" y1="130.0" x2="740" y2="130.0" class="grid" />
-  <text x="70" y="134.0" text-anchor="end" class="axis-label">1.41</text>
+  <text x="70" y="134.0" text-anchor="end" class="axis-label">12.51</text>
   <line x1="80" y1="200.0" x2="740" y2="200.0" class="grid" />
-  <text x="70" y="204.0" text-anchor="end" class="axis-label">1.06</text>
+  <text x="70" y="204.0" text-anchor="end" class="axis-label">9.38</text>
   <line x1="80" y1="270.0" x2="740" y2="270.0" class="grid" />
-  <text x="70" y="274.0" text-anchor="end" class="axis-label">0.71</text>
+  <text x="70" y="274.0" text-anchor="end" class="axis-label">6.26</text>
   <line x1="80" y1="340.0" x2="740" y2="340.0" class="grid" />
-  <text x="70" y="344.0" text-anchor="end" class="axis-label">0.35</text>
+  <text x="70" y="344.0" text-anchor="end" class="axis-label">3.13</text>
   <line x1="80" y1="410.0" x2="740" y2="410.0" class="grid" />
   <text x="70" y="414.0" text-anchor="end" class="axis-label">0.00</text>
   <text transform="rotate(-90)" x="-235.0" y="25" text-anchor="middle" class="axis-label">Speedup Ratio (x) [Higher is Better]</text>
   <line x1="80" y1="410" x2="740" y2="410" stroke="#94a3b8" stroke-width="1.5" />
   <text transform="rotate(-35 102.0 425)" x="102.0" y="425" text-anchor="end" class="cat-label">binary_search</text>
-  <rect x="86.6" y="139.7" width="13.9" height="270.3" fill="#6366f1" rx="2" class="bar"><title>ML vs -O2 Speedup on binary_search: 1.366</title></rect>
-  <rect x="102.0" y="145.8" width="13.9" height="264.2" fill="#ec4899" rx="2" class="bar"><title>ML vs -O3 Speedup on binary_search: 1.335</title></rect>
+  <rect x="86.6" y="389.3" width="13.9" height="20.7" fill="#6366f1" rx="2" class="bar"><title>ML vs -O2 Speedup on binary_search: 0.926</title></rect>
+  <rect x="102.0" y="386.9" width="13.9" height="23.1" fill="#ec4899" rx="2" class="bar"><title>ML vs -O3 Speedup on binary_search: 1.030</title></rect>
   <text transform="rotate(-35 146.0 425)" x="146.0" y="425" text-anchor="end" class="cat-label">bit_manipulation</text>
-  <rect x="130.6" y="121.9" width="13.9" height="288.1" fill="#6366f1" rx="2" class="bar"><title>ML vs -O2 Speedup on bit_manipulation: 1.456</title></rect>
-  <rect x="146.0" y="280.8" width="13.9" height="129.2" fill="#ec4899" rx="2" class="bar"><title>ML vs -O3 Speedup on bit_manipulation: 0.653</title></rect>
+  <rect x="130.6" y="352.0" width="13.9" height="58.0" fill="#6366f1" rx="2" class="bar"><title>ML vs -O2 Speedup on bit_manipulation: 2.590</title></rect>
+  <rect x="146.0" y="346.4" width="13.9" height="63.6" fill="#ec4899" rx="2" class="bar"><title>ML vs -O3 Speedup on bit_manipulation: 2.843</title></rect>
   <text transform="rotate(-35 190.0 425)" x="190.0" y="425" text-anchor="end" class="cat-label">branch_heavy</text>
-  <rect x="174.6" y="212.1" width="13.9" height="197.9" fill="#6366f1" rx="2" class="bar"><title>ML vs -O2 Speedup on branch_heavy: 1.000</title></rect>
-  <rect x="190.0" y="222.8" width="13.9" height="187.2" fill="#ec4899" rx="2" class="bar"><title>ML vs -O3 Speedup on branch_heavy: 0.946</title></rect>
+  <rect x="174.6" y="229.2" width="13.9" height="180.8" fill="#6366f1" rx="2" class="bar"><title>ML vs -O2 Speedup on branch_heavy: 8.078</title></rect>
+  <rect x="190.0" y="193.9" width="13.9" height="216.1" fill="#ec4899" rx="2" class="bar"><title>ML vs -O3 Speedup on branch_heavy: 9.657</title></rect>
   <text transform="rotate(-35 234.0 425)" x="234.0" y="425" text-anchor="end" class="cat-label">bubble_sort</text>
-  <rect x="218.6" y="121.1" width="13.9" height="288.9" fill="#6366f1" rx="2" class="bar"><title>ML vs -O2 Speedup on bubble_sort: 1.460</title></rect>
-  <rect x="234.0" y="105.7" width="13.9" height="304.3" fill="#ec4899" rx="2" class="bar"><title>ML vs -O3 Speedup on bubble_sort: 1.538</title></rect>
+  <rect x="218.6" y="195.7" width="13.9" height="214.3" fill="#6366f1" rx="2" class="bar"><title>ML vs -O2 Speedup on bubble_sort: 9.576</title></rect>
+  <rect x="234.0" y="225.2" width="13.9" height="184.8" fill="#ec4899" rx="2" class="bar"><title>ML vs -O3 Speedup on bubble_sort: 8.257</title></rect>
   <text transform="rotate(-35 278.0 425)" x="278.0" y="425" text-anchor="end" class="cat-label">collatz</text>
-  <rect x="262.6" y="290.5" width="13.9" height="119.5" fill="#6366f1" rx="2" class="bar"><title>ML vs -O2 Speedup on collatz: 0.604</title></rect>
-  <rect x="278.0" y="280.2" width="13.9" height="129.8" fill="#ec4899" rx="2" class="bar"><title>ML vs -O3 Speedup on collatz: 0.656</title></rect>
+  <rect x="262.6" y="395.7" width="13.9" height="14.3" fill="#6366f1" rx="2" class="bar"><title>ML vs -O2 Speedup on collatz: 0.641</title></rect>
+  <rect x="278.0" y="395.7" width="13.9" height="14.3" fill="#ec4899" rx="2" class="bar"><title>ML vs -O3 Speedup on collatz: 0.637</title></rect>
   <text transform="rotate(-35 322.0 425)" x="322.0" y="425" text-anchor="end" class="cat-label">factorial</text>
-  <rect x="306.6" y="332.2" width="13.9" height="77.8" fill="#6366f1" rx="2" class="bar"><title>ML vs -O2 Speedup on factorial: 0.393</title></rect>
-  <rect x="322.0" y="336.4" width="13.9" height="73.6" fill="#ec4899" rx="2" class="bar"><title>ML vs -O3 Speedup on factorial: 0.372</title></rect>
+  <rect x="306.6" y="378.4" width="13.9" height="31.6" fill="#6366f1" rx="2" class="bar"><title>ML vs -O2 Speedup on factorial: 1.410</title></rect>
+  <rect x="322.0" y="375.7" width="13.9" height="34.3" fill="#ec4899" rx="2" class="bar"><title>ML vs -O3 Speedup on factorial: 1.534</title></rect>
   <text transform="rotate(-35 366.0 425)" x="366.0" y="425" text-anchor="end" class="cat-label">fibonacci</text>
-  <rect x="350.6" y="217.1" width="13.9" height="192.9" fill="#6366f1" rx="2" class="bar"><title>ML vs -O2 Speedup on fibonacci: 0.975</title></rect>
-  <rect x="366.0" y="211.3" width="13.9" height="198.7" fill="#ec4899" rx="2" class="bar"><title>ML vs -O3 Speedup on fibonacci: 1.004</title></rect>
+  <rect x="350.6" y="345.3" width="13.9" height="64.7" fill="#6366f1" rx="2" class="bar"><title>ML vs -O2 Speedup on fibonacci: 2.891</title></rect>
+  <rect x="366.0" y="360.6" width="13.9" height="49.4" fill="#ec4899" rx="2" class="bar"><title>ML vs -O3 Speedup on fibonacci: 2.205</title></rect>
   <text transform="rotate(-35 410.0 425)" x="410.0" y="425" text-anchor="end" class="cat-label">hash_table</text>
-  <rect x="394.6" y="195.5" width="13.9" height="214.5" fill="#6366f1" rx="2" class="bar"><title>ML vs -O2 Speedup on hash_table: 1.084</title></rect>
-  <rect x="410.0" y="222.0" width="13.9" height="188.0" fill="#ec4899" rx="2" class="bar"><title>ML vs -O3 Speedup on hash_table: 0.950</title></rect>
+  <rect x="394.6" y="351.4" width="13.9" height="58.6" fill="#6366f1" rx="2" class="bar"><title>ML vs -O2 Speedup on hash_table: 2.618</title></rect>
+  <rect x="410.0" y="339.8" width="13.9" height="70.2" fill="#ec4899" rx="2" class="bar"><title>ML vs -O3 Speedup on hash_table: 3.138</title></rect>
   <text transform="rotate(-35 454.0 425)" x="454.0" y="425" text-anchor="end" class="cat-label">linear_search</text>
-  <rect x="438.6" y="181.6" width="13.9" height="228.4" fill="#6366f1" rx="2" class="bar"><title>ML vs -O2 Speedup on linear_search: 1.154</title></rect>
-  <rect x="454.0" y="204.6" width="13.9" height="205.4" fill="#ec4899" rx="2" class="bar"><title>ML vs -O3 Speedup on linear_search: 1.038</title></rect>
+  <rect x="438.6" y="391.5" width="13.9" height="18.5" fill="#6366f1" rx="2" class="bar"><title>ML vs -O2 Speedup on linear_search: 0.826</title></rect>
+  <rect x="454.0" y="391.2" width="13.9" height="18.8" fill="#ec4899" rx="2" class="bar"><title>ML vs -O3 Speedup on linear_search: 0.842</title></rect>
   <text transform="rotate(-35 498.0 425)" x="498.0" y="425" text-anchor="end" class="cat-label">matrix_multiply</text>
-  <rect x="482.6" y="175.3" width="13.9" height="234.7" fill="#6366f1" rx="2" class="bar"><title>ML vs -O2 Speedup on matrix_multiply: 1.186</title></rect>
-  <rect x="498.0" y="259.2" width="13.9" height="150.8" fill="#ec4899" rx="2" class="bar"><title>ML vs -O3 Speedup on matrix_multiply: 0.762</title></rect>
+  <rect x="482.6" y="292.7" width="13.9" height="117.3" fill="#6366f1" rx="2" class="bar"><title>ML vs -O2 Speedup on matrix_multiply: 5.242</title></rect>
+  <rect x="498.0" y="304.9" width="13.9" height="105.1" fill="#ec4899" rx="2" class="bar"><title>ML vs -O3 Speedup on matrix_multiply: 4.694</title></rect>
   <text transform="rotate(-35 542.0 425)" x="542.0" y="425" text-anchor="end" class="cat-label">nested_loops</text>
-  <rect x="526.6" y="210.7" width="13.9" height="199.3" fill="#6366f1" rx="2" class="bar"><title>ML vs -O2 Speedup on nested_loops: 1.007</title></rect>
-  <rect x="542.0" y="211.9" width="13.9" height="198.1" fill="#ec4899" rx="2" class="bar"><title>ML vs -O3 Speedup on nested_loops: 1.001</title></rect>
+  <rect x="526.6" y="355.5" width="13.9" height="54.5" fill="#6366f1" rx="2" class="bar"><title>ML vs -O2 Speedup on nested_loops: 2.437</title></rect>
+  <rect x="542.0" y="344.3" width="13.9" height="65.7" fill="#ec4899" rx="2" class="bar"><title>ML vs -O3 Speedup on nested_loops: 2.935</title></rect>
   <text transform="rotate(-35 586.0 425)" x="586.0" y="425" text-anchor="end" class="cat-label">prime_sieve</text>
-  <rect x="570.6" y="209.3" width="13.9" height="200.7" fill="#6366f1" rx="2" class="bar"><title>ML vs -O2 Speedup on prime_sieve: 1.014</title></rect>
-  <rect x="586.0" y="143.1" width="13.9" height="266.9" fill="#ec4899" rx="2" class="bar"><title>ML vs -O3 Speedup on prime_sieve: 1.349</title></rect>
+  <rect x="570.6" y="105.7" width="13.9" height="304.3" fill="#6366f1" rx="2" class="bar"><title>ML vs -O2 Speedup on prime_sieve: 13.598</title></rect>
+  <rect x="586.0" y="146.5" width="13.9" height="263.5" fill="#ec4899" rx="2" class="bar"><title>ML vs -O3 Speedup on prime_sieve: 11.772</title></rect>
   <text transform="rotate(-35 630.0 425)" x="630.0" y="425" text-anchor="end" class="cat-label">sample</text>
-  <rect x="614.6" y="222.6" width="13.9" height="187.4" fill="#6366f1" rx="2" class="bar"><title>ML vs -O2 Speedup on sample: 0.947</title></rect>
-  <rect x="630.0" y="211.9" width="13.9" height="198.1" fill="#ec4899" rx="2" class="bar"><title>ML vs -O3 Speedup on sample: 1.001</title></rect>
+  <rect x="614.6" y="191.5" width="13.9" height="218.5" fill="#6366f1" rx="2" class="bar"><title>ML vs -O2 Speedup on sample: 9.764</title></rect>
+  <rect x="630.0" y="121.5" width="13.9" height="288.5" fill="#ec4899" rx="2" class="bar"><title>ML vs -O3 Speedup on sample: 12.888</title></rect>
   <text transform="rotate(-35 674.0 425)" x="674.0" y="425" text-anchor="end" class="cat-label">string_reverse</text>
-  <rect x="658.6" y="230.3" width="13.9" height="179.7" fill="#6366f1" rx="2" class="bar"><title>ML vs -O2 Speedup on string_reverse: 0.908</title></rect>
-  <rect x="674.0" y="209.1" width="13.9" height="200.9" fill="#ec4899" rx="2" class="bar"><title>ML vs -O3 Speedup on string_reverse: 1.015</title></rect>
+  <rect x="658.6" y="380.6" width="13.9" height="29.4" fill="#6366f1" rx="2" class="bar"><title>ML vs -O2 Speedup on string_reverse: 1.315</title></rect>
+  <rect x="674.0" y="380.1" width="13.9" height="29.9" fill="#ec4899" rx="2" class="bar"><title>ML vs -O3 Speedup on string_reverse: 1.337</title></rect>
   <text transform="rotate(-35 718.0 425)" x="718.0" y="425" text-anchor="end" class="cat-label">vector_dot_product</text>
-  <rect x="702.6" y="358.4" width="13.9" height="51.6" fill="#6366f1" rx="2" class="bar"><title>ML vs -O2 Speedup on vector_dot_product: 0.261</title></rect>
-  <rect x="718.0" y="359.5" width="13.9" height="50.5" fill="#ec4899" rx="2" class="bar"><title>ML vs -O3 Speedup on vector_dot_product: 0.255</title></rect>
+  <rect x="702.6" y="401.8" width="13.9" height="8.2" fill="#6366f1" rx="2" class="bar"><title>ML vs -O2 Speedup on vector_dot_product: 0.366</title></rect>
+  <rect x="718.0" y="401.6" width="13.9" height="8.4" fill="#ec4899" rx="2" class="bar"><title>ML vs -O3 Speedup on vector_dot_product: 0.376</title></rect>
   <rect x="760" y="70" width="14" height="14" fill="#6366f1" rx="3" />
   <text x="782" y="81" class="axis-label" fill="#1e293b">ML vs -O2 Speedup</text>
   <rect x="760" y="94" width="14" height="14" fill="#ec4899" rx="3" />

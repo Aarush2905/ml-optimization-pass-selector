@@ -16,6 +16,14 @@ import tempfile
 import glob
 from typing import Dict, List, Any
 
+# Ensure stdout/stderr handle UTF-8 on Windows
+if hasattr(sys.stdout, "reconfigure"):
+    try:
+        sys.stdout.reconfigure(encoding="utf-8")
+        sys.stderr.reconfigure(encoding="utf-8")
+    except Exception:
+        pass
+
 # Ensure project root is in sys.path
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
@@ -273,11 +281,16 @@ def main():
     parser.add_argument("--explore-ordering", action="store_true", help="Run pass ordering exploration")
     parser.add_argument("--benchmark-all", action="store_true", help="Run baselines across all benchmark programs")
     parser.add_argument("--train", action="store_true", help="Train the ML pass selector model")
+    parser.add_argument("--web", action="store_true", help="Launch interactive Web Dashboard frontend")
+    parser.add_argument("--port", type=int, default=8080, help="Port for Web Dashboard server (default: 8080)")
     parser.add_argument("--runs", type=int, default=7, help="Number of benchmark iterations")
 
     args = parser.parse_args()
 
-    if args.train:
+    if args.web:
+        from src.web.server import run_server
+        run_server(port=args.port)
+    elif args.train:
         from src.ml.train import train_and_evaluate
         train_and_evaluate()
     elif args.benchmark_all:
@@ -295,3 +308,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

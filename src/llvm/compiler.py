@@ -4,17 +4,51 @@ Handles invoking clang to produce unoptimized LLVM IR and linking IR to executab
 """
 
 import os
+import sys
+import shutil
 import subprocess
 from typing import Optional, Tuple
+
+
+def _find_tool(name: str, candidate_paths: list) -> str:
+    found = shutil.which(name)
+    if found:
+        return found
+    for cand in candidate_paths:
+        if os.path.exists(cand):
+            return cand
+    return name
 
 
 class LLVMCompiler:
     """Wrapper around clang and LLVM tools for compiling C source to IR and binaries."""
 
     def __init__(self, clang_path: str = "clang", opt_path: str = "opt", llc_path: str = "llc"):
-        self.clang_path = clang_path
-        self.opt_path = opt_path
-        self.llc_path = llc_path
+        win_clang_candidates = [
+            r"C:\Program Files\LLVM\bin\clang.exe",
+            r"C:\Users\SI\OneDrive\VIT\compiler\mingw64\bin\clang.exe",
+        ]
+        win_opt_candidates = [
+            r"C:\Program Files\LLVM\bin\opt.exe",
+        ]
+        win_llc_candidates = [
+            r"C:\Program Files\LLVM\bin\llc.exe",
+        ]
+
+        self.clang_path = _find_tool(clang_path, win_clang_candidates)
+        self.opt_path = _find_tool(opt_path, win_opt_candidates)
+        self.llc_path = _find_tool(llc_path, win_llc_candidates)
+
+        if sys.platform == "win32":
+            extra_paths = [
+                r"C:\Users\SI\OneDrive\VIT\compiler\mingw64\bin",
+                r"C:\Program Files\LLVM\bin",
+            ]
+            current_path = os.environ.get("PATH", "")
+            for p in extra_paths:
+                if os.path.exists(p) and p.lower() not in current_path.lower():
+                    current_path = f"{p};{current_path}"
+            os.environ["PATH"] = current_path
 
     def c_to_ir(self, c_path: str, ir_path: str) -> Tuple[bool, str]:
         """
@@ -36,6 +70,8 @@ class LLVMCompiler:
             "-o",
             ir_path
         ]
+        if sys.platform == "win32":
+            cmd.insert(1, "--target=x86_64-w64-windows-gnu")
         try:
             res = subprocess.run(cmd, capture_output=True, text=True, check=True)
             return True, ir_path
@@ -58,6 +94,8 @@ class LLVMCompiler:
             "-o",
             exe_path
         ]
+        if sys.platform == "win32":
+            cmd.insert(1, "--target=x86_64-w64-windows-gnu")
         try:
             res = subprocess.run(cmd, capture_output=True, text=True, check=True)
             return True, exe_path
@@ -80,8 +118,11 @@ class LLVMCompiler:
             "-o",
             exe_path
         ]
+        if sys.platform == "win32":
+            cmd.insert(1, "--target=x86_64-w64-windows-gnu")
         try:
             res = subprocess.run(cmd, capture_output=True, text=True, check=True)
             return True, exe_path
         except subprocess.CalledProcessError as e:
             return False, f"Clang direct compilation error: {e.stderr}"
+

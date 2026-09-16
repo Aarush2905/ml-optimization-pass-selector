@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ML-Guided LLVM Pass Selector Dashboard (BCSE307P A26)</title>
+  <link rel="stylesheet" href="/static/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+
+  <!-- Top Header Navigation -->
+  <header>
+    <div class="brand-container">
+      <div class="brand-logo">LLVM</div>
+      <div class="brand-title">
+        <h1>ML Pass Selector Framework</h1>
+        <p>BCSE307P Compiler Design Lab | Project A26</p>
+      </div>
+    </div>
+    <nav class="nav-tabs">
+      <button class="tab-btn active" data-tab="tab-single">
+        Single Program Optimizer
+      </button>
+      <button class="tab-btn" data-tab="tab-suite">
+        Benchmark Suite Analytics
+      </button>
+      <button class="tab-btn" data-tab="tab-ml">
+        ML Model & Features
+      </button>
+      <button class="tab-btn" data-tab="tab-ordering">
+        Pass Ordering Search
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- TAB 1: Single Program Optimizer -->
+    <div id="tab-single" class="tab-content active">
+      <div class="glass-card">
+        <div class="card-header">
+          <h2 class="card-title">Live Program Optimizer</h2>
+        </div>
+        <div class="controls-row">
+          <div class="input-group">
+            <label for="program-select">Target C Program</label>
+            <select id="program-select">
+              <option value="">Loading benchmark suite...</option>
+            </select>
+          </div>
+          <button id="run-opt-btn" class="btn-primary">
+            Execute ML Optimization Pipeline
+          </button>
+        </div>
+
+        <!-- Custom C Code Input Container -->
+        <div id="custom-code-container" style="display: none; margin-top: 1rem;">
+          <label for="custom-c-code">Custom C Source Code</label>
+          <textarea id="custom-c-code" class="code-editor" placeholder="// Write C source code here...
+int main() {
+    int sum = 0;
+    for (int i = 0; i < 1000; i++) sum += i * 3;
+    return sum;
+}"></textarea>
+        </div>
+
+        <!-- Pipeline Progress Flow -->
+        <div class="pipeline-flow">
+          <div id="step-ir" class="step-box">
+            <div class="step-num">STEP 1</div>
+            <div class="step-title">LLVM IR Generation</div>
+          </div>
+          <div class="step-arrow">-></div>
+          <div id="step-feats" class="step-box">
+            <div class="step-num">STEP 2</div>
+            <div class="step-title">Feature Extraction</div>
+          </div>
+          <div class="step-arrow">-></div>
+          <div id="step-ml" class="step-box">
+            <div class="step-num">STEP 3</div>
+            <div class="step-title">ML Pass Inference</div>
+          </div>
+          <div class="step-arrow">-></div>
+          <div id="step-bench" class="step-box">
+            <div class="step-num">STEP 4</div>
+            <div class="step-title">Benchmarking & Verification</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Results Area -->
+      <div id="opt-results-area" style="display: none;">
+        <!-- Top Metrics Grid -->
+        <div class="grid-4" style="margin-bottom: 1.5rem;">
+          <div class="metric-card">
+            <div class="metric-label">Predicted Strategy</div>
+            <div id="pred-strategy" class="metric-value" style="font-size: 1.15rem;">-</div>
+            <div id="pred-confidence" class="metric-sub">Confidence: -</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">Selected Pass Sequence</div>
+            <div id="pred-passes" class="metric-value" style="font-size: 0.85rem; font-family: var(--font-mono); word-break: break-all;">-</div>
+            <div class="metric-sub">LLVM 14 Pass Pipeline</div>
+          </div>
+        </div>
+
+        <!-- Static IR Features -->
+        <div class="glass-card">
+          <div class="card-header">
+            <h3 class="card-title">Extracted 23 Static IR Program Features</h3>
+          </div>
+          <div id="features-grid" class="features-grid"></div>
+        </div>
+
+        <!-- Comparative Performance Table -->
+        <div class="glass-card">
+          <div class="card-header">
+            <h3 class="card-title">Comparative Performance Summary</h3>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>Strategy</th>
+                <th>Execution Time</th>
+                <th>Speedup vs O0</th>
+                <th>Binary Size</th>
+                <th>IR Lines</th>
+                <th>Correctness</th>
+              </tr>
+            </thead>
+            <tbody id="summary-tbody"></tbody>
+          </table>
+        </div>
+
+        <!-- Side-by-Side IR Diff Viewer -->
+        <div class="grid-2">
+          <div class="glass-card">
+            <div class="card-header">
+              <h3 class="card-title">Unoptimized LLVM IR (-O0)</h3>
+            </div>
+            <pre id="ir-unopt-text" class="ir-viewer"></pre>
+          </div>
+          <div class="glass-card">
+            <div class="card-header">
+              <h3 class="card-title">ML-Optimized LLVM IR</h3>
+            </div>
+            <pre id="ir-ml-text" class="ir-viewer"></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 2: Benchmark Suite Analytics -->
+    <div id="tab-suite" class="tab-content">
+      <div class="glass-card">
+        <div class="card-header">
+          <h2 class="card-title">15-Program Benchmark Suite Evaluation</h2>
+        </div>
+        <div class="chart-container" style="margin-bottom: 2rem;">
+          <canvas id="chart-suite-speedup"></canvas>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Program</th>
+              <th>-O0 Time</th>
+              <th>-O2 Time</th>
+              <th>-O3 Time</th>
+              <th>ML-Selected Time</th>
+              <th>ML Strategy</th>
+              <th>Speedup vs O2</th>
+              <th>Speedup vs O3</th>
+              <th>Correctness</th>
+            </tr>
+          </thead>
+          <tbody id="suite-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- TAB 3: ML Model & Features -->
+    <div id="tab-ml" class="tab-content">
+      <div class="grid-4" style="margin-bottom: 1.5rem;">
+        <div class="metric-card">
+          <div class="metric-label">Dataset Records</div>
+          <div id="total-samples" class="metric-value">75</div>
+          <div class="metric-sub">15 Programs x 5 Pass Pipelines</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">CV Accuracy</div>
+          <div id="cv-acc" class="metric-value">20.0%</div>
+          <div class="metric-sub">Leave-One-Out Cross-Validation</div>
+        </div>
+      </div>
+      <div class="glass-card">
+        <div class="card-header">
+          <h3 class="card-title">Feature Gini Importances (Random Forest Ensemble)</h3>
+        </div>
+        <div class="chart-container" style="height: 360px;">
+          <canvas id="chart-importances"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 4: Pass Ordering & Search -->
+    <div id="tab-ordering" class="tab-content">
+      <div class="glass-card">
+        <div class="card-header">
+          <h2 class="card-title">Pass Ordering Permutations & Beam Search Engine</h2>
+        </div>
+        <p style="color: var(--text-secondary); margin-bottom: 1rem; font-size: 0.85rem;">
+          Demonstrating Phase Ordering sensitivity: Evaluating IR instruction reduction across pass order permutations.
+        </p>
+        <table>
+          <thead>
+            <tr>
+              <th>Rank</th>
+              <th>Pass Order Sequence</th>
+              <th>IR Instructions</th>
+              <th>IR Lines</th>
+            </tr>
+          </thead>
+          <tbody id="ordering-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>Machine-Learning-Guided LLVM Optimization Pass Selector | BCSE307P Compiler Design Lab (A26)</p>
+  </footer>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

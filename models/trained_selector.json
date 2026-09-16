@@ -28,31 +28,31 @@
   "metadata": {
     "n_samples": 15,
     "training_accuracy": 1.0,
-    "loocv_accuracy": 0.4,
+    "loocv_accuracy": 0.2667,
     "feature_importances": {
-      "arith_to_total_ratio": 0.0897,
-      "mem_op_count": 0.0855,
-      "branch_count": 0.0688,
-      "call_count": 0.0614,
-      "branch_to_bb_ratio": 0.0611,
-      "uncond_branch_count": 0.0596,
-      "alloca_count": 0.0581,
-      "ret_count": 0.0568,
-      "load_count": 0.053,
-      "instruction_count": 0.0515,
-      "load_store_ratio": 0.0495,
-      "gep_count": 0.0452,
-      "basic_block_count": 0.0414,
-      "bitwise_count": 0.0382,
-      "cmp_count": 0.0347,
-      "arithmetic_count": 0.0322,
-      "loop_count": 0.0298,
-      "cond_branch_count": 0.0296,
-      "function_count": 0.029,
-      "store_count": 0.0191,
-      "mem_to_total_ratio": 0.0058,
-      "phi_count": 0.0,
-      "phi_to_bb_ratio": 0.0
+      "branch_to_bb_ratio": 0.1467,
+      "arith_to_total_ratio": 0.0928,
+      "load_store_ratio": 0.0882,
+      "mem_op_count": 0.0617,
+      "call_count": 0.0592,
+      "ret_count": 0.0536,
+      "branch_count": 0.0524,
+      "mem_to_total_ratio": 0.0506,
+      "loop_count": 0.0466,
+      "function_count": 0.039,
+      "instruction_count": 0.0388,
+      "basic_block_count": 0.0385,
+      "uncond_branch_count": 0.0355,
+      "store_count": 0.0354,
+      "alloca_count": 0.0343,
+      "gep_count": 0.0317,
+      "load_count": 0.0242,
+      "bitwise_count": 0.0233,
+      "cond_branch_count": 0.0212,
+      "arithmetic_count": 0.016,
+      "phi_to_bb_ratio": 0.0056,
+      "phi_count": 0.0049,
+      "cmp_count": 0.0
     },
     "classes": [
       "arithmetic_constant",
@@ -68,29 +68,29 @@
     "max_depth": 5,
     "min_samples_split": 2,
     "feature_importances": {
-      "0": 0.051504,
-      "1": 0.041382,
-      "2": 0.029024,
-      "3": 0.029782,
-      "4": 0.068776,
-      "5": 0.029572,
-      "6": 0.059615,
-      "7": 0.053011,
-      "8": 0.019081,
-      "9": 0.058131,
-      "10": 0.045244,
-      "11": 0.0,
-      "12": 0.032199,
-      "13": 0.038209,
-      "14": 0.034736,
-      "15": 0.061411,
-      "16": 0.056757,
-      "17": 0.085487,
-      "18": 0.049509,
-      "19": 0.005769,
-      "20": 0.089672,
-      "21": 0.061126,
-      "22": 0.0
+      "0": 0.03879,
+      "1": 0.03853,
+      "2": 0.038977,
+      "3": 0.046553,
+      "4": 0.052429,
+      "5": 0.021182,
+      "6": 0.035531,
+      "7": 0.024154,
+      "8": 0.035385,
+      "9": 0.034285,
+      "10": 0.031725,
+      "11": 0.004938,
+      "12": 0.01598,
+      "13": 0.023333,
+      "14": 0.0,
+      "15": 0.059169,
+      "16": 0.053565,
+      "17": 0.06169,
+      "18": 0.088158,
+      "19": 0.05057,
+      "20": 0.092771,
+      "21": 0.146728,
+      "22": 0.005556
     },
     "trees": [
       {
@@ -98,116 +98,116 @@
         "max_depth": 5,
         "min_samples_split": 2,
         "feature_importances": {
-          "0": 0.216867,
+          "0": 0.0,
           "1": 0.0,
           "2": 0.0,
           "3": 0.0,
-          "4": 0.121988,
+          "4": 0.0,
           "5": 0.0,
-          "6": 0.221386,
-          "7": 0.0,
-          "8": 0.0,
+          "6": 0.0,
+          "7": 0.054217,
+          "8": 0.090361,
           "9": 0.0,
           "10": 0.0,
           "11": 0.0,
-          "12": 0.292169,
+          "12": 0.0,
           "13": 0.0,
           "14": 0.0,
           "15": 0.0,
-          "16": 0.0,
-          "17": 0.14759,
+          "16": 0.292169,
+          "17": 0.0,
           "18": 0.0,
           "19": 0.0,
           "20": 0.0,
-          "21": 0.0,
+          "21": 0.563253,
           "22": 0.0
         },
         "root": {
-          "feature_idx": 12,
-          "threshold": 7.0,
+          "feature_idx": 16,
+          "threshold": 2.5,
           "value": null,
           "impurity": 0.737778,
           "n_samples": 15,
           "is_leaf": false,
           "left": {
-            "feature_idx": null,
-            "threshold": null,
-            "value": "scalar_cleanup",
-            "impurity": 0.0,
-            "n_samples": 3,
-            "is_leaf": true
-          },
-          "right": {
-            "feature_idx": 17,
-            "threshold": 71.0,
+            "feature_idx": 21,
+            "threshold": 0.9468000000000001,
             "value": null,
             "impurity": 0.652778,
             "n_samples": 12,
             "is_leaf": false,
             "left": {
-              "feature_idx": 6,
-              "threshold": 11.0,
+              "feature_idx": 21,
+              "threshold": 0.91835,
               "value": null,
-              "impurity": 0.62,
-              "n_samples": 10,
+              "impurity": 0.493827,
+              "n_samples": 9,
               "is_leaf": false,
               "left": {
-                "feature_idx": null,
-                "threshold": null,
-                "value": "memory_redundancy",
-                "impurity": 0.0,
-                "n_samples": 2,
-                "is_leaf": true
-              },
-              "right": {
-                "feature_idx": 4,
-                "threshold": 20.5,
+                "feature_idx": 7,
+                "threshold": 21.5,
                 "value": null,
-                "impurity": 0.46875,
-                "n_samples": 8,
+                "impurity": 0.32,
+                "n_samples": 5,
                 "is_leaf": false,
                 "left": {
-                  "feature_idx": 0,
-                  "threshold": 84.5,
+                  "feature_idx": 8,
+                  "threshold": 14.5,
                   "value": null,
-                  "impurity": 0.48,
-                  "n_samples": 5,
+                  "impurity": 0.5,
+                  "n_samples": 2,
                   "is_leaf": false,
                   "left": {
                     "feature_idx": null,
                     "threshold": null,
-                    "value": "arithmetic_constant",
+                    "value": "memory_redundancy",
                     "impurity": 0.0,
-                    "n_samples": 2,
+                    "n_samples": 1,
                     "is_leaf": true
                   },
                   "right": {
                     "feature_idx": null,
                     "threshold": null,
-                    "value": "tailcall_simplify",
+                    "value": "arithmetic_constant",
                     "impurity": 0.0,
-                    "n_samples": 3,
+                    "n_samples": 1,
                     "is_leaf": true
                   }
                 },
                 "right": {
                   "feature_idx": null,
                   "threshold": null,
-                  "value": "arithmetic_constant",
+                  "value": "memory_redundancy",
                   "impurity": 0.0,
                   "n_samples": 3,
                   "is_leaf": true
                 }
+              },
+              "right": {
+                "feature_idx": null,
+                "threshold": null,
+                "value": "arithmetic_constant",
+                "impurity": 0.0,
+                "n_samples": 4,
+                "is_leaf": true
               }
             },
             "right": {
               "feature_idx": null,
               "threshold": null,
-              "value": "memory_redundancy",
+              "value": "tailcall_simplify",
               "impurity": 0.0,
-              "n_samples": 2,
+              "n_samples": 3,
               "is_leaf": true
             }
+          },
+          "right": {
+            "feature_idx": null,
+            "threshold": null,
+            "value": "scalar_cleanup",
+            "impurity": 0.0,
+            "n_samples": 3,
+            "is_leaf": true
           }
         }
       },
@@ -219,11 +219,11 @@
           "0": 0.0,
           "1": 0.0,
           "2": 0.0,
-          "3": 0.0,
-          "4": 0.307229,
-          "5": 0.216867,
-          "6": 0.090361,
-          "7": 0.090361,
+          "3": 0.295181,
+          "4": 0.0,
+          "5": 0.0,
+          "6": 0.0,
+          "7": 0.0,
           "8": 0.0,
           "9": 0.0,
           "10": 0.0,
@@ -234,39 +234,39 @@
           "15": 0.0,
           "16": 0.0,
           "17": 0.0,
-          "18": 0.295181,
-          "19": 0.0,
-          "20": 0.0,
-          "21": 0.0,
+          "18": 0.0,
+          "19": 0.154905,
+          "20": 0.126506,
+          "21": 0.423408,
           "22": 0.0
         },
         "root": {
-          "feature_idx": 18,
-          "threshold": 1.55835,
+          "feature_idx": 3,
+          "threshold": 4.5,
           "value": null,
           "impurity": 0.737778,
           "n_samples": 15,
           "is_leaf": false,
           "left": {
-            "feature_idx": 4,
-            "threshold": 20.5,
+            "feature_idx": 20,
+            "threshold": 0.14905,
             "value": null,
             "impurity": 0.54,
             "n_samples": 10,
             "is_leaf": false,
             "left": {
-              "feature_idx": 4,
-              "threshold": 18.0,
+              "feature_idx": 21,
+              "threshold": 0.9468000000000001,
               "value": null,
-              "impurity": 0.56,
-              "n_samples": 5,
+              "impurity": 0.444444,
+              "n_samples": 9,
               "is_leaf": false,
               "left": {
-                "feature_idx": 7,
-                "threshold": 13.5,
+                "feature_idx": 19,
+                "threshold": 0.5377000000000001,
                 "value": null,
-                "impurity": 0.666667,
-                "n_samples": 3,
+                "impurity": 0.244898,
+                "n_samples": 7,
                 "is_leaf": false,
                 "left": {
                   "feature_idx": null,
@@ -277,28 +277,12 @@
                   "is_leaf": true
                 },
                 "right": {
-                  "feature_idx": 6,
-                  "threshold": 10.5,
-                  "value": null,
-                  "impurity": 0.5,
-                  "n_samples": 2,
-                  "is_leaf": false,
-                  "left": {
-                    "feature_idx": null,
-                    "threshold": null,
-                    "value": "scalar_cleanup",
-                    "impurity": 0.0,
-                    "n_samples": 1,
-                    "is_leaf": true
-                  },
-                  "right": {
-                    "feature_idx": null,
-                    "threshold": null,
-                    "value": "arithmetic_constant",
-                    "impurity": 0.0,
-                    "n_samples": 1,
-                    "is_leaf": true
-                  }
+                  "feature_idx": null,
+                  "threshold": null,
+                  "value": "arithmetic_constant",
+                  "impurity": 0.0,
+                  "n_samples": 6,
+                  "is_leaf": true
                 }
               },
               "right": {
@@ -313,15 +297,15 @@
             "right": {
               "feature_idx": null,
               "threshold": null,
-              "value": "arithmetic_constant",
+              "value": "scalar_cleanup",
               "impurity": 0.0,
-              "n_samples": 5,
+              "n_samples": 1,
               "is_leaf": true
             }
           },
           "right": {
-            "feature_idx": 5,
-            "threshold": 7.0,
+            "feature_idx": 21,
+            "threshold": 0.9289499999999999,
             "value": null,
             "impurity": 0.48,
             "n_samples": 5,
@@ -350,27 +334,27 @@
         "max_depth": 5,
         "min_samples_split": 2,
         "feature_importances": {
-          "0": 0.0,
-          "1": 0.0,
+          "0": 0.171638,
+          "1": 0.117187,
           "2": 0.0,
-          "3": 0.17901,
-          "4": 0.132722,
+          "3": 0.145833,
+          "4": 0.0,
           "5": 0.0,
           "6": 0.0,
           "7": 0.0,
           "8": 0.0,
-          "9": 0.101351,
-          "10": 0.152027,
+          "9": 0.0,
+          "10": 0.0,
           "11": 0.0,
           "12": 0.0,
           "13": 0.0,
           "14": 0.0,
-          "15": 0.299754,
+          "15": 0.346591,
           "16": 0.0,
           "17": 0.0,
           "18": 0.0,
-          "19": 0.0,
-          "20": 0.135135,
+          "19": 0.21875,
+          "20": 0.0,
           "21": 0.0,
           "22": 0.0
         },
@@ -382,294 +366,18 @@
           "n_samples": 15,
           "is_leaf": false,
           "left": {
-            "feature_idx": 3,
-            "threshold": 2.0,
+            "feature_idx": 0,
+            "threshold": 129.5,
             "value": null,
             "impurity": 0.628099,
             "n_samples": 11,
             "is_leaf": false,
             "left": {
-              "feature_idx": null,
-              "threshold": null,
-              "value": "arithmetic_constant",
-              "impurity": 0.0,
-              "n_samples": 4,
-              "is_leaf": true
-            },
-            "right": {
-              "feature_idx": 4,
-              "threshold": 20.5,
+              "feature_idx": 3,
+              "threshold": 2.0,
               "value": null,
-              "impurity": 0.734694,
-              "n_samples": 7,
-              "is_leaf": false,
-              "left": {
-                "feature_idx": 20,
-                "threshold": 0.1129,
-                "value": null,
-                "impurity": 0.444444,
-                "n_samples": 3,
-                "is_leaf": false,
-                "left": {
-                  "feature_idx": null,
-                  "threshold": null,
-                  "value": "tailcall_simplify",
-                  "impurity": 0.0,
-                  "n_samples": 2,
-                  "is_leaf": true
-                },
-                "right": {
-                  "feature_idx": null,
-                  "threshold": null,
-                  "value": "memory_redundancy",
-                  "impurity": 0.0,
-                  "n_samples": 1,
-                  "is_leaf": true
-                }
-              },
-              "right": {
-                "feature_idx": 10,
-                "threshold": 6.5,
-                "value": null,
-                "impurity": 0.625,
-                "n_samples": 4,
-                "is_leaf": false,
-                "left": {
-                  "feature_idx": null,
-                  "threshold": null,
-                  "value": "arithmetic_constant",
-                  "impurity": 0.0,
-                  "n_samples": 2,
-                  "is_leaf": true
-                },
-                "right": {
-                  "feature_idx": 9,
-                  "threshold": 13.5,
-                  "value": null,
-                  "impurity": 0.5,
-                  "n_samples": 2,
-                  "is_leaf": false,
-                  "left": {
-                    "feature_idx": null,
-                    "threshold": null,
-                    "value": "memory_redundancy",
-                    "impurity": 0.0,
-                    "n_samples": 1,
-                    "is_leaf": true
-                  },
-                  "right": {
-                    "feature_idx": null,
-                    "threshold": null,
-                    "value": "code_size_dce",
-                    "impurity": 0.0,
-                    "n_samples": 1,
-                    "is_leaf": true
-                  }
-                }
-              }
-            }
-          },
-          "right": {
-            "feature_idx": null,
-            "threshold": null,
-            "value": "tailcall_simplify",
-            "impurity": 0.0,
-            "n_samples": 4,
-            "is_leaf": true
-          }
-        }
-      },
-      {
-        "task": "classification",
-        "max_depth": 5,
-        "min_samples_split": 2,
-        "feature_importances": {
-          "0": 0.130814,
-          "1": 0.0,
-          "2": 0.0,
-          "3": 0.0,
-          "4": 0.0,
-          "5": 0.0,
-          "6": 0.130814,
-          "7": 0.0,
-          "8": 0.0,
-          "9": 0.0,
-          "10": 0.0,
-          "11": 0.0,
-          "12": 0.0,
-          "13": 0.0,
-          "14": 0.0,
-          "15": 0.221346,
-          "16": 0.0,
-          "17": 0.299003,
-          "18": 0.0,
-          "19": 0.0,
-          "20": 0.130814,
-          "21": 0.087209,
-          "22": 0.0
-        },
-        "root": {
-          "feature_idx": 15,
-          "threshold": 2.5,
-          "value": null,
-          "impurity": 0.764444,
-          "n_samples": 15,
-          "is_leaf": false,
-          "left": {
-            "feature_idx": 0,
-            "threshold": 41.5,
-            "value": null,
-            "impurity": 0.6875,
-            "n_samples": 8,
-            "is_leaf": false,
-            "left": {
-              "feature_idx": null,
-              "threshold": null,
-              "value": "arithmetic_constant",
-              "impurity": 0.0,
-              "n_samples": 2,
-              "is_leaf": true
-            },
-            "right": {
-              "feature_idx": 20,
-              "threshold": 0.11255,
-              "value": null,
-              "impurity": 0.666667,
-              "n_samples": 6,
-              "is_leaf": false,
-              "left": {
-                "feature_idx": 21,
-                "threshold": 0.8872500000000001,
-                "value": null,
-                "impurity": 0.5,
-                "n_samples": 2,
-                "is_leaf": false,
-                "left": {
-                  "feature_idx": null,
-                  "threshold": null,
-                  "value": "tailcall_simplify",
-                  "impurity": 0.0,
-                  "n_samples": 1,
-                  "is_leaf": true
-                },
-                "right": {
-                  "feature_idx": null,
-                  "threshold": null,
-                  "value": "code_size_dce",
-                  "impurity": 0.0,
-                  "n_samples": 1,
-                  "is_leaf": true
-                }
-              },
-              "right": {
-                "feature_idx": 6,
-                "threshold": 17.5,
-                "value": null,
-                "impurity": 0.375,
-                "n_samples": 4,
-                "is_leaf": false,
-                "left": {
-                  "feature_idx": null,
-                  "threshold": null,
-                  "value": "memory_redundancy",
-                  "impurity": 0.0,
-                  "n_samples": 3,
-                  "is_leaf": true
-                },
-                "right": {
-                  "feature_idx": null,
-                  "threshold": null,
-                  "value": "arithmetic_constant",
-                  "impurity": 0.0,
-                  "n_samples": 1,
-                  "is_leaf": true
-                }
-              }
-            }
-          },
-          "right": {
-            "feature_idx": 17,
-            "threshold": 37.0,
-            "value": null,
-            "impurity": 0.489796,
-            "n_samples": 7,
-            "is_leaf": false,
-            "left": {
-              "feature_idx": null,
-              "threshold": null,
-              "value": "tailcall_simplify",
-              "impurity": 0.0,
-              "n_samples": 4,
-              "is_leaf": true
-            },
-            "right": {
-              "feature_idx": null,
-              "threshold": null,
-              "value": "scalar_cleanup",
-              "impurity": 0.0,
-              "n_samples": 3,
-              "is_leaf": true
-            }
-          }
-        }
-      },
-      {
-        "task": "classification",
-        "max_depth": 5,
-        "min_samples_split": 2,
-        "feature_importances": {
-          "0": 0.0,
-          "1": 0.0,
-          "2": 0.117647,
-          "3": 0.0,
-          "4": 0.0,
-          "5": 0.094118,
-          "6": 0.191176,
-          "7": 0.0,
-          "8": 0.0,
-          "9": 0.117647,
-          "10": 0.235294,
-          "11": 0.0,
-          "12": 0.0,
-          "13": 0.0,
-          "14": 0.0,
-          "15": 0.0,
-          "16": 0.0,
-          "17": 0.0,
-          "18": 0.0,
-          "19": 0.0,
-          "20": 0.244118,
-          "21": 0.0,
-          "22": 0.0
-        },
-        "root": {
-          "feature_idx": 6,
-          "threshold": 8.0,
-          "value": null,
-          "impurity": 0.755556,
-          "n_samples": 15,
-          "is_leaf": false,
-          "left": {
-            "feature_idx": null,
-            "threshold": null,
-            "value": "tailcall_simplify",
-            "impurity": 0.0,
-            "n_samples": 3,
-            "is_leaf": true
-          },
-          "right": {
-            "feature_idx": 20,
-            "threshold": 0.12635,
-            "value": null,
-            "impurity": 0.763889,
-            "n_samples": 12,
-            "is_leaf": false,
-            "left": {
-              "feature_idx": 10,
-              "threshold": 5.0,
-              "value": null,
-              "impurity": 0.571429,
-              "n_samples": 7,
+              "impurity": 0.493827,
+              "n_samples": 9,
               "is_leaf": false,
               "left": {
                 "feature_idx": null,
@@ -680,51 +388,11 @@
                 "is_leaf": true
               },
               "right": {
-                "feature_idx": 9,
-                "threshold": 14.5,
+                "feature_idx": 19,
+                "threshold": 0.53125,
                 "value": null,
-                "impurity": 0.444444,
-                "n_samples": 3,
-                "is_leaf": false,
-                "left": {
-                  "feature_idx": null,
-                  "threshold": null,
-                  "value": "tailcall_simplify",
-                  "impurity": 0.0,
-                  "n_samples": 2,
-                  "is_leaf": true
-                },
-                "right": {
-                  "feature_idx": null,
-                  "threshold": null,
-                  "value": "code_size_dce",
-                  "impurity": 0.0,
-                  "n_samples": 1,
-                  "is_leaf": true
-                }
-              }
-            },
-            "right": {
-              "feature_idx": 5,
-              "threshold": 3.5,
-              "value": null,
-              "impurity": 0.48,
-              "n_samples": 5,
-              "is_leaf": false,
-              "left": {
-                "feature_idx": null,
-                "threshold": null,
-                "value": "memory_redundancy",
-                "impurity": 0.0,
-                "n_samples": 2,
-                "is_leaf": true
-              },
-              "right": {
-                "feature_idx": 2,
-                "threshold": 2.5,
-                "value": null,
-                "impurity": 0.444444,
-                "n_samples": 3,
+                "impurity": 0.64,
+                "n_samples": 5,
                 "is_leaf": false,
                 "left": {
                   "feature_idx": null,
@@ -735,80 +403,10 @@
                   "is_leaf": true
                 },
                 "right": {
-                  "feature_idx": null,
-                  "threshold": null,
-                  "value": "scalar_cleanup",
-                  "impurity": 0.0,
-                  "n_samples": 2,
-                  "is_leaf": true
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        "task": "classification",
-        "max_depth": 5,
-        "min_samples_split": 2,
-        "feature_importances": {
-          "0": 0.222255,
-          "1": 0.0,
-          "2": 0.0,
-          "3": 0.0,
-          "4": 0.0,
-          "5": 0.0,
-          "6": 0.0,
-          "7": 0.105519,
-          "8": 0.0,
-          "9": 0.25974,
-          "10": 0.0,
-          "11": 0.0,
-          "12": 0.0,
-          "13": 0.0,
-          "14": 0.0,
-          "15": 0.0,
-          "16": 0.0,
-          "17": 0.113636,
-          "18": 0.0,
-          "19": 0.0,
-          "20": 0.298849,
-          "21": 0.0,
-          "22": 0.0
-        },
-        "root": {
-          "feature_idx": 0,
-          "threshold": 124.5,
-          "value": null,
-          "impurity": 0.773333,
-          "n_samples": 15,
-          "is_leaf": false,
-          "left": {
-            "feature_idx": 20,
-            "threshold": 0.15644999999999998,
-            "value": null,
-            "impurity": 0.710744,
-            "n_samples": 11,
-            "is_leaf": false,
-            "left": {
-              "feature_idx": 7,
-              "threshold": 31.0,
-              "value": null,
-              "impurity": 0.59375,
-              "n_samples": 8,
-              "is_leaf": false,
-              "left": {
-                "feature_idx": 9,
-                "threshold": 8.5,
-                "value": null,
-                "impurity": 0.611111,
-                "n_samples": 6,
-                "is_leaf": false,
-                "left": {
-                  "feature_idx": 17,
-                  "threshold": 20.0,
+                  "feature_idx": 19,
+                  "threshold": 0.56135,
                   "value": null,
-                  "impurity": 0.625,
+                  "impurity": 0.5,
                   "n_samples": 4,
                   "is_leaf": false,
                   "left": {
@@ -827,227 +425,15 @@
                     "n_samples": 3,
                     "is_leaf": true
                   }
-                },
-                "right": {
-                  "feature_idx": null,
-                  "threshold": null,
-                  "value": "arithmetic_constant",
-                  "impurity": 0.0,
-                  "n_samples": 2,
-                  "is_leaf": true
                 }
-              },
-              "right": {
-                "feature_idx": null,
-                "threshold": null,
-                "value": "tailcall_simplify",
-                "impurity": 0.0,
-                "n_samples": 2,
-                "is_leaf": true
               }
             },
             "right": {
-              "feature_idx": null,
-              "threshold": null,
-              "value": "scalar_cleanup",
-              "impurity": 0.0,
-              "n_samples": 3,
-              "is_leaf": true
-            }
-          },
-          "right": {
-            "feature_idx": 9,
-            "threshold": 13.5,
-            "value": null,
-            "impurity": 0.375,
-            "n_samples": 4,
-            "is_leaf": false,
-            "left": {
-              "feature_idx": null,
-              "threshold": null,
-              "value": "memory_redundancy",
-              "impurity": 0.0,
-              "n_samples": 3,
-              "is_leaf": true
-            },
-            "right": {
-              "feature_idx": null,
-              "threshold": null,
-              "value": "code_size_dce",
-              "impurity": 0.0,
-              "n_samples": 1,
-              "is_leaf": true
-            }
-          }
-        }
-      },
-      {
-        "task": "classification",
-        "max_depth": 5,
-        "min_samples_split": 2,
-        "feature_importances": {
-          "0": 0.15625,
-          "1": 0.331439,
-          "2": 0.104167,
-          "3": 0.0,
-          "4": 0.0,
-          "5": 0.208333,
-          "6": 0.0,
-          "7": 0.0,
-          "8": 0.0,
-          "9": 0.0,
-          "10": 0.0,
-          "11": 0.0,
-          "12": 0.0,
-          "13": 0.0,
-          "14": 0.0,
-          "15": 0.0,
-          "16": 0.199811,
-          "17": 0.0,
-          "18": 0.0,
-          "19": 0.0,
-          "20": 0.0,
-          "21": 0.0,
-          "22": 0.0
-        },
-        "root": {
-          "feature_idx": 16,
-          "threshold": 1.5,
-          "value": null,
-          "impurity": 0.64,
-          "n_samples": 15,
-          "is_leaf": false,
-          "left": {
-            "feature_idx": 0,
-            "threshold": 84.5,
-            "value": null,
-            "impurity": 0.375,
-            "n_samples": 4,
-            "is_leaf": false,
-            "left": {
-              "feature_idx": null,
-              "threshold": null,
-              "value": "arithmetic_constant",
-              "impurity": 0.0,
-              "n_samples": 3,
-              "is_leaf": true
-            },
-            "right": {
-              "feature_idx": null,
-              "threshold": null,
-              "value": "tailcall_simplify",
-              "impurity": 0.0,
-              "n_samples": 1,
-              "is_leaf": true
-            }
-          },
-          "right": {
-            "feature_idx": 1,
-            "threshold": 13.5,
-            "value": null,
-            "impurity": 0.561983,
-            "n_samples": 11,
-            "is_leaf": false,
-            "left": {
-              "feature_idx": null,
-              "threshold": null,
-              "value": "tailcall_simplify",
-              "impurity": 0.0,
-              "n_samples": 5,
-              "is_leaf": true
-            },
-            "right": {
-              "feature_idx": 5,
-              "threshold": 7.0,
+              "feature_idx": 1,
+              "threshold": 29.0,
               "value": null,
               "impurity": 0.5,
-              "n_samples": 6,
-              "is_leaf": false,
-              "left": {
-                "feature_idx": null,
-                "threshold": null,
-                "value": "memory_redundancy",
-                "impurity": 0.0,
-                "n_samples": 4,
-                "is_leaf": true
-              },
-              "right": {
-                "feature_idx": 2,
-                "threshold": 3.0,
-                "value": null,
-                "impurity": 0.5,
-                "n_samples": 2,
-                "is_leaf": false,
-                "left": {
-                  "feature_idx": null,
-                  "threshold": null,
-                  "value": "arithmetic_constant",
-                  "impurity": 0.0,
-                  "n_samples": 1,
-                  "is_leaf": true
-                },
-                "right": {
-                  "feature_idx": null,
-                  "threshold": null,
-                  "value": "tailcall_simplify",
-                  "impurity": 0.0,
-                  "n_samples": 1,
-                  "is_leaf": true
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        "task": "classification",
-        "max_depth": 5,
-        "min_samples_split": 2,
-        "feature_importances": {
-          "0": 0.0,
-          "1": 0.210826,
-          "2": 0.0,
-          "3": 0.0,
-          "4": 0.0,
-          "5": 0.0,
-          "6": 0.0,
-          "7": 0.092593,
-          "8": 0.0,
-          "9": 0.0,
-          "10": 0.0,
-          "11": 0.0,
-          "12": 0.0,
-          "13": 0.0,
-          "14": 0.0,
-          "15": 0.159544,
-          "16": 0.0,
-          "17": 0.166667,
-          "18": 0.0,
-          "19": 0.0,
-          "20": 0.092593,
-          "21": 0.277778,
-          "22": 0.0
-        },
-        "root": {
-          "feature_idx": 15,
-          "threshold": 3.5,
-          "value": null,
-          "impurity": 0.72,
-          "n_samples": 15,
-          "is_leaf": false,
-          "left": {
-            "feature_idx": 1,
-            "threshold": 16.5,
-            "value": null,
-            "impurity": 0.698225,
-            "n_samples": 13,
-            "is_leaf": false,
-            "left": {
-              "feature_idx": 1,
-              "threshold": 15.0,
-              "value": null,
-              "impurity": 0.444444,
-              "n_samples": 3,
+              "n_samples": 2,
               "is_leaf": false,
               "left": {
                 "feature_idx": null,
@@ -1058,84 +444,12 @@
                 "is_leaf": true
               },
               "right": {
-                "feature_idx": 7,
-                "threshold": 17.0,
-                "value": null,
-                "impurity": 0.5,
-                "n_samples": 2,
-                "is_leaf": false,
-                "left": {
-                  "feature_idx": null,
-                  "threshold": null,
-                  "value": "memory_redundancy",
-                  "impurity": 0.0,
-                  "n_samples": 1,
-                  "is_leaf": true
-                },
-                "right": {
-                  "feature_idx": null,
-                  "threshold": null,
-                  "value": "scalar_cleanup",
-                  "impurity": 0.0,
-                  "n_samples": 1,
-                  "is_leaf": true
-                }
-              }
-            },
-            "right": {
-              "feature_idx": 17,
-              "threshold": 65.5,
-              "value": null,
-              "impurity": 0.58,
-              "n_samples": 10,
-              "is_leaf": false,
-              "left": {
-                "feature_idx": 21,
-                "threshold": 0.9468000000000001,
-                "value": null,
-                "impurity": 0.375,
-                "n_samples": 8,
-                "is_leaf": false,
-                "left": {
-                  "feature_idx": null,
-                  "threshold": null,
-                  "value": "arithmetic_constant",
-                  "impurity": 0.0,
-                  "n_samples": 6,
-                  "is_leaf": true
-                },
-                "right": {
-                  "feature_idx": null,
-                  "threshold": null,
-                  "value": "tailcall_simplify",
-                  "impurity": 0.0,
-                  "n_samples": 2,
-                  "is_leaf": true
-                }
-              },
-              "right": {
-                "feature_idx": 20,
-                "threshold": 0.11255,
-                "value": null,
-                "impurity": 0.5,
-                "n_samples": 2,
-                "is_leaf": false,
-                "left": {
-                  "feature_idx": null,
-                  "threshold": null,
-                  "value": "code_size_dce",
-                  "impurity": 0.0,
-                  "n_samples": 1,
-                  "is_leaf": true
-                },
-                "right": {
-                  "feature_idx": null,
-                  "threshold": null,
-                  "value": "memory_redundancy",
-                  "impurity": 0.0,
-                  "n_samples": 1,
-                  "is_leaf": true
-                }
+                "feature_idx": null,
+                "threshold": null,
+                "value": "code_size_dce",
+                "impurity": 0.0,
+                "n_samples": 1,
+                "is_leaf": true
               }
             }
           },
@@ -1144,7 +458,7 @@
             "threshold": null,
             "value": "tailcall_simplify",
             "impurity": 0.0,
-            "n_samples": 2,
+            "n_samples": 4,
             "is_leaf": true
           }
         }
@@ -1155,111 +469,9 @@
         "min_samples_split": 2,
         "feature_importances": {
           "0": 0.0,
-          "1": 0.0,
+          "1": 0.159468,
           "2": 0.0,
-          "3": 0.193159,
-          "4": 0.0,
-          "5": 0.0,
-          "6": 0.2417,
-          "7": 0.0,
-          "8": 0.0,
-          "9": 0.169014,
-          "10": 0.0,
-          "11": 0.0,
-          "12": 0.0,
-          "13": 0.0,
-          "14": 0.396127,
-          "15": 0.0,
-          "16": 0.0,
-          "17": 0.0,
-          "18": 0.0,
-          "19": 0.0,
-          "20": 0.0,
-          "21": 0.0,
-          "22": 0.0
-        },
-        "root": {
-          "feature_idx": 6,
-          "threshold": 9.0,
-          "value": null,
-          "impurity": 0.631111,
-          "n_samples": 15,
-          "is_leaf": false,
-          "left": {
-            "feature_idx": 14,
-            "threshold": 1.5,
-            "value": null,
-            "impurity": 0.46875,
-            "n_samples": 8,
-            "is_leaf": false,
-            "left": {
-              "feature_idx": null,
-              "threshold": null,
-              "value": "arithmetic_constant",
-              "impurity": 0.0,
-              "n_samples": 3,
-              "is_leaf": true
-            },
-            "right": {
-              "feature_idx": null,
-              "threshold": null,
-              "value": "tailcall_simplify",
-              "impurity": 0.0,
-              "n_samples": 5,
-              "is_leaf": true
-            }
-          },
-          "right": {
-            "feature_idx": 3,
-            "threshold": 4.5,
-            "value": null,
-            "impurity": 0.489796,
-            "n_samples": 7,
-            "is_leaf": false,
-            "left": {
-              "feature_idx": 9,
-              "threshold": 7.5,
-              "value": null,
-              "impurity": 0.32,
-              "n_samples": 5,
-              "is_leaf": false,
-              "left": {
-                "feature_idx": null,
-                "threshold": null,
-                "value": "memory_redundancy",
-                "impurity": 0.0,
-                "n_samples": 1,
-                "is_leaf": true
-              },
-              "right": {
-                "feature_idx": null,
-                "threshold": null,
-                "value": "arithmetic_constant",
-                "impurity": 0.0,
-                "n_samples": 4,
-                "is_leaf": true
-              }
-            },
-            "right": {
-              "feature_idx": null,
-              "threshold": null,
-              "value": "memory_redundancy",
-              "impurity": 0.0,
-              "n_samples": 2,
-              "is_leaf": true
-            }
-          }
-        }
-      },
-      {
-        "task": "classification",
-        "max_depth": 5,
-        "min_samples_split": 2,
-        "feature_importances": {
-          "0": 0.0,
-          "1": 0.0,
-          "2": 0.0,
-          "3": 0.120253,
+          "3": 0.183555,
           "4": 0.0,
           "5": 0.0,
           "6": 0.0,
@@ -1268,298 +480,38 @@
           "9": 0.0,
           "10": 0.0,
           "11": 0.0,
-          "12": 0.189873,
-          "13": 0.221519,
+          "12": 0.0,
+          "13": 0.0,
           "14": 0.0,
           "15": 0.0,
-          "16": 0.151899,
-          "17": 0.0,
+          "16": 0.273256,
+          "17": 0.139535,
           "18": 0.0,
-          "19": 0.0,
-          "20": 0.316456,
+          "19": 0.244186,
+          "20": 0.0,
           "21": 0.0,
           "22": 0.0
         },
         "root": {
-          "feature_idx": 13,
-          "threshold": 0.5,
+          "feature_idx": 16,
+          "threshold": 2.5,
           "value": null,
-          "impurity": 0.702222,
+          "impurity": 0.764444,
           "n_samples": 15,
           "is_leaf": false,
           "left": {
             "feature_idx": 3,
-            "threshold": 7.0,
-            "value": null,
-            "impurity": 0.66,
-            "n_samples": 10,
-            "is_leaf": false,
-            "left": {
-              "feature_idx": 20,
-              "threshold": 0.1191,
-              "value": null,
-              "impurity": 0.592593,
-              "n_samples": 9,
-              "is_leaf": false,
-              "left": {
-                "feature_idx": null,
-                "threshold": null,
-                "value": "tailcall_simplify",
-                "impurity": 0.0,
-                "n_samples": 5,
-                "is_leaf": true
-              },
-              "right": {
-                "feature_idx": 12,
-                "threshold": 13.0,
-                "value": null,
-                "impurity": 0.5,
-                "n_samples": 4,
-                "is_leaf": false,
-                "left": {
-                  "feature_idx": null,
-                  "threshold": null,
-                  "value": "arithmetic_constant",
-                  "impurity": 0.0,
-                  "n_samples": 2,
-                  "is_leaf": true
-                },
-                "right": {
-                  "feature_idx": null,
-                  "threshold": null,
-                  "value": "memory_redundancy",
-                  "impurity": 0.0,
-                  "n_samples": 2,
-                  "is_leaf": true
-                }
-              }
-            },
-            "right": {
-              "feature_idx": null,
-              "threshold": null,
-              "value": "code_size_dce",
-              "impurity": 0.0,
-              "n_samples": 1,
-              "is_leaf": true
-            }
-          },
-          "right": {
-            "feature_idx": 16,
             "threshold": 2.5,
             "value": null,
-            "impurity": 0.32,
-            "n_samples": 5,
+            "impurity": 0.694444,
+            "n_samples": 12,
             "is_leaf": false,
             "left": {
-              "feature_idx": null,
-              "threshold": null,
-              "value": "memory_redundancy",
-              "impurity": 0.0,
-              "n_samples": 4,
-              "is_leaf": true
-            },
-            "right": {
-              "feature_idx": null,
-              "threshold": null,
-              "value": "scalar_cleanup",
-              "impurity": 0.0,
-              "n_samples": 1,
-              "is_leaf": true
-            }
-          }
-        }
-      },
-      {
-        "task": "classification",
-        "max_depth": 5,
-        "min_samples_split": 2,
-        "feature_importances": {
-          "0": 0.146341,
-          "1": 0.298663,
-          "2": 0.0,
-          "3": 0.0,
-          "4": 0.0,
-          "5": 0.0,
-          "6": 0.123476,
-          "7": 0.212008,
-          "8": 0.0,
-          "9": 0.0,
-          "10": 0.0,
-          "11": 0.0,
-          "12": 0.0,
-          "13": 0.0,
-          "14": 0.0,
-          "15": 0.0,
-          "16": 0.219512,
-          "17": 0.0,
-          "18": 0.0,
-          "19": 0.0,
-          "20": 0.0,
-          "21": 0.0,
-          "22": 0.0
-        },
-        "root": {
-          "feature_idx": 7,
-          "threshold": 41.0,
-          "value": null,
-          "impurity": 0.728889,
-          "n_samples": 15,
-          "is_leaf": false,
-          "left": {
-            "feature_idx": 1,
-            "threshold": 22.0,
-            "value": null,
-            "impurity": 0.662722,
-            "n_samples": 13,
-            "is_leaf": false,
-            "left": {
-              "feature_idx": 6,
-              "threshold": 8.5,
+              "feature_idx": 1,
+              "threshold": 7.0,
               "value": null,
-              "impurity": 0.46875,
-              "n_samples": 8,
-              "is_leaf": false,
-              "left": {
-                "feature_idx": null,
-                "threshold": null,
-                "value": "tailcall_simplify",
-                "impurity": 0.0,
-                "n_samples": 3,
-                "is_leaf": true
-              },
-              "right": {
-                "feature_idx": 16,
-                "threshold": 1.5,
-                "value": null,
-                "impurity": 0.48,
-                "n_samples": 5,
-                "is_leaf": false,
-                "left": {
-                  "feature_idx": null,
-                  "threshold": null,
-                  "value": "tailcall_simplify",
-                  "impurity": 0.0,
-                  "n_samples": 2,
-                  "is_leaf": true
-                },
-                "right": {
-                  "feature_idx": null,
-                  "threshold": null,
-                  "value": "memory_redundancy",
-                  "impurity": 0.0,
-                  "n_samples": 3,
-                  "is_leaf": true
-                }
-              }
-            },
-            "right": {
-              "feature_idx": 0,
-              "threshold": 129.5,
-              "value": null,
-              "impurity": 0.32,
-              "n_samples": 5,
-              "is_leaf": false,
-              "left": {
-                "feature_idx": null,
-                "threshold": null,
-                "value": "arithmetic_constant",
-                "impurity": 0.0,
-                "n_samples": 4,
-                "is_leaf": true
-              },
-              "right": {
-                "feature_idx": null,
-                "threshold": null,
-                "value": "memory_redundancy",
-                "impurity": 0.0,
-                "n_samples": 1,
-                "is_leaf": true
-              }
-            }
-          },
-          "right": {
-            "feature_idx": null,
-            "threshold": null,
-            "value": "code_size_dce",
-            "impurity": 0.0,
-            "n_samples": 2,
-            "is_leaf": true
-          }
-        }
-      },
-      {
-        "task": "classification",
-        "max_depth": 5,
-        "min_samples_split": 2,
-        "feature_importances": {
-          "0": 0.0,
-          "1": 0.0,
-          "2": 0.0,
-          "3": 0.0,
-          "4": 0.0,
-          "5": 0.0,
-          "6": 0.0,
-          "7": 0.0,
-          "8": 0.0,
-          "9": 0.20467,
-          "10": 0.0,
-          "11": 0.0,
-          "12": 0.0,
-          "13": 0.224176,
-          "14": 0.0,
-          "15": 0.0,
-          "16": 0.0,
-          "17": 0.215385,
-          "18": 0.0,
-          "19": 0.0,
-          "20": 0.0,
-          "21": 0.355769,
-          "22": 0.0
-        },
-        "root": {
-          "feature_idx": 9,
-          "threshold": 9.5,
-          "value": null,
-          "impurity": 0.577778,
-          "n_samples": 15,
-          "is_leaf": false,
-          "left": {
-            "feature_idx": 21,
-            "threshold": 0.7889,
-            "value": null,
-            "impurity": 0.21875,
-            "n_samples": 8,
-            "is_leaf": false,
-            "left": {
-              "feature_idx": null,
-              "threshold": null,
-              "value": "tailcall_simplify",
-              "impurity": 0.0,
-              "n_samples": 1,
-              "is_leaf": true
-            },
-            "right": {
-              "feature_idx": null,
-              "threshold": null,
-              "value": "arithmetic_constant",
-              "impurity": 0.0,
+              "impurity": 0.489796,
               "n_samples": 7,
-              "is_leaf": true
-            }
-          },
-          "right": {
-            "feature_idx": 13,
-            "threshold": 4.5,
-            "value": null,
-            "impurity": 0.734694,
-            "n_samples": 7,
-            "is_leaf": false,
-            "left": {
-              "feature_idx": 17,
-              "threshold": 69.5,
-              "value": null,
-              "impurity": 0.64,
-              "n_samples": 5,
               "is_leaf": false,
               "left": {
                 "feature_idx": null,
@@ -1570,137 +522,11 @@
                 "is_leaf": true
               },
               "right": {
-                "feature_idx": 21,
-                "threshold": 0.89775,
-                "value": null,
-                "impurity": 0.444444,
-                "n_samples": 3,
-                "is_leaf": false,
-                "left": {
-                  "feature_idx": null,
-                  "threshold": null,
-                  "value": "tailcall_simplify",
-                  "impurity": 0.0,
-                  "n_samples": 2,
-                  "is_leaf": true
-                },
-                "right": {
-                  "feature_idx": null,
-                  "threshold": null,
-                  "value": "memory_redundancy",
-                  "impurity": 0.0,
-                  "n_samples": 1,
-                  "is_leaf": true
-                }
-              }
-            },
-            "right": {
-              "feature_idx": null,
-              "threshold": null,
-              "value": "scalar_cleanup",
-              "impurity": 0.0,
-              "n_samples": 2,
-              "is_leaf": true
-            }
-          }
-        }
-      },
-      {
-        "task": "classification",
-        "max_depth": 5,
-        "min_samples_split": 2,
-        "feature_importances": {
-          "0": 0.0,
-          "1": 0.0,
-          "2": 0.0,
-          "3": 0.0,
-          "4": 0.0,
-          "5": 0.0,
-          "6": 0.0,
-          "7": 0.0,
-          "8": 0.0,
-          "9": 0.060241,
-          "10": 0.120482,
-          "11": 0.0,
-          "12": 0.0,
-          "13": 0.217373,
-          "14": 0.0,
-          "15": 0.024096,
-          "16": 0.0,
-          "17": 0.2076,
-          "18": 0.279847,
-          "19": 0.0,
-          "20": 0.0,
-          "21": 0.090361,
-          "22": 0.0
-        },
-        "root": {
-          "feature_idx": 17,
-          "threshold": 98.5,
-          "value": null,
-          "impurity": 0.737778,
-          "n_samples": 15,
-          "is_leaf": false,
-          "left": {
-            "feature_idx": 13,
-            "threshold": 4.5,
-            "value": null,
-            "impurity": 0.674556,
-            "n_samples": 13,
-            "is_leaf": false,
-            "left": {
-              "feature_idx": 18,
-              "threshold": 1.2321499999999999,
-              "value": null,
-              "impurity": 0.578512,
-              "n_samples": 11,
-              "is_leaf": false,
-              "left": {
-                "feature_idx": 15,
-                "threshold": 1.5,
+                "feature_idx": 17,
+                "threshold": 41.0,
                 "value": null,
                 "impurity": 0.32,
                 "n_samples": 5,
-                "is_leaf": false,
-                "left": {
-                  "feature_idx": null,
-                  "threshold": null,
-                  "value": "arithmetic_constant",
-                  "impurity": 0.0,
-                  "n_samples": 2,
-                  "is_leaf": true
-                },
-                "right": {
-                  "feature_idx": 10,
-                  "threshold": 1.5,
-                  "value": null,
-                  "impurity": 0.444444,
-                  "n_samples": 3,
-                  "is_leaf": false,
-                  "left": {
-                    "feature_idx": null,
-                    "threshold": null,
-                    "value": "memory_redundancy",
-                    "impurity": 0.0,
-                    "n_samples": 1,
-                    "is_leaf": true
-                  },
-                  "right": {
-                    "feature_idx": null,
-                    "threshold": null,
-                    "value": "arithmetic_constant",
-                    "impurity": 0.0,
-                    "n_samples": 2,
-                    "is_leaf": true
-                  }
-                }
-              },
-              "right": {
-                "feature_idx": 9,
-                "threshold": 12.0,
-                "value": null,
-                "impurity": 0.277778,
-                "n_samples": 6,
                 "is_leaf": false,
                 "left": {
                   "feature_idx": null,
@@ -1711,428 +537,18 @@
                   "is_leaf": true
                 },
                 "right": {
-                  "feature_idx": 21,
-                  "threshold": 0.8994,
-                  "value": null,
-                  "impurity": 0.5,
-                  "n_samples": 2,
-                  "is_leaf": false,
-                  "left": {
-                    "feature_idx": null,
-                    "threshold": null,
-                    "value": "tailcall_simplify",
-                    "impurity": 0.0,
-                    "n_samples": 1,
-                    "is_leaf": true
-                  },
-                  "right": {
-                    "feature_idx": null,
-                    "threshold": null,
-                    "value": "arithmetic_constant",
-                    "impurity": 0.0,
-                    "n_samples": 1,
-                    "is_leaf": true
-                  }
-                }
-              }
-            },
-            "right": {
-              "feature_idx": null,
-              "threshold": null,
-              "value": "scalar_cleanup",
-              "impurity": 0.0,
-              "n_samples": 2,
-              "is_leaf": true
-            }
-          },
-          "right": {
-            "feature_idx": null,
-            "threshold": null,
-            "value": "code_size_dce",
-            "impurity": 0.0,
-            "n_samples": 2,
-            "is_leaf": true
-          }
-        }
-      },
-      {
-        "task": "classification",
-        "max_depth": 5,
-        "min_samples_split": 2,
-        "feature_importances": {
-          "0": 0.0,
-          "1": 0.0,
-          "2": 0.0,
-          "3": 0.252137,
-          "4": 0.0,
-          "5": 0.0,
-          "6": 0.145299,
-          "7": 0.0,
-          "8": 0.0,
-          "9": 0.0,
-          "10": 0.0,
-          "11": 0.0,
-          "12": 0.0,
-          "13": 0.0,
-          "14": 0.0,
-          "15": 0.102564,
-          "16": 0.192308,
-          "17": 0.0,
-          "18": 0.057692,
-          "19": 0.0,
-          "20": 0.0,
-          "21": 0.25,
-          "22": 0.0
-        },
-        "root": {
-          "feature_idx": 6,
-          "threshold": 11.0,
-          "value": null,
-          "impurity": 0.693333,
-          "n_samples": 15,
-          "is_leaf": false,
-          "left": {
-            "feature_idx": 3,
-            "threshold": 2.5,
-            "value": null,
-            "impurity": 0.691358,
-            "n_samples": 9,
-            "is_leaf": false,
-            "left": {
-              "feature_idx": 16,
-              "threshold": 1.5,
-              "value": null,
-              "impurity": 0.5,
-              "n_samples": 4,
-              "is_leaf": false,
-              "left": {
-                "feature_idx": null,
-                "threshold": null,
-                "value": "arithmetic_constant",
-                "impurity": 0.0,
-                "n_samples": 2,
-                "is_leaf": true
-              },
-              "right": {
-                "feature_idx": null,
-                "threshold": null,
-                "value": "tailcall_simplify",
-                "impurity": 0.0,
-                "n_samples": 2,
-                "is_leaf": true
-              }
-            },
-            "right": {
-              "feature_idx": 21,
-              "threshold": 0.8348,
-              "value": null,
-              "impurity": 0.32,
-              "n_samples": 5,
-              "is_leaf": false,
-              "left": {
-                "feature_idx": null,
-                "threshold": null,
-                "value": "scalar_cleanup",
-                "impurity": 0.0,
-                "n_samples": 1,
-                "is_leaf": true
-              },
-              "right": {
-                "feature_idx": null,
-                "threshold": null,
-                "value": "memory_redundancy",
-                "impurity": 0.0,
-                "n_samples": 4,
-                "is_leaf": true
-              }
-            }
-          },
-          "right": {
-            "feature_idx": 15,
-            "threshold": 3.0,
-            "value": null,
-            "impurity": 0.444444,
-            "n_samples": 6,
-            "is_leaf": false,
-            "left": {
-              "feature_idx": 18,
-              "threshold": 1.3431,
-              "value": null,
-              "impurity": 0.32,
-              "n_samples": 5,
-              "is_leaf": false,
-              "left": {
-                "feature_idx": null,
-                "threshold": null,
-                "value": "arithmetic_constant",
-                "impurity": 0.0,
-                "n_samples": 3,
-                "is_leaf": true
-              },
-              "right": {
-                "feature_idx": 21,
-                "threshold": 0.9362,
-                "value": null,
-                "impurity": 0.5,
-                "n_samples": 2,
-                "is_leaf": false,
-                "left": {
                   "feature_idx": null,
                   "threshold": null,
                   "value": "arithmetic_constant",
                   "impurity": 0.0,
                   "n_samples": 1,
                   "is_leaf": true
-                },
-                "right": {
-                  "feature_idx": null,
-                  "threshold": null,
-                  "value": "tailcall_simplify",
-                  "impurity": 0.0,
-                  "n_samples": 1,
-                  "is_leaf": true
                 }
               }
             },
             "right": {
-              "feature_idx": null,
-              "threshold": null,
-              "value": "tailcall_simplify",
-              "impurity": 0.0,
-              "n_samples": 1,
-              "is_leaf": true
-            }
-          }
-        }
-      },
-      {
-        "task": "classification",
-        "max_depth": 5,
-        "min_samples_split": 2,
-        "feature_importances": {
-          "0": 0.068681,
-          "1": 0.0,
-          "2": 0.0,
-          "3": 0.0,
-          "4": 0.220467,
-          "5": 0.0,
-          "6": 0.096154,
-          "7": 0.0,
-          "8": 0.147665,
-          "9": 0.0,
-          "10": 0.0,
-          "11": 0.0,
-          "12": 0.0,
-          "13": 0.0,
-          "14": 0.0,
-          "15": 0.0,
-          "16": 0.0,
-          "17": 0.0,
-          "18": 0.0,
-          "19": 0.144231,
-          "20": 0.0,
-          "21": 0.322802,
-          "22": 0.0
-        },
-        "root": {
-          "feature_idx": 4,
-          "threshold": 15.0,
-          "value": null,
-          "impurity": 0.693333,
-          "n_samples": 15,
-          "is_leaf": false,
-          "left": {
-            "feature_idx": 21,
-            "threshold": 0.8452,
-            "value": null,
-            "impurity": 0.693878,
-            "n_samples": 7,
-            "is_leaf": false,
-            "left": {
               "feature_idx": 19,
-              "threshold": 0.63655,
-              "value": null,
-              "impurity": 0.625,
-              "n_samples": 4,
-              "is_leaf": false,
-              "left": {
-                "feature_idx": 21,
-                "threshold": 0.80625,
-                "value": null,
-                "impurity": 0.5,
-                "n_samples": 2,
-                "is_leaf": false,
-                "left": {
-                  "feature_idx": null,
-                  "threshold": null,
-                  "value": "arithmetic_constant",
-                  "impurity": 0.0,
-                  "n_samples": 1,
-                  "is_leaf": true
-                },
-                "right": {
-                  "feature_idx": null,
-                  "threshold": null,
-                  "value": "scalar_cleanup",
-                  "impurity": 0.0,
-                  "n_samples": 1,
-                  "is_leaf": true
-                }
-              },
-              "right": {
-                "feature_idx": null,
-                "threshold": null,
-                "value": "tailcall_simplify",
-                "impurity": 0.0,
-                "n_samples": 2,
-                "is_leaf": true
-              }
-            },
-            "right": {
-              "feature_idx": null,
-              "threshold": null,
-              "value": "memory_redundancy",
-              "impurity": 0.0,
-              "n_samples": 3,
-              "is_leaf": true
-            }
-          },
-          "right": {
-            "feature_idx": 8,
-            "threshold": 24.0,
-            "value": null,
-            "impurity": 0.40625,
-            "n_samples": 8,
-            "is_leaf": false,
-            "left": {
-              "feature_idx": 0,
-              "threshold": 93.5,
-              "value": null,
-              "impurity": 0.244898,
-              "n_samples": 7,
-              "is_leaf": false,
-              "left": {
-                "feature_idx": null,
-                "threshold": null,
-                "value": "arithmetic_constant",
-                "impurity": 0.0,
-                "n_samples": 5,
-                "is_leaf": true
-              },
-              "right": {
-                "feature_idx": 6,
-                "threshold": 16.5,
-                "value": null,
-                "impurity": 0.5,
-                "n_samples": 2,
-                "is_leaf": false,
-                "left": {
-                  "feature_idx": null,
-                  "threshold": null,
-                  "value": "tailcall_simplify",
-                  "impurity": 0.0,
-                  "n_samples": 1,
-                  "is_leaf": true
-                },
-                "right": {
-                  "feature_idx": null,
-                  "threshold": null,
-                  "value": "arithmetic_constant",
-                  "impurity": 0.0,
-                  "n_samples": 1,
-                  "is_leaf": true
-                }
-              }
-            },
-            "right": {
-              "feature_idx": null,
-              "threshold": null,
-              "value": "code_size_dce",
-              "impurity": 0.0,
-              "n_samples": 1,
-              "is_leaf": true
-            }
-          }
-        }
-      },
-      {
-        "task": "classification",
-        "max_depth": 5,
-        "min_samples_split": 2,
-        "feature_importances": {
-          "0": 0.0,
-          "1": 0.0,
-          "2": 0.0,
-          "3": 0.0,
-          "4": 0.0,
-          "5": 0.0,
-          "6": 0.0,
-          "7": 0.0,
-          "8": 0.0,
-          "9": 0.0,
-          "10": 0.0,
-          "11": 0.0,
-          "12": 0.322938,
-          "13": 0.0,
-          "14": 0.0,
-          "15": 0.316901,
-          "16": 0.0,
-          "17": 0.360161,
-          "18": 0.0,
-          "19": 0.0,
-          "20": 0.0,
-          "21": 0.0,
-          "22": 0.0
-        },
-        "root": {
-          "feature_idx": 17,
-          "threshold": 56.5,
-          "value": null,
-          "impurity": 0.631111,
-          "n_samples": 15,
-          "is_leaf": false,
-          "left": {
-            "feature_idx": 15,
-            "threshold": 2.5,
-            "value": null,
-            "impurity": 0.375,
-            "n_samples": 8,
-            "is_leaf": false,
-            "left": {
-              "feature_idx": null,
-              "threshold": null,
-              "value": "arithmetic_constant",
-              "impurity": 0.0,
-              "n_samples": 6,
-              "is_leaf": true
-            },
-            "right": {
-              "feature_idx": null,
-              "threshold": null,
-              "value": "tailcall_simplify",
-              "impurity": 0.0,
-              "n_samples": 2,
-              "is_leaf": true
-            }
-          },
-          "right": {
-            "feature_idx": 12,
-            "threshold": 13.5,
-            "value": null,
-            "impurity": 0.693878,
-            "n_samples": 7,
-            "is_leaf": false,
-            "left": {
-              "feature_idx": null,
-              "threshold": null,
-              "value": "arithmetic_constant",
-              "impurity": 0.0,
-              "n_samples": 2,
-              "is_leaf": true
-            },
-            "right": {
-              "feature_idx": 17,
-              "threshold": 82.0,
+              "threshold": 0.5803,
               "value": null,
               "impurity": 0.56,
               "n_samples": 5,
@@ -2146,8 +562,8 @@
                 "is_leaf": true
               },
               "right": {
-                "feature_idx": 12,
-                "threshold": 18.5,
+                "feature_idx": 19,
+                "threshold": 0.6356999999999999,
                 "value": null,
                 "impurity": 0.5,
                 "n_samples": 2,
@@ -2164,132 +580,6 @@
                   "feature_idx": null,
                   "threshold": null,
                   "value": "tailcall_simplify",
-                  "impurity": 0.0,
-                  "n_samples": 1,
-                  "is_leaf": true
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        "task": "classification",
-        "max_depth": 5,
-        "min_samples_split": 2,
-        "feature_importances": {
-          "0": 0.0,
-          "1": 0.0,
-          "2": 0.0,
-          "3": 0.0,
-          "4": 0.342083,
-          "5": 0.0,
-          "6": 0.0,
-          "7": 0.120482,
-          "8": 0.0,
-          "9": 0.0,
-          "10": 0.0,
-          "11": 0.0,
-          "12": 0.0,
-          "13": 0.0,
-          "14": 0.0,
-          "15": 0.0,
-          "16": 0.447074,
-          "17": 0.090361,
-          "18": 0.0,
-          "19": 0.0,
-          "20": 0.0,
-          "21": 0.0,
-          "22": 0.0
-        },
-        "root": {
-          "feature_idx": 16,
-          "threshold": 2.5,
-          "value": null,
-          "impurity": 0.737778,
-          "n_samples": 15,
-          "is_leaf": false,
-          "left": {
-            "feature_idx": 4,
-            "threshold": 11.5,
-            "value": null,
-            "impurity": 0.652778,
-            "n_samples": 12,
-            "is_leaf": false,
-            "left": {
-              "feature_idx": 7,
-              "threshold": 8.0,
-              "value": null,
-              "impurity": 0.444444,
-              "n_samples": 3,
-              "is_leaf": false,
-              "left": {
-                "feature_idx": null,
-                "threshold": null,
-                "value": "arithmetic_constant",
-                "impurity": 0.0,
-                "n_samples": 1,
-                "is_leaf": true
-              },
-              "right": {
-                "feature_idx": null,
-                "threshold": null,
-                "value": "tailcall_simplify",
-                "impurity": 0.0,
-                "n_samples": 2,
-                "is_leaf": true
-              }
-            },
-            "right": {
-              "feature_idx": 4,
-              "threshold": 22.5,
-              "value": null,
-              "impurity": 0.518519,
-              "n_samples": 9,
-              "is_leaf": false,
-              "left": {
-                "feature_idx": 16,
-                "threshold": 1.5,
-                "value": null,
-                "impurity": 0.244898,
-                "n_samples": 7,
-                "is_leaf": false,
-                "left": {
-                  "feature_idx": null,
-                  "threshold": null,
-                  "value": "tailcall_simplify",
-                  "impurity": 0.0,
-                  "n_samples": 1,
-                  "is_leaf": true
-                },
-                "right": {
-                  "feature_idx": null,
-                  "threshold": null,
-                  "value": "memory_redundancy",
-                  "impurity": 0.0,
-                  "n_samples": 6,
-                  "is_leaf": true
-                }
-              },
-              "right": {
-                "feature_idx": 17,
-                "threshold": 87.5,
-                "value": null,
-                "impurity": 0.5,
-                "n_samples": 2,
-                "is_leaf": false,
-                "left": {
-                  "feature_idx": null,
-                  "threshold": null,
-                  "value": "arithmetic_constant",
-                  "impurity": 0.0,
-                  "n_samples": 1,
-                  "is_leaf": true
-                },
-                "right": {
-                  "feature_idx": null,
-                  "threshold": null,
-                  "value": "code_size_dce",
                   "impurity": 0.0,
                   "n_samples": 1,
                   "is_leaf": true
@@ -2314,127 +604,9 @@
         "feature_importances": {
           "0": 0.0,
           "1": 0.0,
-          "2": 0.265873,
+          "2": 0.0,
           "3": 0.0,
-          "4": 0.194444,
-          "5": 0.0,
-          "6": 0.0,
-          "7": 0.0,
-          "8": 0.222222,
-          "9": 0.0,
-          "10": 0.0,
-          "11": 0.0,
-          "12": 0.0,
-          "13": 0.0,
-          "14": 0.0,
-          "15": 0.15873,
-          "16": 0.0,
-          "17": 0.15873,
-          "18": 0.0,
-          "19": 0.0,
-          "20": 0.0,
-          "21": 0.0,
-          "22": 0.0
-        },
-        "root": {
-          "feature_idx": 2,
-          "threshold": 2.5,
-          "value": null,
-          "impurity": 0.56,
-          "n_samples": 15,
-          "is_leaf": false,
-          "left": {
-            "feature_idx": 4,
-            "threshold": 15.0,
-            "value": null,
-            "impurity": 0.402778,
-            "n_samples": 12,
-            "is_leaf": false,
-            "left": {
-              "feature_idx": 8,
-              "threshold": 8.5,
-              "value": null,
-              "impurity": 0.64,
-              "n_samples": 5,
-              "is_leaf": false,
-              "left": {
-                "feature_idx": null,
-                "threshold": null,
-                "value": "arithmetic_constant",
-                "impurity": 0.0,
-                "n_samples": 2,
-                "is_leaf": true
-              },
-              "right": {
-                "feature_idx": 17,
-                "threshold": 52.0,
-                "value": null,
-                "impurity": 0.444444,
-                "n_samples": 3,
-                "is_leaf": false,
-                "left": {
-                  "feature_idx": null,
-                  "threshold": null,
-                  "value": "memory_redundancy",
-                  "impurity": 0.0,
-                  "n_samples": 1,
-                  "is_leaf": true
-                },
-                "right": {
-                  "feature_idx": null,
-                  "threshold": null,
-                  "value": "tailcall_simplify",
-                  "impurity": 0.0,
-                  "n_samples": 2,
-                  "is_leaf": true
-                }
-              }
-            },
-            "right": {
-              "feature_idx": null,
-              "threshold": null,
-              "value": "arithmetic_constant",
-              "impurity": 0.0,
-              "n_samples": 7,
-              "is_leaf": true
-            }
-          },
-          "right": {
-            "feature_idx": 15,
-            "threshold": 3.5,
-            "value": null,
-            "impurity": 0.444444,
-            "n_samples": 3,
-            "is_leaf": false,
-            "left": {
-              "feature_idx": null,
-              "threshold": null,
-              "value": "scalar_cleanup",
-              "impurity": 0.0,
-              "n_samples": 1,
-              "is_leaf": true
-            },
-            "right": {
-              "feature_idx": null,
-              "threshold": null,
-              "value": "tailcall_simplify",
-              "impurity": 0.0,
-              "n_samples": 2,
-              "is_leaf": true
-            }
-          }
-        }
-      },
-      {
-        "task": "classification",
-        "max_depth": 5,
-        "min_samples_split": 2,
-        "feature_importances": {
-          "0": 0.0,
-          "1": 0.0,
-          "2": 0.096154,
-          "3": 0.0,
-          "4": 0.216346,
+          "4": 0.0,
           "5": 0.0,
           "6": 0.0,
           "7": 0.0,
@@ -2448,48 +620,64 @@
           "15": 0.0,
           "16": 0.0,
           "17": 0.0,
-          "18": 0.18544,
+          "18": 0.123529,
           "19": 0.0,
-          "20": 0.35783,
-          "21": 0.144231,
+          "20": 0.276471,
+          "21": 0.6,
           "22": 0.0
         },
         "root": {
           "feature_idx": 20,
-          "threshold": 0.11895,
+          "threshold": 0.12635,
           "value": null,
-          "impurity": 0.693333,
+          "impurity": 0.755556,
           "n_samples": 15,
           "is_leaf": false,
           "left": {
-            "feature_idx": 4,
-            "threshold": 20.5,
+            "feature_idx": 21,
+            "threshold": 0.8959,
             "value": null,
-            "impurity": 0.40625,
-            "n_samples": 8,
+            "impurity": 0.58,
+            "n_samples": 10,
             "is_leaf": false,
             "left": {
               "feature_idx": null,
               "threshold": null,
               "value": "tailcall_simplify",
               "impurity": 0.0,
-              "n_samples": 6,
+              "n_samples": 4,
               "is_leaf": true
             },
             "right": {
-              "feature_idx": 21,
-              "threshold": 0.9271,
+              "feature_idx": 18,
+              "threshold": 1.55835,
               "value": null,
               "impurity": 0.5,
-              "n_samples": 2,
+              "n_samples": 6,
               "is_leaf": false,
               "left": {
-                "feature_idx": null,
-                "threshold": null,
-                "value": "arithmetic_constant",
-                "impurity": 0.0,
-                "n_samples": 1,
-                "is_leaf": true
+                "feature_idx": 21,
+                "threshold": 0.9468000000000001,
+                "value": null,
+                "impurity": 0.32,
+                "n_samples": 5,
+                "is_leaf": false,
+                "left": {
+                  "feature_idx": null,
+                  "threshold": null,
+                  "value": "arithmetic_constant",
+                  "impurity": 0.0,
+                  "n_samples": 4,
+                  "is_leaf": true
+                },
+                "right": {
+                  "feature_idx": null,
+                  "threshold": null,
+                  "value": "tailcall_simplify",
+                  "impurity": 0.0,
+                  "n_samples": 1,
+                  "is_leaf": true
+                }
               },
               "right": {
                 "feature_idx": null,
@@ -2502,51 +690,19 @@
             }
           },
           "right": {
-            "feature_idx": 18,
-            "threshold": 1.2835999999999999,
+            "feature_idx": 21,
+            "threshold": 0.8348,
             "value": null,
-            "impurity": 0.489796,
-            "n_samples": 7,
+            "impurity": 0.48,
+            "n_samples": 5,
             "is_leaf": false,
             "left": {
-              "feature_idx": 21,
-              "threshold": 0.9081,
-              "value": null,
-              "impurity": 0.375,
-              "n_samples": 4,
-              "is_leaf": false,
-              "left": {
-                "feature_idx": 2,
-                "threshold": 1.5,
-                "value": null,
-                "impurity": 0.5,
-                "n_samples": 2,
-                "is_leaf": false,
-                "left": {
-                  "feature_idx": null,
-                  "threshold": null,
-                  "value": "arithmetic_constant",
-                  "impurity": 0.0,
-                  "n_samples": 1,
-                  "is_leaf": true
-                },
-                "right": {
-                  "feature_idx": null,
-                  "threshold": null,
-                  "value": "memory_redundancy",
-                  "impurity": 0.0,
-                  "n_samples": 1,
-                  "is_leaf": true
-                }
-              },
-              "right": {
-                "feature_idx": null,
-                "threshold": null,
-                "value": "arithmetic_constant",
-                "impurity": 0.0,
-                "n_samples": 2,
-                "is_leaf": true
-              }
+              "feature_idx": null,
+              "threshold": null,
+              "value": "scalar_cleanup",
+              "impurity": 0.0,
+              "n_samples": 2,
+              "is_leaf": true
             },
             "right": {
               "feature_idx": null,
@@ -2566,75 +722,67 @@
         "feature_importances": {
           "0": 0.0,
           "1": 0.0,
-          "2": 0.141762,
+          "2": 0.09434,
           "3": 0.0,
-          "4": 0.0,
+          "4": 0.216981,
           "5": 0.0,
           "6": 0.0,
-          "7": 0.353535,
+          "7": 0.0,
           "8": 0.0,
-          "9": 0.112069,
-          "10": 0.0,
+          "9": 0.0,
+          "10": 0.160377,
           "11": 0.0,
           "12": 0.0,
           "13": 0.0,
-          "14": 0.12931,
+          "14": 0.0,
           "15": 0.0,
-          "16": 0.0,
+          "16": 0.292453,
           "17": 0.0,
-          "18": 0.263323,
+          "18": 0.235849,
           "19": 0.0,
           "20": 0.0,
           "21": 0.0,
           "22": 0.0
         },
         "root": {
-          "feature_idx": 18,
-          "threshold": 1.80705,
+          "feature_idx": 16,
+          "threshold": 2.5,
           "value": null,
           "impurity": 0.773333,
           "n_samples": 15,
           "is_leaf": false,
           "left": {
-            "feature_idx": 7,
-            "threshold": 43.0,
+            "feature_idx": 18,
+            "threshold": 1.8420999999999998,
             "value": null,
-            "impurity": 0.77686,
-            "n_samples": 11,
+            "impurity": 0.708333,
+            "n_samples": 12,
             "is_leaf": false,
             "left": {
-              "feature_idx": 2,
-              "threshold": 2.5,
+              "feature_idx": 10,
+              "threshold": 5.0,
               "value": null,
-              "impurity": 0.716049,
+              "impurity": 0.666667,
               "n_samples": 9,
               "is_leaf": false,
               "left": {
-                "feature_idx": 9,
-                "threshold": 8.5,
+                "feature_idx": 4,
+                "threshold": 15.0,
                 "value": null,
                 "impurity": 0.56,
                 "n_samples": 5,
                 "is_leaf": false,
                 "left": {
-                  "feature_idx": null,
-                  "threshold": null,
-                  "value": "tailcall_simplify",
-                  "impurity": 0.0,
-                  "n_samples": 1,
-                  "is_leaf": true
-                },
-                "right": {
-                  "feature_idx": 14,
-                  "threshold": 4.5,
+                  "feature_idx": 2,
+                  "threshold": 1.5,
                   "value": null,
-                  "impurity": 0.375,
-                  "n_samples": 4,
+                  "impurity": 0.666667,
+                  "n_samples": 3,
                   "is_leaf": false,
                   "left": {
                     "feature_idx": null,
                     "threshold": null,
-                    "value": "memory_redundancy",
+                    "value": "arithmetic_constant",
                     "impurity": 0.0,
                     "n_samples": 1,
                     "is_leaf": true
@@ -2642,34 +790,42 @@
                   "right": {
                     "feature_idx": null,
                     "threshold": null,
-                    "value": "arithmetic_constant",
-                    "impurity": 0.0,
-                    "n_samples": 3,
+                    "value": "tailcall_simplify",
+                    "impurity": 0.5,
+                    "n_samples": 2,
                     "is_leaf": true
                   }
+                },
+                "right": {
+                  "feature_idx": null,
+                  "threshold": null,
+                  "value": "arithmetic_constant",
+                  "impurity": 0.0,
+                  "n_samples": 2,
+                  "is_leaf": true
                 }
               },
               "right": {
-                "feature_idx": 7,
-                "threshold": 31.0,
+                "feature_idx": 4,
+                "threshold": 26.0,
                 "value": null,
-                "impurity": 0.5,
+                "impurity": 0.375,
                 "n_samples": 4,
                 "is_leaf": false,
                 "left": {
                   "feature_idx": null,
                   "threshold": null,
-                  "value": "scalar_cleanup",
+                  "value": "tailcall_simplify",
                   "impurity": 0.0,
-                  "n_samples": 2,
+                  "n_samples": 3,
                   "is_leaf": true
                 },
                 "right": {
                   "feature_idx": null,
                   "threshold": null,
-                  "value": "tailcall_simplify",
+                  "value": "code_size_dce",
                   "impurity": 0.0,
-                  "n_samples": 2,
+                  "n_samples": 1,
                   "is_leaf": true
                 }
               }
@@ -2677,160 +833,10 @@
             "right": {
               "feature_idx": null,
               "threshold": null,
-              "value": "code_size_dce",
+              "value": "memory_redundancy",
               "impurity": 0.0,
-              "n_samples": 2,
+              "n_samples": 3,
               "is_leaf": true
-            }
-          },
-          "right": {
-            "feature_idx": null,
-            "threshold": null,
-            "value": "memory_redundancy",
-            "impurity": 0.0,
-            "n_samples": 4,
-            "is_leaf": true
-          }
-        }
-      },
-      {
-        "task": "classification",
-        "max_depth": 5,
-        "min_samples_split": 2,
-        "feature_importances": {
-          "0": 0.096386,
-          "1": 0.193632,
-          "2": 0.0,
-          "3": 0.0,
-          "4": 0.090361,
-          "5": 0.0,
-          "6": 0.0,
-          "7": 0.090361,
-          "8": 0.0,
-          "9": 0.0,
-          "10": 0.206971,
-          "11": 0.0,
-          "12": 0.0,
-          "13": 0.292169,
-          "14": 0.0,
-          "15": 0.03012,
-          "16": 0.0,
-          "17": 0.0,
-          "18": 0.0,
-          "19": 0.0,
-          "20": 0.0,
-          "21": 0.0,
-          "22": 0.0
-        },
-        "root": {
-          "feature_idx": 13,
-          "threshold": 5.0,
-          "value": null,
-          "impurity": 0.737778,
-          "n_samples": 15,
-          "is_leaf": false,
-          "left": {
-            "feature_idx": 10,
-            "threshold": 5.0,
-            "value": null,
-            "impurity": 0.652778,
-            "n_samples": 12,
-            "is_leaf": false,
-            "left": {
-              "feature_idx": 1,
-              "threshold": 16.5,
-              "value": null,
-              "impurity": 0.44898,
-              "n_samples": 7,
-              "is_leaf": false,
-              "left": {
-                "feature_idx": 7,
-                "threshold": 12.0,
-                "value": null,
-                "impurity": 0.5,
-                "n_samples": 2,
-                "is_leaf": false,
-                "left": {
-                  "feature_idx": null,
-                  "threshold": null,
-                  "value": "tailcall_simplify",
-                  "impurity": 0.0,
-                  "n_samples": 1,
-                  "is_leaf": true
-                },
-                "right": {
-                  "feature_idx": null,
-                  "threshold": null,
-                  "value": "memory_redundancy",
-                  "impurity": 0.0,
-                  "n_samples": 1,
-                  "is_leaf": true
-                }
-              },
-              "right": {
-                "feature_idx": null,
-                "threshold": null,
-                "value": "arithmetic_constant",
-                "impurity": 0.0,
-                "n_samples": 5,
-                "is_leaf": true
-              }
-            },
-            "right": {
-              "feature_idx": 0,
-              "threshold": 120.0,
-              "value": null,
-              "impurity": 0.48,
-              "n_samples": 5,
-              "is_leaf": false,
-              "left": {
-                "feature_idx": 15,
-                "threshold": 1.5,
-                "value": null,
-                "impurity": 0.444444,
-                "n_samples": 3,
-                "is_leaf": false,
-                "left": {
-                  "feature_idx": null,
-                  "threshold": null,
-                  "value": "tailcall_simplify",
-                  "impurity": 0.0,
-                  "n_samples": 1,
-                  "is_leaf": true
-                },
-                "right": {
-                  "feature_idx": 4,
-                  "threshold": 11.0,
-                  "value": null,
-                  "impurity": 0.5,
-                  "n_samples": 2,
-                  "is_leaf": false,
-                  "left": {
-                    "feature_idx": null,
-                    "threshold": null,
-                    "value": "tailcall_simplify",
-                    "impurity": 0.0,
-                    "n_samples": 1,
-                    "is_leaf": true
-                  },
-                  "right": {
-                    "feature_idx": null,
-                    "threshold": null,
-                    "value": "memory_redundancy",
-                    "impurity": 0.0,
-                    "n_samples": 1,
-                    "is_leaf": true
-                  }
-                }
-              },
-              "right": {
-                "feature_idx": null,
-                "threshold": null,
-                "value": "memory_redundancy",
-                "impurity": 0.0,
-                "n_samples": 2,
-                "is_leaf": true
-              }
             }
           },
           "right": {
@@ -2856,49 +862,151 @@
           "5": 0.0,
           "6": 0.25,
           "7": 0.0,
-          "8": 0.0,
+          "8": 0.242424,
           "9": 0.0,
-          "10": 0.152439,
+          "10": 0.0,
           "11": 0.0,
           "12": 0.0,
           "13": 0.0,
-          "14": 0.219512,
+          "14": 0.0,
           "15": 0.0,
           "16": 0.0,
-          "17": 0.378049,
+          "17": 0.166667,
           "18": 0.0,
+          "19": 0.0,
+          "20": 0.340909,
+          "21": 0.0,
+          "22": 0.0
+        },
+        "root": {
+          "feature_idx": 8,
+          "threshold": 11.0,
+          "value": null,
+          "impurity": 0.64,
+          "n_samples": 15,
+          "is_leaf": false,
+          "left": {
+            "feature_idx": null,
+            "threshold": null,
+            "value": "tailcall_simplify",
+            "impurity": 0.0,
+            "n_samples": 4,
+            "is_leaf": true
+          },
+          "right": {
+            "feature_idx": 20,
+            "threshold": 0.1191,
+            "value": null,
+            "impurity": 0.661157,
+            "n_samples": 11,
+            "is_leaf": false,
+            "left": {
+              "feature_idx": null,
+              "threshold": null,
+              "value": "tailcall_simplify",
+              "impurity": 0.0,
+              "n_samples": 3,
+              "is_leaf": true
+            },
+            "right": {
+              "feature_idx": 6,
+              "threshold": 11.0,
+              "value": null,
+              "impurity": 0.5,
+              "n_samples": 8,
+              "is_leaf": false,
+              "left": {
+                "feature_idx": null,
+                "threshold": null,
+                "value": "memory_redundancy",
+                "impurity": 0.0,
+                "n_samples": 3,
+                "is_leaf": true
+              },
+              "right": {
+                "feature_idx": 17,
+                "threshold": 65.5,
+                "value": null,
+                "impurity": 0.32,
+                "n_samples": 5,
+                "is_leaf": false,
+                "left": {
+                  "feature_idx": null,
+                  "threshold": null,
+                  "value": "arithmetic_constant",
+                  "impurity": 0.0,
+                  "n_samples": 4,
+                  "is_leaf": true
+                },
+                "right": {
+                  "feature_idx": null,
+                  "threshold": null,
+                  "value": "memory_redundancy",
+                  "impurity": 0.0,
+                  "n_samples": 1,
+                  "is_leaf": true
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "task": "classification",
+        "max_depth": 5,
+        "min_samples_split": 2,
+        "feature_importances": {
+          "0": 0.212522,
+          "1": 0.0,
+          "2": 0.0,
+          "3": 0.0,
+          "4": 0.0,
+          "5": 0.0,
+          "6": 0.0,
+          "7": 0.0,
+          "8": 0.15873,
+          "9": 0.0,
+          "10": 0.0,
+          "11": 0.123457,
+          "12": 0.099206,
+          "13": 0.0,
+          "14": 0.0,
+          "15": 0.092593,
+          "16": 0.0,
+          "17": 0.0,
+          "18": 0.313492,
           "19": 0.0,
           "20": 0.0,
           "21": 0.0,
           "22": 0.0
         },
         "root": {
-          "feature_idx": 6,
-          "threshold": 19.5,
+          "feature_idx": 0,
+          "threshold": 174.0,
           "value": null,
-          "impurity": 0.728889,
+          "impurity": 0.72,
           "n_samples": 15,
           "is_leaf": false,
           "left": {
-            "feature_idx": 17,
-            "threshold": 56.5,
+            "feature_idx": 12,
+            "threshold": 7.0,
             "value": null,
-            "impurity": 0.58,
-            "n_samples": 10,
+            "impurity": 0.683673,
+            "n_samples": 14,
             "is_leaf": false,
             "left": {
-              "feature_idx": 10,
-              "threshold": 4.5,
+              "feature_idx": 15,
+              "threshold": 3.5,
               "value": null,
-              "impurity": 0.277778,
-              "n_samples": 6,
+              "impurity": 0.5,
+              "n_samples": 2,
               "is_leaf": false,
               "left": {
                 "feature_idx": null,
                 "threshold": null,
-                "value": "arithmetic_constant",
+                "value": "scalar_cleanup",
                 "impurity": 0.0,
-                "n_samples": 5,
+                "n_samples": 1,
                 "is_leaf": true
               },
               "right": {
@@ -2911,35 +1019,185 @@
               }
             },
             "right": {
-              "feature_idx": null,
-              "threshold": null,
-              "value": "memory_redundancy",
-              "impurity": 0.0,
-              "n_samples": 4,
-              "is_leaf": true
+              "feature_idx": 18,
+              "threshold": 1.3431,
+              "value": null,
+              "impurity": 0.625,
+              "n_samples": 12,
+              "is_leaf": false,
+              "left": {
+                "feature_idx": 8,
+                "threshold": 13.0,
+                "value": null,
+                "impurity": 0.244898,
+                "n_samples": 7,
+                "is_leaf": false,
+                "left": {
+                  "feature_idx": null,
+                  "threshold": null,
+                  "value": "memory_redundancy",
+                  "impurity": 0.0,
+                  "n_samples": 1,
+                  "is_leaf": true
+                },
+                "right": {
+                  "feature_idx": null,
+                  "threshold": null,
+                  "value": "arithmetic_constant",
+                  "impurity": 0.0,
+                  "n_samples": 6,
+                  "is_leaf": true
+                }
+              },
+              "right": {
+                "feature_idx": 0,
+                "threshold": 96.0,
+                "value": null,
+                "impurity": 0.48,
+                "n_samples": 5,
+                "is_leaf": false,
+                "left": {
+                  "feature_idx": null,
+                  "threshold": null,
+                  "value": "tailcall_simplify",
+                  "impurity": 0.0,
+                  "n_samples": 2,
+                  "is_leaf": true
+                },
+                "right": {
+                  "feature_idx": 11,
+                  "threshold": 0.5,
+                  "value": null,
+                  "impurity": 0.444444,
+                  "n_samples": 3,
+                  "is_leaf": false,
+                  "left": {
+                    "feature_idx": null,
+                    "threshold": null,
+                    "value": "memory_redundancy",
+                    "impurity": 0.0,
+                    "n_samples": 2,
+                    "is_leaf": true
+                  },
+                  "right": {
+                    "feature_idx": null,
+                    "threshold": null,
+                    "value": "tailcall_simplify",
+                    "impurity": 0.0,
+                    "n_samples": 1,
+                    "is_leaf": true
+                  }
+                }
+              }
             }
           },
           "right": {
-            "feature_idx": 14,
-            "threshold": 8.5,
+            "feature_idx": null,
+            "threshold": null,
+            "value": "code_size_dce",
+            "impurity": 0.0,
+            "n_samples": 1,
+            "is_leaf": true
+          }
+        }
+      },
+      {
+        "task": "classification",
+        "max_depth": 5,
+        "min_samples_split": 2,
+        "feature_importances": {
+          "0": 0.0,
+          "1": 0.0,
+          "2": 0.0,
+          "3": 0.0,
+          "4": 0.0,
+          "5": 0.0,
+          "6": 0.2417,
+          "7": 0.0,
+          "8": 0.0,
+          "9": 0.0,
+          "10": 0.0,
+          "11": 0.0,
+          "12": 0.193159,
+          "13": 0.0,
+          "14": 0.0,
+          "15": 0.0,
+          "16": 0.0,
+          "17": 0.169014,
+          "18": 0.0,
+          "19": 0.0,
+          "20": 0.396127,
+          "21": 0.0,
+          "22": 0.0
+        },
+        "root": {
+          "feature_idx": 6,
+          "threshold": 9.0,
+          "value": null,
+          "impurity": 0.631111,
+          "n_samples": 15,
+          "is_leaf": false,
+          "left": {
+            "feature_idx": 20,
+            "threshold": 0.12635,
             "value": null,
-            "impurity": 0.48,
-            "n_samples": 5,
+            "impurity": 0.46875,
+            "n_samples": 8,
             "is_leaf": false,
             "left": {
               "feature_idx": null,
               "threshold": null,
-              "value": "code_size_dce",
+              "value": "tailcall_simplify",
               "impurity": 0.0,
-              "n_samples": 2,
+              "n_samples": 5,
               "is_leaf": true
             },
             "right": {
               "feature_idx": null,
               "threshold": null,
-              "value": "tailcall_simplify",
+              "value": "arithmetic_constant",
               "impurity": 0.0,
               "n_samples": 3,
+              "is_leaf": true
+            }
+          },
+          "right": {
+            "feature_idx": 12,
+            "threshold": 15.0,
+            "value": null,
+            "impurity": 0.489796,
+            "n_samples": 7,
+            "is_leaf": false,
+            "left": {
+              "feature_idx": 17,
+              "threshold": 35.5,
+              "value": null,
+              "impurity": 0.32,
+              "n_samples": 5,
+              "is_leaf": false,
+              "left": {
+                "feature_idx": null,
+                "threshold": null,
+                "value": "memory_redundancy",
+                "impurity": 0.0,
+                "n_samples": 1,
+                "is_leaf": true
+              },
+              "right": {
+                "feature_idx": null,
+                "threshold": null,
+                "value": "arithmetic_constant",
+                "impurity": 0.0,
+                "n_samples": 4,
+                "is_leaf": true
+              }
+            },
+            "right": {
+              "feature_idx": null,
+              "threshold": null,
+              "value": "memory_redundancy",
+              "impurity": 0.0,
+              "n_samples": 2,
               "is_leaf": true
             }
           }
@@ -2950,16 +1208,150 @@
         "max_depth": 5,
         "min_samples_split": 2,
         "feature_importances": {
-          "0": 0.25,
+          "0": 0.094937,
+          "1": 0.0,
+          "2": 0.0,
+          "3": 0.295359,
+          "4": 0.110759,
+          "5": 0.0,
+          "6": 0.0,
+          "7": 0.0,
+          "8": 0.0,
+          "9": 0.126582,
+          "10": 0.229958,
+          "11": 0.0,
+          "12": 0.0,
+          "13": 0.0,
+          "14": 0.0,
+          "15": 0.0,
+          "16": 0.0,
+          "17": 0.0,
+          "18": 0.142405,
+          "19": 0.0,
+          "20": 0.0,
+          "21": 0.0,
+          "22": 0.0
+        },
+        "root": {
+          "feature_idx": 10,
+          "threshold": 6.5,
+          "value": null,
+          "impurity": 0.702222,
+          "n_samples": 15,
+          "is_leaf": false,
+          "left": {
+            "feature_idx": 4,
+            "threshold": 12.0,
+            "value": null,
+            "impurity": 0.611111,
+            "n_samples": 6,
+            "is_leaf": false,
+            "left": {
+              "feature_idx": null,
+              "threshold": null,
+              "value": "tailcall_simplify",
+              "impurity": 0.0,
+              "n_samples": 2,
+              "is_leaf": true
+            },
+            "right": {
+              "feature_idx": 18,
+              "threshold": 1.2633999999999999,
+              "value": null,
+              "impurity": 0.625,
+              "n_samples": 4,
+              "is_leaf": false,
+              "left": {
+                "feature_idx": null,
+                "threshold": null,
+                "value": "arithmetic_constant",
+                "impurity": 0.0,
+                "n_samples": 2,
+                "is_leaf": true
+              },
+              "right": {
+                "feature_idx": 0,
+                "threshold": 90.0,
+                "value": null,
+                "impurity": 0.5,
+                "n_samples": 2,
+                "is_leaf": false,
+                "left": {
+                  "feature_idx": null,
+                  "threshold": null,
+                  "value": "scalar_cleanup",
+                  "impurity": 0.0,
+                  "n_samples": 1,
+                  "is_leaf": true
+                },
+                "right": {
+                  "feature_idx": null,
+                  "threshold": null,
+                  "value": "tailcall_simplify",
+                  "impurity": 0.0,
+                  "n_samples": 1,
+                  "is_leaf": true
+                }
+              }
+            }
+          },
+          "right": {
+            "feature_idx": 3,
+            "threshold": 5.5,
+            "value": null,
+            "impurity": 0.493827,
+            "n_samples": 9,
+            "is_leaf": false,
+            "left": {
+              "feature_idx": null,
+              "threshold": null,
+              "value": "memory_redundancy",
+              "impurity": 0.0,
+              "n_samples": 6,
+              "is_leaf": true
+            },
+            "right": {
+              "feature_idx": 9,
+              "threshold": 14.5,
+              "value": null,
+              "impurity": 0.444444,
+              "n_samples": 3,
+              "is_leaf": false,
+              "left": {
+                "feature_idx": null,
+                "threshold": null,
+                "value": "tailcall_simplify",
+                "impurity": 0.0,
+                "n_samples": 2,
+                "is_leaf": true
+              },
+              "right": {
+                "feature_idx": null,
+                "threshold": null,
+                "value": "code_size_dce",
+                "impurity": 0.0,
+                "n_samples": 1,
+                "is_leaf": true
+              }
+            }
+          }
+        }
+      },
+      {
+        "task": "classification",
+        "max_depth": 5,
+        "min_samples_split": 2,
+        "feature_importances": {
+          "0": 0.243902,
           "1": 0.0,
           "2": 0.0,
           "3": 0.0,
           "4": 0.0,
           "5": 0.0,
-          "6": 0.0,
+          "6": 0.291159,
           "7": 0.0,
-          "8": 0.107143,
-          "9": 0.22619,
+          "8": 0.0,
+          "9": 0.152439,
           "10": 0.0,
           "11": 0.0,
           "12": 0.0,
@@ -2968,53 +1360,53 @@
           "15": 0.0,
           "16": 0.0,
           "17": 0.0,
-          "18": 0.0,
-          "19": 0.0,
-          "20": 0.416667,
+          "18": 0.121951,
+          "19": 0.190549,
+          "20": 0.0,
           "21": 0.0,
           "22": 0.0
         },
         "root": {
-          "feature_idx": 20,
-          "threshold": 0.1191,
+          "feature_idx": 6,
+          "threshold": 14.5,
           "value": null,
-          "impurity": 0.622222,
+          "impurity": 0.728889,
           "n_samples": 15,
           "is_leaf": false,
           "left": {
-            "feature_idx": 9,
-            "threshold": 12.0,
+            "feature_idx": 19,
+            "threshold": 0.5087999999999999,
             "value": null,
-            "impurity": 0.197531,
-            "n_samples": 9,
+            "impurity": 0.46875,
+            "n_samples": 8,
             "is_leaf": false,
             "left": {
               "feature_idx": null,
               "threshold": null,
-              "value": "tailcall_simplify",
+              "value": "memory_redundancy",
               "impurity": 0.0,
-              "n_samples": 7,
+              "n_samples": 2,
               "is_leaf": true
             },
             "right": {
-              "feature_idx": 8,
-              "threshold": 22.5,
+              "feature_idx": 9,
+              "threshold": 9.5,
               "value": null,
-              "impurity": 0.5,
-              "n_samples": 2,
+              "impurity": 0.277778,
+              "n_samples": 6,
               "is_leaf": false,
               "left": {
                 "feature_idx": null,
                 "threshold": null,
-                "value": "arithmetic_constant",
+                "value": "tailcall_simplify",
                 "impurity": 0.0,
-                "n_samples": 1,
+                "n_samples": 5,
                 "is_leaf": true
               },
               "right": {
                 "feature_idx": null,
                 "threshold": null,
-                "value": "tailcall_simplify",
+                "value": "memory_redundancy",
                 "impurity": 0.0,
                 "n_samples": 1,
                 "is_leaf": true
@@ -3023,22 +1415,22 @@
           },
           "right": {
             "feature_idx": 0,
-            "threshold": 79.5,
+            "threshold": 129.5,
             "value": null,
-            "impurity": 0.611111,
-            "n_samples": 6,
+            "impurity": 0.571429,
+            "n_samples": 7,
             "is_leaf": false,
             "left": {
               "feature_idx": null,
               "threshold": null,
               "value": "arithmetic_constant",
               "impurity": 0.0,
-              "n_samples": 3,
+              "n_samples": 4,
               "is_leaf": true
             },
             "right": {
-              "feature_idx": 9,
-              "threshold": 10.5,
+              "feature_idx": 18,
+              "threshold": 1.80705,
               "value": null,
               "impurity": 0.444444,
               "n_samples": 3,
@@ -3046,7 +1438,7 @@
               "left": {
                 "feature_idx": null,
                 "threshold": null,
-                "value": "scalar_cleanup",
+                "value": "code_size_dce",
                 "impurity": 0.0,
                 "n_samples": 2,
                 "is_leaf": true
@@ -3070,56 +1462,48 @@
         "feature_importances": {
           "0": 0.0,
           "1": 0.0,
-          "2": 0.0,
+          "2": 0.288462,
           "3": 0.0,
           "4": 0.0,
-          "5": 0.079365,
+          "5": 0.0,
           "6": 0.0,
           "7": 0.0,
           "8": 0.0,
-          "9": 0.061728,
-          "10": 0.263889,
+          "9": 0.0,
+          "10": 0.0,
           "11": 0.0,
           "12": 0.0,
-          "13": 0.0,
-          "14": 0.123457,
-          "15": 0.222222,
+          "13": 0.153846,
+          "14": 0.0,
+          "15": 0.0,
           "16": 0.0,
-          "17": 0.0,
+          "17": 0.234615,
           "18": 0.0,
           "19": 0.0,
-          "20": 0.249339,
-          "21": 0.0,
+          "20": 0.0,
+          "21": 0.323077,
           "22": 0.0
         },
         "root": {
-          "feature_idx": 20,
-          "threshold": 0.1191,
+          "feature_idx": 2,
+          "threshold": 2.5,
           "value": null,
-          "impurity": 0.72,
+          "impurity": 0.577778,
           "n_samples": 15,
           "is_leaf": false,
           "left": {
-            "feature_idx": 5,
-            "threshold": 4.5,
+            "feature_idx": 17,
+            "threshold": 69.5,
             "value": null,
-            "impurity": 0.408163,
-            "n_samples": 7,
+            "impurity": 0.402778,
+            "n_samples": 12,
             "is_leaf": false,
             "left": {
-              "feature_idx": null,
-              "threshold": null,
-              "value": "tailcall_simplify",
-              "impurity": 0.0,
-              "n_samples": 3,
-              "is_leaf": true
-            },
-            "right": {
-              "feature_idx": 9,
-              "threshold": 9.5,
+              "feature_idx": 21,
+              "threshold": 0.7889,
               "value": null,
-              "impurity": 0.5,
-              "n_samples": 4,
+              "impurity": 0.18,
+              "n_samples": 10,
               "is_leaf": false,
               "left": {
                 "feature_idx": null,
@@ -3130,11 +1514,271 @@
                 "is_leaf": true
               },
               "right": {
-                "feature_idx": 14,
+                "feature_idx": null,
+                "threshold": null,
+                "value": "arithmetic_constant",
+                "impurity": 0.0,
+                "n_samples": 9,
+                "is_leaf": true
+              }
+            },
+            "right": {
+              "feature_idx": 21,
+              "threshold": 0.875,
+              "value": null,
+              "impurity": 0.5,
+              "n_samples": 2,
+              "is_leaf": false,
+              "left": {
+                "feature_idx": null,
+                "threshold": null,
+                "value": "tailcall_simplify",
+                "impurity": 0.0,
+                "n_samples": 1,
+                "is_leaf": true
+              },
+              "right": {
+                "feature_idx": null,
+                "threshold": null,
+                "value": "memory_redundancy",
+                "impurity": 0.0,
+                "n_samples": 1,
+                "is_leaf": true
+              }
+            }
+          },
+          "right": {
+            "feature_idx": 13,
+            "threshold": 4.5,
+            "value": null,
+            "impurity": 0.444444,
+            "n_samples": 3,
+            "is_leaf": false,
+            "left": {
+              "feature_idx": null,
+              "threshold": null,
+              "value": "tailcall_simplify",
+              "impurity": 0.0,
+              "n_samples": 1,
+              "is_leaf": true
+            },
+            "right": {
+              "feature_idx": null,
+              "threshold": null,
+              "value": "scalar_cleanup",
+              "impurity": 0.0,
+              "n_samples": 2,
+              "is_leaf": true
+            }
+          }
+        }
+      },
+      {
+        "task": "classification",
+        "max_depth": 5,
+        "min_samples_split": 2,
+        "feature_importances": {
+          "0": 0.150602,
+          "1": 0.0,
+          "2": 0.0,
+          "3": 0.0,
+          "4": 0.0,
+          "5": 0.0,
+          "6": 0.105422,
+          "7": 0.2076,
+          "8": 0.0,
+          "9": 0.0,
+          "10": 0.0,
+          "11": 0.0,
+          "12": 0.0,
+          "13": 0.0,
+          "14": 0.0,
+          "15": 0.135542,
+          "16": 0.0,
+          "17": 0.0,
+          "18": 0.0,
+          "19": 0.0,
+          "20": 0.0,
+          "21": 0.400834,
+          "22": 0.0
+        },
+        "root": {
+          "feature_idx": 7,
+          "threshold": 43.0,
+          "value": null,
+          "impurity": 0.737778,
+          "n_samples": 15,
+          "is_leaf": false,
+          "left": {
+            "feature_idx": 21,
+            "threshold": 0.8959,
+            "value": null,
+            "impurity": 0.674556,
+            "n_samples": 13,
+            "is_leaf": false,
+            "left": {
+              "feature_idx": 15,
+              "threshold": 3.5,
+              "value": null,
+              "impurity": 0.571429,
+              "n_samples": 7,
+              "is_leaf": false,
+              "left": {
+                "feature_idx": 6,
                 "threshold": 8.0,
                 "value": null,
-                "impurity": 0.444444,
+                "impurity": 0.625,
+                "n_samples": 4,
+                "is_leaf": false,
+                "left": {
+                  "feature_idx": null,
+                  "threshold": null,
+                  "value": "tailcall_simplify",
+                  "impurity": 0.0,
+                  "n_samples": 1,
+                  "is_leaf": true
+                },
+                "right": {
+                  "feature_idx": 21,
+                  "threshold": 0.84375,
+                  "value": null,
+                  "impurity": 0.444444,
+                  "n_samples": 3,
+                  "is_leaf": false,
+                  "left": {
+                    "feature_idx": null,
+                    "threshold": null,
+                    "value": "scalar_cleanup",
+                    "impurity": 0.0,
+                    "n_samples": 2,
+                    "is_leaf": true
+                  },
+                  "right": {
+                    "feature_idx": null,
+                    "threshold": null,
+                    "value": "memory_redundancy",
+                    "impurity": 0.0,
+                    "n_samples": 1,
+                    "is_leaf": true
+                  }
+                }
+              },
+              "right": {
+                "feature_idx": null,
+                "threshold": null,
+                "value": "tailcall_simplify",
+                "impurity": 0.0,
                 "n_samples": 3,
+                "is_leaf": true
+              }
+            },
+            "right": {
+              "feature_idx": 0,
+              "threshold": 93.5,
+              "value": null,
+              "impurity": 0.277778,
+              "n_samples": 6,
+              "is_leaf": false,
+              "left": {
+                "feature_idx": null,
+                "threshold": null,
+                "value": "arithmetic_constant",
+                "impurity": 0.0,
+                "n_samples": 4,
+                "is_leaf": true
+              },
+              "right": {
+                "feature_idx": 0,
+                "threshold": 105.5,
+                "value": null,
+                "impurity": 0.5,
+                "n_samples": 2,
+                "is_leaf": false,
+                "left": {
+                  "feature_idx": null,
+                  "threshold": null,
+                  "value": "tailcall_simplify",
+                  "impurity": 0.0,
+                  "n_samples": 1,
+                  "is_leaf": true
+                },
+                "right": {
+                  "feature_idx": null,
+                  "threshold": null,
+                  "value": "arithmetic_constant",
+                  "impurity": 0.0,
+                  "n_samples": 1,
+                  "is_leaf": true
+                }
+              }
+            }
+          },
+          "right": {
+            "feature_idx": null,
+            "threshold": null,
+            "value": "code_size_dce",
+            "impurity": 0.0,
+            "n_samples": 2,
+            "is_leaf": true
+          }
+        }
+      },
+      {
+        "task": "classification",
+        "max_depth": 5,
+        "min_samples_split": 2,
+        "feature_importances": {
+          "0": 0.096154,
+          "1": 0.0,
+          "2": 0.192308,
+          "3": 0.0,
+          "4": 0.0,
+          "5": 0.0,
+          "6": 0.0,
+          "7": 0.0,
+          "8": 0.0,
+          "9": 0.0,
+          "10": 0.177739,
+          "11": 0.0,
+          "12": 0.0,
+          "13": 0.0,
+          "14": 0.0,
+          "15": 0.261364,
+          "16": 0.0,
+          "17": 0.0,
+          "18": 0.0,
+          "19": 0.0,
+          "20": 0.272436,
+          "21": 0.0,
+          "22": 0.0
+        },
+        "root": {
+          "feature_idx": 15,
+          "threshold": 2.5,
+          "value": null,
+          "impurity": 0.693333,
+          "n_samples": 15,
+          "is_leaf": false,
+          "left": {
+            "feature_idx": 10,
+            "threshold": 5.0,
+            "value": null,
+            "impurity": 0.561983,
+            "n_samples": 11,
+            "is_leaf": false,
+            "left": {
+              "feature_idx": 0,
+              "threshold": 67.5,
+              "value": null,
+              "impurity": 0.375,
+              "n_samples": 8,
+              "is_leaf": false,
+              "left": {
+                "feature_idx": 2,
+                "threshold": 1.5,
+                "value": null,
+                "impurity": 0.5,
+                "n_samples": 4,
                 "is_leaf": false,
                 "left": {
                   "feature_idx": null,
@@ -3147,51 +1791,217 @@
                 "right": {
                   "feature_idx": null,
                   "threshold": null,
-                  "value": "tailcall_simplify",
+                  "value": "memory_redundancy",
                   "impurity": 0.0,
-                  "n_samples": 1,
+                  "n_samples": 2,
                   "is_leaf": true
                 }
-              }
-            }
-          },
-          "right": {
-            "feature_idx": 10,
-            "threshold": 4.5,
-            "value": null,
-            "impurity": 0.65625,
-            "n_samples": 8,
-            "is_leaf": false,
-            "left": {
-              "feature_idx": 15,
-              "threshold": 2.5,
-              "value": null,
-              "impurity": 0.48,
-              "n_samples": 5,
-              "is_leaf": false,
-              "left": {
+              },
+              "right": {
                 "feature_idx": null,
                 "threshold": null,
                 "value": "arithmetic_constant",
                 "impurity": 0.0,
-                "n_samples": 3,
+                "n_samples": 4,
+                "is_leaf": true
+              }
+            },
+            "right": {
+              "feature_idx": 20,
+              "threshold": 0.12465,
+              "value": null,
+              "impurity": 0.444444,
+              "n_samples": 3,
+              "is_leaf": false,
+              "left": {
+                "feature_idx": null,
+                "threshold": null,
+                "value": "tailcall_simplify",
+                "impurity": 0.0,
+                "n_samples": 1,
                 "is_leaf": true
               },
               "right": {
                 "feature_idx": null,
                 "threshold": null,
-                "value": "scalar_cleanup",
+                "value": "memory_redundancy",
                 "impurity": 0.0,
                 "n_samples": 2,
+                "is_leaf": true
+              }
+            }
+          },
+          "right": {
+            "feature_idx": 20,
+            "threshold": 0.14654999999999999,
+            "value": null,
+            "impurity": 0.375,
+            "n_samples": 4,
+            "is_leaf": false,
+            "left": {
+              "feature_idx": null,
+              "threshold": null,
+              "value": "tailcall_simplify",
+              "impurity": 0.0,
+              "n_samples": 3,
+              "is_leaf": true
+            },
+            "right": {
+              "feature_idx": null,
+              "threshold": null,
+              "value": "scalar_cleanup",
+              "impurity": 0.0,
+              "n_samples": 1,
+              "is_leaf": true
+            }
+          }
+        }
+      },
+      {
+        "task": "classification",
+        "max_depth": 5,
+        "min_samples_split": 2,
+        "feature_importances": {
+          "0": 0.0,
+          "1": 0.316621,
+          "2": 0.0,
+          "3": 0.0,
+          "4": 0.0,
+          "5": 0.068681,
+          "6": 0.0,
+          "7": 0.197802,
+          "8": 0.0,
+          "9": 0.0,
+          "10": 0.0,
+          "11": 0.0,
+          "12": 0.0,
+          "13": 0.096154,
+          "14": 0.0,
+          "15": 0.0,
+          "16": 0.0,
+          "17": 0.0,
+          "18": 0.0,
+          "19": 0.0,
+          "20": 0.0,
+          "21": 0.320742,
+          "22": 0.0
+        },
+        "root": {
+          "feature_idx": 1,
+          "threshold": 16.5,
+          "value": null,
+          "impurity": 0.693333,
+          "n_samples": 15,
+          "is_leaf": false,
+          "left": {
+            "feature_idx": 7,
+            "threshold": 28.0,
+            "value": null,
+            "impurity": 0.693878,
+            "n_samples": 7,
+            "is_leaf": false,
+            "left": {
+              "feature_idx": 21,
+              "threshold": 0.8348,
+              "value": null,
+              "impurity": 0.56,
+              "n_samples": 5,
+              "is_leaf": false,
+              "left": {
+                "feature_idx": 1,
+                "threshold": 10.5,
+                "value": null,
+                "impurity": 0.5,
+                "n_samples": 2,
+                "is_leaf": false,
+                "left": {
+                  "feature_idx": null,
+                  "threshold": null,
+                  "value": "arithmetic_constant",
+                  "impurity": 0.0,
+                  "n_samples": 1,
+                  "is_leaf": true
+                },
+                "right": {
+                  "feature_idx": null,
+                  "threshold": null,
+                  "value": "scalar_cleanup",
+                  "impurity": 0.0,
+                  "n_samples": 1,
+                  "is_leaf": true
+                }
+              },
+              "right": {
+                "feature_idx": null,
+                "threshold": null,
+                "value": "memory_redundancy",
+                "impurity": 0.0,
+                "n_samples": 3,
                 "is_leaf": true
               }
             },
             "right": {
               "feature_idx": null,
               "threshold": null,
-              "value": "memory_redundancy",
+              "value": "tailcall_simplify",
               "impurity": 0.0,
-              "n_samples": 3,
+              "n_samples": 2,
+              "is_leaf": true
+            }
+          },
+          "right": {
+            "feature_idx": 21,
+            "threshold": 0.9468000000000001,
+            "value": null,
+            "impurity": 0.40625,
+            "n_samples": 8,
+            "is_leaf": false,
+            "left": {
+              "feature_idx": 5,
+              "threshold": 7.0,
+              "value": null,
+              "impurity": 0.244898,
+              "n_samples": 7,
+              "is_leaf": false,
+              "left": {
+                "feature_idx": null,
+                "threshold": null,
+                "value": "arithmetic_constant",
+                "impurity": 0.0,
+                "n_samples": 5,
+                "is_leaf": true
+              },
+              "right": {
+                "feature_idx": 13,
+                "threshold": 1.5,
+                "value": null,
+                "impurity": 0.5,
+                "n_samples": 2,
+                "is_leaf": false,
+                "left": {
+                  "feature_idx": null,
+                  "threshold": null,
+                  "value": "code_size_dce",
+                  "impurity": 0.0,
+                  "n_samples": 1,
+                  "is_leaf": true
+                },
+                "right": {
+                  "feature_idx": null,
+                  "threshold": null,
+                  "value": "arithmetic_constant",
+                  "impurity": 0.0,
+                  "n_samples": 1,
+                  "is_leaf": true
+                }
+              }
+            },
+            "right": {
+              "feature_idx": null,
+              "threshold": null,
+              "value": "tailcall_simplify",
+              "impurity": 0.0,
+              "n_samples": 1,
               "is_leaf": true
             }
           }
@@ -3206,60 +2016,446 @@
           "1": 0.0,
           "2": 0.0,
           "3": 0.0,
-          "4": 0.09375,
-          "5": 0.140625,
+          "4": 0.211268,
+          "5": 0.105634,
           "6": 0.0,
-          "7": 0.260417,
-          "8": 0.0,
-          "9": 0.140625,
+          "7": 0.0,
+          "8": 0.146804,
+          "9": 0.211268,
           "10": 0.0,
           "11": 0.0,
           "12": 0.0,
           "13": 0.0,
           "14": 0.0,
           "15": 0.0,
-          "16": 0.208333,
+          "16": 0.0,
           "17": 0.0,
-          "18": 0.15625,
+          "18": 0.181087,
           "19": 0.0,
           "20": 0.0,
+          "21": 0.143941,
+          "22": 0.0
+        },
+        "root": {
+          "feature_idx": 8,
+          "threshold": 23.0,
+          "value": null,
+          "impurity": 0.631111,
+          "n_samples": 15,
+          "is_leaf": false,
+          "left": {
+            "feature_idx": 21,
+            "threshold": 0.88505,
+            "value": null,
+            "impurity": 0.544379,
+            "n_samples": 13,
+            "is_leaf": false,
+            "left": {
+              "feature_idx": 4,
+              "threshold": 7.5,
+              "value": null,
+              "impurity": 0.666667,
+              "n_samples": 6,
+              "is_leaf": false,
+              "left": {
+                "feature_idx": null,
+                "threshold": null,
+                "value": "arithmetic_constant",
+                "impurity": 0.0,
+                "n_samples": 2,
+                "is_leaf": true
+              },
+              "right": {
+                "feature_idx": 9,
+                "threshold": 8.5,
+                "value": null,
+                "impurity": 0.5,
+                "n_samples": 4,
+                "is_leaf": false,
+                "left": {
+                  "feature_idx": null,
+                  "threshold": null,
+                  "value": "tailcall_simplify",
+                  "impurity": 0.0,
+                  "n_samples": 2,
+                  "is_leaf": true
+                },
+                "right": {
+                  "feature_idx": null,
+                  "threshold": null,
+                  "value": "memory_redundancy",
+                  "impurity": 0.0,
+                  "n_samples": 2,
+                  "is_leaf": true
+                }
+              }
+            },
+            "right": {
+              "feature_idx": 18,
+              "threshold": 1.6987,
+              "value": null,
+              "impurity": 0.244898,
+              "n_samples": 7,
+              "is_leaf": false,
+              "left": {
+                "feature_idx": null,
+                "threshold": null,
+                "value": "arithmetic_constant",
+                "impurity": 0.0,
+                "n_samples": 6,
+                "is_leaf": true
+              },
+              "right": {
+                "feature_idx": null,
+                "threshold": null,
+                "value": "memory_redundancy",
+                "impurity": 0.0,
+                "n_samples": 1,
+                "is_leaf": true
+              }
+            }
+          },
+          "right": {
+            "feature_idx": 5,
+            "threshold": 8.5,
+            "value": null,
+            "impurity": 0.5,
+            "n_samples": 2,
+            "is_leaf": false,
+            "left": {
+              "feature_idx": null,
+              "threshold": null,
+              "value": "code_size_dce",
+              "impurity": 0.0,
+              "n_samples": 1,
+              "is_leaf": true
+            },
+            "right": {
+              "feature_idx": null,
+              "threshold": null,
+              "value": "tailcall_simplify",
+              "impurity": 0.0,
+              "n_samples": 1,
+              "is_leaf": true
+            }
+          }
+        }
+      },
+      {
+        "task": "classification",
+        "max_depth": 5,
+        "min_samples_split": 2,
+        "feature_importances": {
+          "0": 0.0,
+          "1": 0.0,
+          "2": 0.292169,
+          "3": 0.0,
+          "4": 0.195783,
+          "5": 0.0,
+          "6": 0.0,
+          "7": 0.0,
+          "8": 0.0,
+          "9": 0.063253,
+          "10": 0.134682,
+          "11": 0.0,
+          "12": 0.0,
+          "13": 0.0,
+          "14": 0.0,
+          "15": 0.0,
+          "16": 0.0,
+          "17": 0.0,
+          "18": 0.120482,
+          "19": 0.0,
+          "20": 0.193632,
           "21": 0.0,
           "22": 0.0
         },
         "root": {
-          "feature_idx": 7,
-          "threshold": 31.0,
+          "feature_idx": 2,
+          "threshold": 2.5,
           "value": null,
-          "impurity": 0.711111,
+          "impurity": 0.737778,
           "n_samples": 15,
           "is_leaf": false,
           "left": {
-            "feature_idx": 16,
-            "threshold": 2.5,
+            "feature_idx": 10,
+            "threshold": 6.5,
             "value": null,
-            "impurity": 0.691358,
-            "n_samples": 9,
+            "impurity": 0.652778,
+            "n_samples": 12,
             "is_leaf": false,
             "left": {
-              "feature_idx": 5,
-              "threshold": 5.0,
+              "feature_idx": 9,
+              "threshold": 4.5,
               "value": null,
-              "impurity": 0.571429,
-              "n_samples": 7,
+              "impurity": 0.64,
+              "n_samples": 5,
               "is_leaf": false,
               "left": {
-                "feature_idx": 9,
-                "threshold": 5.5,
+                "feature_idx": null,
+                "threshold": null,
+                "value": "arithmetic_constant",
+                "impurity": 0.0,
+                "n_samples": 1,
+                "is_leaf": true
+              },
+              "right": {
+                "feature_idx": 4,
+                "threshold": 21.5,
                 "value": null,
                 "impurity": 0.625,
                 "n_samples": 4,
                 "is_leaf": false,
                 "left": {
-                  "feature_idx": 4,
-                  "threshold": 5.5,
+                  "feature_idx": 18,
+                  "threshold": 1.09165,
                   "value": null,
-                  "impurity": 0.5,
-                  "n_samples": 2,
+                  "impurity": 0.444444,
+                  "n_samples": 3,
+                  "is_leaf": false,
+                  "left": {
+                    "feature_idx": null,
+                    "threshold": null,
+                    "value": "memory_redundancy",
+                    "impurity": 0.0,
+                    "n_samples": 1,
+                    "is_leaf": true
+                  },
+                  "right": {
+                    "feature_idx": null,
+                    "threshold": null,
+                    "value": "tailcall_simplify",
+                    "impurity": 0.0,
+                    "n_samples": 2,
+                    "is_leaf": true
+                  }
+                },
+                "right": {
+                  "feature_idx": null,
+                  "threshold": null,
+                  "value": "arithmetic_constant",
+                  "impurity": 0.0,
+                  "n_samples": 1,
+                  "is_leaf": true
+                }
+              }
+            },
+            "right": {
+              "feature_idx": 20,
+              "threshold": 0.11255,
+              "value": null,
+              "impurity": 0.44898,
+              "n_samples": 7,
+              "is_leaf": false,
+              "left": {
+                "feature_idx": 4,
+                "threshold": 21.0,
+                "value": null,
+                "impurity": 0.5,
+                "n_samples": 2,
+                "is_leaf": false,
+                "left": {
+                  "feature_idx": null,
+                  "threshold": null,
+                  "value": "tailcall_simplify",
+                  "impurity": 0.0,
+                  "n_samples": 1,
+                  "is_leaf": true
+                },
+                "right": {
+                  "feature_idx": null,
+                  "threshold": null,
+                  "value": "code_size_dce",
+                  "impurity": 0.0,
+                  "n_samples": 1,
+                  "is_leaf": true
+                }
+              },
+              "right": {
+                "feature_idx": null,
+                "threshold": null,
+                "value": "memory_redundancy",
+                "impurity": 0.0,
+                "n_samples": 5,
+                "is_leaf": true
+              }
+            }
+          },
+          "right": {
+            "feature_idx": null,
+            "threshold": null,
+            "value": "scalar_cleanup",
+            "impurity": 0.0,
+            "n_samples": 3,
+            "is_leaf": true
+          }
+        }
+      },
+      {
+        "task": "classification",
+        "max_depth": 5,
+        "min_samples_split": 2,
+        "feature_importances": {
+          "0": 0.0,
+          "1": 0.0,
+          "2": 0.0,
+          "3": 0.0,
+          "4": 0.0,
+          "5": 0.077922,
+          "6": 0.0,
+          "7": 0.0,
+          "8": 0.0,
+          "9": 0.178571,
+          "10": 0.0,
+          "11": 0.0,
+          "12": 0.0,
+          "13": 0.0,
+          "14": 0.0,
+          "15": 0.0,
+          "16": 0.0,
+          "17": 0.0,
+          "18": 0.588745,
+          "19": 0.154762,
+          "20": 0.0,
+          "21": 0.0,
+          "22": 0.0
+        },
+        "root": {
+          "feature_idx": 18,
+          "threshold": 1.48665,
+          "value": null,
+          "impurity": 0.56,
+          "n_samples": 15,
+          "is_leaf": false,
+          "left": {
+            "feature_idx": 5,
+            "threshold": 5.0,
+            "value": null,
+            "impurity": 0.31405,
+            "n_samples": 11,
+            "is_leaf": false,
+            "left": {
+              "feature_idx": 19,
+              "threshold": 0.52435,
+              "value": null,
+              "impurity": 0.56,
+              "n_samples": 5,
+              "is_leaf": false,
+              "left": {
+                "feature_idx": null,
+                "threshold": null,
+                "value": "memory_redundancy",
+                "impurity": 0.0,
+                "n_samples": 1,
+                "is_leaf": true
+              },
+              "right": {
+                "feature_idx": 9,
+                "threshold": 9.5,
+                "value": null,
+                "impurity": 0.375,
+                "n_samples": 4,
+                "is_leaf": false,
+                "left": {
+                  "feature_idx": null,
+                  "threshold": null,
+                  "value": "arithmetic_constant",
+                  "impurity": 0.0,
+                  "n_samples": 3,
+                  "is_leaf": true
+                },
+                "right": {
+                  "feature_idx": null,
+                  "threshold": null,
+                  "value": "scalar_cleanup",
+                  "impurity": 0.0,
+                  "n_samples": 1,
+                  "is_leaf": true
+                }
+              }
+            },
+            "right": {
+              "feature_idx": null,
+              "threshold": null,
+              "value": "arithmetic_constant",
+              "impurity": 0.0,
+              "n_samples": 6,
+              "is_leaf": true
+            }
+          },
+          "right": {
+            "feature_idx": null,
+            "threshold": null,
+            "value": "tailcall_simplify",
+            "impurity": 0.0,
+            "n_samples": 4,
+            "is_leaf": true
+          }
+        }
+      },
+      {
+        "task": "classification",
+        "max_depth": 5,
+        "min_samples_split": 2,
+        "feature_importances": {
+          "0": 0.0,
+          "1": 0.166667,
+          "2": 0.0,
+          "3": 0.0,
+          "4": 0.411325,
+          "5": 0.0,
+          "6": 0.0,
+          "7": 0.144231,
+          "8": 0.0,
+          "9": 0.0,
+          "10": 0.0,
+          "11": 0.0,
+          "12": 0.0,
+          "13": 0.0,
+          "14": 0.0,
+          "15": 0.0,
+          "16": 0.0,
+          "17": 0.0,
+          "18": 0.128205,
+          "19": 0.0,
+          "20": 0.0,
+          "21": 0.149573,
+          "22": 0.0
+        },
+        "root": {
+          "feature_idx": 1,
+          "threshold": 23.5,
+          "value": null,
+          "impurity": 0.693333,
+          "n_samples": 15,
+          "is_leaf": false,
+          "left": {
+            "feature_idx": 21,
+            "threshold": 0.9468000000000001,
+            "value": null,
+            "impurity": 0.611111,
+            "n_samples": 12,
+            "is_leaf": false,
+            "left": {
+              "feature_idx": 4,
+              "threshold": 15.0,
+              "value": null,
+              "impurity": 0.641975,
+              "n_samples": 9,
+              "is_leaf": false,
+              "left": {
+                "feature_idx": 4,
+                "threshold": 11.5,
+                "value": null,
+                "impurity": 0.611111,
+                "n_samples": 6,
+                "is_leaf": false,
+                "left": {
+                  "feature_idx": 7,
+                  "threshold": 7.5,
+                  "value": null,
+                  "impurity": 0.375,
+                  "n_samples": 4,
                   "is_leaf": false,
                   "left": {
                     "feature_idx": null,
@@ -3274,7 +2470,7 @@
                     "threshold": null,
                     "value": "tailcall_simplify",
                     "impurity": 0.0,
-                    "n_samples": 1,
+                    "n_samples": 3,
                     "is_leaf": true
                   }
                 },
@@ -3299,10 +2495,718 @@
             "right": {
               "feature_idx": null,
               "threshold": null,
+              "value": "tailcall_simplify",
+              "impurity": 0.0,
+              "n_samples": 3,
+              "is_leaf": true
+            }
+          },
+          "right": {
+            "feature_idx": 18,
+            "threshold": 1.80705,
+            "value": null,
+            "impurity": 0.444444,
+            "n_samples": 3,
+            "is_leaf": false,
+            "left": {
+              "feature_idx": null,
+              "threshold": null,
+              "value": "code_size_dce",
+              "impurity": 0.0,
+              "n_samples": 1,
+              "is_leaf": true
+            },
+            "right": {
+              "feature_idx": null,
+              "threshold": null,
+              "value": "memory_redundancy",
+              "impurity": 0.0,
+              "n_samples": 2,
+              "is_leaf": true
+            }
+          }
+        }
+      },
+      {
+        "task": "classification",
+        "max_depth": 5,
+        "min_samples_split": 2,
+        "feature_importances": {
+          "0": 0.0,
+          "1": 0.0,
+          "2": 0.0,
+          "3": 0.0,
+          "4": 0.0,
+          "5": 0.0,
+          "6": 0.0,
+          "7": 0.0,
+          "8": 0.246305,
+          "9": 0.0,
+          "10": 0.0,
+          "11": 0.0,
+          "12": 0.0,
+          "13": 0.0,
+          "14": 0.0,
+          "15": 0.0,
+          "16": 0.0,
+          "17": 0.0,
+          "18": 0.091954,
+          "19": 0.301108,
+          "20": 0.114943,
+          "21": 0.24569,
+          "22": 0.0
+        },
+        "root": {
+          "feature_idx": 19,
+          "threshold": 0.5702,
+          "value": null,
+          "impurity": 0.773333,
+          "n_samples": 15,
+          "is_leaf": false,
+          "left": {
+            "feature_idx": 21,
+            "threshold": 0.8959,
+            "value": null,
+            "impurity": 0.65625,
+            "n_samples": 8,
+            "is_leaf": false,
+            "left": {
+              "feature_idx": 18,
+              "threshold": 1.4762499999999998,
+              "value": null,
+              "impurity": 0.48,
+              "n_samples": 5,
+              "is_leaf": false,
+              "left": {
+                "feature_idx": 20,
+                "threshold": 0.14484999999999998,
+                "value": null,
+                "impurity": 0.444444,
+                "n_samples": 3,
+                "is_leaf": false,
+                "left": {
+                  "feature_idx": null,
+                  "threshold": null,
+                  "value": "tailcall_simplify",
+                  "impurity": 0.0,
+                  "n_samples": 1,
+                  "is_leaf": true
+                },
+                "right": {
+                  "feature_idx": null,
+                  "threshold": null,
+                  "value": "scalar_cleanup",
+                  "impurity": 0.0,
+                  "n_samples": 2,
+                  "is_leaf": true
+                }
+              },
+              "right": {
+                "feature_idx": null,
+                "threshold": null,
+                "value": "tailcall_simplify",
+                "impurity": 0.0,
+                "n_samples": 2,
+                "is_leaf": true
+              }
+            },
+            "right": {
+              "feature_idx": null,
+              "threshold": null,
+              "value": "arithmetic_constant",
+              "impurity": 0.0,
+              "n_samples": 3,
+              "is_leaf": true
+            }
+          },
+          "right": {
+            "feature_idx": 8,
+            "threshold": 23.0,
+            "value": null,
+            "impurity": 0.408163,
+            "n_samples": 7,
+            "is_leaf": false,
+            "left": {
+              "feature_idx": null,
+              "threshold": null,
+              "value": "memory_redundancy",
+              "impurity": 0.0,
+              "n_samples": 5,
+              "is_leaf": true
+            },
+            "right": {
+              "feature_idx": null,
+              "threshold": null,
+              "value": "code_size_dce",
+              "impurity": 0.0,
+              "n_samples": 2,
+              "is_leaf": true
+            }
+          }
+        }
+      },
+      {
+        "task": "classification",
+        "max_depth": 5,
+        "min_samples_split": 2,
+        "feature_importances": {
+          "0": 0.0,
+          "1": 0.203313,
+          "2": 0.0,
+          "3": 0.0,
+          "4": 0.0,
+          "5": 0.045181,
+          "6": 0.0,
+          "7": 0.0,
+          "8": 0.0,
+          "9": 0.0,
+          "10": 0.090361,
+          "11": 0.0,
+          "12": 0.0,
+          "13": 0.0,
+          "14": 0.0,
+          "15": 0.309811,
+          "16": 0.0,
+          "17": 0.0,
+          "18": 0.0,
+          "19": 0.0,
+          "20": 0.351334,
+          "21": 0.0,
+          "22": 0.0
+        },
+        "root": {
+          "feature_idx": 20,
+          "threshold": 0.1247,
+          "value": null,
+          "impurity": 0.737778,
+          "n_samples": 15,
+          "is_leaf": false,
+          "left": {
+            "feature_idx": 1,
+            "threshold": 22.0,
+            "value": null,
+            "impurity": 0.46875,
+            "n_samples": 8,
+            "is_leaf": false,
+            "left": {
+              "feature_idx": 5,
+              "threshold": 3.5,
+              "value": null,
+              "impurity": 0.375,
+              "n_samples": 4,
+              "is_leaf": false,
+              "left": {
+                "feature_idx": null,
+                "threshold": null,
+                "value": "tailcall_simplify",
+                "impurity": 0.0,
+                "n_samples": 2,
+                "is_leaf": true
+              },
+              "right": {
+                "feature_idx": 10,
+                "threshold": 3.0,
+                "value": null,
+                "impurity": 0.5,
+                "n_samples": 2,
+                "is_leaf": false,
+                "left": {
+                  "feature_idx": null,
+                  "threshold": null,
+                  "value": "arithmetic_constant",
+                  "impurity": 0.0,
+                  "n_samples": 1,
+                  "is_leaf": true
+                },
+                "right": {
+                  "feature_idx": null,
+                  "threshold": null,
+                  "value": "tailcall_simplify",
+                  "impurity": 0.0,
+                  "n_samples": 1,
+                  "is_leaf": true
+                }
+              }
+            },
+            "right": {
+              "feature_idx": null,
+              "threshold": null,
+              "value": "arithmetic_constant",
+              "impurity": 0.0,
+              "n_samples": 4,
+              "is_leaf": true
+            }
+          },
+          "right": {
+            "feature_idx": 15,
+            "threshold": 2.5,
+            "value": null,
+            "impurity": 0.489796,
+            "n_samples": 7,
+            "is_leaf": false,
+            "left": {
+              "feature_idx": null,
+              "threshold": null,
+              "value": "memory_redundancy",
+              "impurity": 0.0,
+              "n_samples": 4,
+              "is_leaf": true
+            },
+            "right": {
+              "feature_idx": null,
+              "threshold": null,
+              "value": "scalar_cleanup",
+              "impurity": 0.0,
+              "n_samples": 3,
+              "is_leaf": true
+            }
+          }
+        }
+      },
+      {
+        "task": "classification",
+        "max_depth": 5,
+        "min_samples_split": 2,
+        "feature_importances": {
+          "0": 0.0,
+          "1": 0.0,
+          "2": 0.0,
+          "3": 0.243902,
+          "4": 0.0,
+          "5": 0.0,
+          "6": 0.0,
+          "7": 0.0,
+          "8": 0.0,
+          "9": 0.0,
+          "10": 0.0,
+          "11": 0.0,
+          "12": 0.0,
+          "13": 0.0,
+          "14": 0.0,
+          "15": 0.0,
+          "16": 0.253049,
+          "17": 0.35061,
+          "18": 0.0,
+          "19": 0.0,
+          "20": 0.0,
+          "21": 0.152439,
+          "22": 0.0
+        },
+        "root": {
+          "feature_idx": 16,
+          "threshold": 3.0,
+          "value": null,
+          "impurity": 0.728889,
+          "n_samples": 15,
+          "is_leaf": false,
+          "left": {
+            "feature_idx": 17,
+            "threshold": 56.5,
+            "value": null,
+            "impurity": 0.680556,
+            "n_samples": 12,
+            "is_leaf": false,
+            "left": {
+              "feature_idx": 21,
+              "threshold": 0.9468000000000001,
+              "value": null,
+              "impurity": 0.277778,
+              "n_samples": 6,
+              "is_leaf": false,
+              "left": {
+                "feature_idx": null,
+                "threshold": null,
+                "value": "arithmetic_constant",
+                "impurity": 0.0,
+                "n_samples": 5,
+                "is_leaf": true
+              },
+              "right": {
+                "feature_idx": null,
+                "threshold": null,
+                "value": "tailcall_simplify",
+                "impurity": 0.0,
+                "n_samples": 1,
+                "is_leaf": true
+              }
+            },
+            "right": {
+              "feature_idx": 3,
+              "threshold": 6.5,
+              "value": null,
+              "impurity": 0.444444,
+              "n_samples": 6,
+              "is_leaf": false,
+              "left": {
+                "feature_idx": null,
+                "threshold": null,
+                "value": "memory_redundancy",
+                "impurity": 0.0,
+                "n_samples": 4,
+                "is_leaf": true
+              },
+              "right": {
+                "feature_idx": null,
+                "threshold": null,
+                "value": "code_size_dce",
+                "impurity": 0.0,
+                "n_samples": 2,
+                "is_leaf": true
+              }
+            }
+          },
+          "right": {
+            "feature_idx": null,
+            "threshold": null,
+            "value": "tailcall_simplify",
+            "impurity": 0.0,
+            "n_samples": 3,
+            "is_leaf": true
+          }
+        }
+      },
+      {
+        "task": "classification",
+        "max_depth": 5,
+        "min_samples_split": 2,
+        "feature_importances": {
+          "0": 0.0,
+          "1": 0.0,
+          "2": 0.107143,
+          "3": 0.0,
+          "4": 0.0,
+          "5": 0.107143,
+          "6": 0.0,
+          "7": 0.0,
+          "8": 0.0,
+          "9": 0.0,
+          "10": 0.0,
+          "11": 0.0,
+          "12": 0.107143,
+          "13": 0.333333,
+          "14": 0.0,
+          "15": 0.0,
+          "16": 0.0,
+          "17": 0.0,
+          "18": 0.0,
+          "19": 0.0,
+          "20": 0.0,
+          "21": 0.345238,
+          "22": 0.0
+        },
+        "root": {
+          "feature_idx": 21,
+          "threshold": 0.89775,
+          "value": null,
+          "impurity": 0.622222,
+          "n_samples": 15,
+          "is_leaf": false,
+          "left": {
+            "feature_idx": 13,
+            "threshold": 4.5,
+            "value": null,
+            "impurity": 0.345679,
+            "n_samples": 9,
+            "is_leaf": false,
+            "left": {
+              "feature_idx": null,
+              "threshold": null,
+              "value": "tailcall_simplify",
+              "impurity": 0.0,
+              "n_samples": 7,
+              "is_leaf": true
+            },
+            "right": {
+              "feature_idx": null,
+              "threshold": null,
               "value": "scalar_cleanup",
               "impurity": 0.0,
               "n_samples": 2,
               "is_leaf": true
+            }
+          },
+          "right": {
+            "feature_idx": 5,
+            "threshold": 5.0,
+            "value": null,
+            "impurity": 0.5,
+            "n_samples": 6,
+            "is_leaf": false,
+            "left": {
+              "feature_idx": null,
+              "threshold": null,
+              "value": "arithmetic_constant",
+              "impurity": 0.0,
+              "n_samples": 3,
+              "is_leaf": true
+            },
+            "right": {
+              "feature_idx": 2,
+              "threshold": 1.5,
+              "value": null,
+              "impurity": 0.666667,
+              "n_samples": 3,
+              "is_leaf": false,
+              "left": {
+                "feature_idx": null,
+                "threshold": null,
+                "value": "tailcall_simplify",
+                "impurity": 0.0,
+                "n_samples": 1,
+                "is_leaf": true
+              },
+              "right": {
+                "feature_idx": 12,
+                "threshold": 15.0,
+                "value": null,
+                "impurity": 0.5,
+                "n_samples": 2,
+                "is_leaf": false,
+                "left": {
+                  "feature_idx": null,
+                  "threshold": null,
+                  "value": "arithmetic_constant",
+                  "impurity": 0.0,
+                  "n_samples": 1,
+                  "is_leaf": true
+                },
+                "right": {
+                  "feature_idx": null,
+                  "threshold": null,
+                  "value": "memory_redundancy",
+                  "impurity": 0.0,
+                  "n_samples": 1,
+                  "is_leaf": true
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "task": "classification",
+        "max_depth": 5,
+        "min_samples_split": 2,
+        "feature_importances": {
+          "0": 0.0,
+          "1": 0.0,
+          "2": 0.0,
+          "3": 0.0,
+          "4": 0.164609,
+          "5": 0.0,
+          "6": 0.0,
+          "7": 0.0,
+          "8": 0.0,
+          "9": 0.0,
+          "10": 0.0,
+          "11": 0.0,
+          "12": 0.0,
+          "13": 0.0,
+          "14": 0.0,
+          "15": 0.0,
+          "16": 0.228208,
+          "17": 0.22138,
+          "18": 0.0,
+          "19": 0.0,
+          "20": 0.246914,
+          "21": 0.0,
+          "22": 0.138889
+        },
+        "root": {
+          "feature_idx": 17,
+          "threshold": 74.5,
+          "value": null,
+          "impurity": 0.72,
+          "n_samples": 15,
+          "is_leaf": false,
+          "left": {
+            "feature_idx": 16,
+            "threshold": 2.5,
+            "value": null,
+            "impurity": 0.628099,
+            "n_samples": 11,
+            "is_leaf": false,
+            "left": {
+              "feature_idx": 4,
+              "threshold": 20.5,
+              "value": null,
+              "impurity": 0.493827,
+              "n_samples": 9,
+              "is_leaf": false,
+              "left": {
+                "feature_idx": 20,
+                "threshold": 0.11895,
+                "value": null,
+                "impurity": 0.444444,
+                "n_samples": 6,
+                "is_leaf": false,
+                "left": {
+                  "feature_idx": null,
+                  "threshold": null,
+                  "value": "tailcall_simplify",
+                  "impurity": 0.0,
+                  "n_samples": 4,
+                  "is_leaf": true
+                },
+                "right": {
+                  "feature_idx": null,
+                  "threshold": null,
+                  "value": "arithmetic_constant",
+                  "impurity": 0.0,
+                  "n_samples": 2,
+                  "is_leaf": true
+                }
+              },
+              "right": {
+                "feature_idx": null,
+                "threshold": null,
+                "value": "arithmetic_constant",
+                "impurity": 0.0,
+                "n_samples": 3,
+                "is_leaf": true
+              }
+            },
+            "right": {
+              "feature_idx": null,
+              "threshold": null,
+              "value": "scalar_cleanup",
+              "impurity": 0.0,
+              "n_samples": 2,
+              "is_leaf": true
+            }
+          },
+          "right": {
+            "feature_idx": 22,
+            "threshold": 0.01515,
+            "value": null,
+            "impurity": 0.375,
+            "n_samples": 4,
+            "is_leaf": false,
+            "left": {
+              "feature_idx": null,
+              "threshold": null,
+              "value": "memory_redundancy",
+              "impurity": 0.0,
+              "n_samples": 3,
+              "is_leaf": true
+            },
+            "right": {
+              "feature_idx": null,
+              "threshold": null,
+              "value": "tailcall_simplify",
+              "impurity": 0.0,
+              "n_samples": 1,
+              "is_leaf": true
+            }
+          }
+        }
+      },
+      {
+        "task": "classification",
+        "max_depth": 5,
+        "min_samples_split": 2,
+        "feature_importances": {
+          "0": 0.0,
+          "1": 0.0,
+          "2": 0.0,
+          "3": 0.0,
+          "4": 0.0,
+          "5": 0.125,
+          "6": 0.0,
+          "7": 0.0,
+          "8": 0.0,
+          "9": 0.125,
+          "10": 0.0,
+          "11": 0.0,
+          "12": 0.0,
+          "13": 0.0,
+          "14": 0.0,
+          "15": 0.333333,
+          "16": 0.0,
+          "17": 0.260417,
+          "18": 0.15625,
+          "19": 0.0,
+          "20": 0.0,
+          "21": 0.0,
+          "22": 0.0
+        },
+        "root": {
+          "feature_idx": 17,
+          "threshold": 69.5,
+          "value": null,
+          "impurity": 0.711111,
+          "n_samples": 15,
+          "is_leaf": false,
+          "left": {
+            "feature_idx": 15,
+            "threshold": 2.5,
+            "value": null,
+            "impurity": 0.691358,
+            "n_samples": 9,
+            "is_leaf": false,
+            "left": {
+              "feature_idx": 5,
+              "threshold": 5.0,
+              "value": null,
+              "impurity": 0.444444,
+              "n_samples": 6,
+              "is_leaf": false,
+              "left": {
+                "feature_idx": 9,
+                "threshold": 4.5,
+                "value": null,
+                "impurity": 0.444444,
+                "n_samples": 3,
+                "is_leaf": false,
+                "left": {
+                  "feature_idx": null,
+                  "threshold": null,
+                  "value": "arithmetic_constant",
+                  "impurity": 0.0,
+                  "n_samples": 1,
+                  "is_leaf": true
+                },
+                "right": {
+                  "feature_idx": null,
+                  "threshold": null,
+                  "value": "memory_redundancy",
+                  "impurity": 0.0,
+                  "n_samples": 2,
+                  "is_leaf": true
+                }
+              },
+              "right": {
+                "feature_idx": null,
+                "threshold": null,
+                "value": "arithmetic_constant",
+                "impurity": 0.0,
+                "n_samples": 3,
+                "is_leaf": true
+              }
+            },
+            "right": {
+              "feature_idx": 15,
+              "threshold": 3.5,
+              "value": null,
+              "impurity": 0.444444,
+              "n_samples": 3,
+              "is_leaf": false,
+              "left": {
+                "feature_idx": null,
+                "threshold": null,
+                "value": "scalar_cleanup",
+                "impurity": 0.0,
+                "n_samples": 2,
+                "is_leaf": true
+              },
+              "right": {
+                "feature_idx": null,
+                "threshold": null,
+                "value": "tailcall_simplify",
+                "impurity": 0.0,
+                "n_samples": 1,
+                "is_leaf": true
+              }
             }
           },
           "right": {

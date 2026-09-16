@@ -80,12 +80,12 @@ class Visualizer:
         for (k1, v1), (k2, v2) in zip(col1, col2):
             v1_str = f"{v1:.0f}" if v1.is_integer() else f"{v1:.4f}"
             v2_str = f"{v2:.0f}" if v2.is_integer() else f"{v2:.4f}"
-            lines.append(f"  • {k1:<20} {v1_str:>8}    │  • {k2:<20} {v2_str:>8}")
+            lines.append(f"  * {k1:<20} {v1_str:>8}    |  * {k2:<20} {v2_str:>8}")
 
         # If odd number of features
         if len(col1) > len(col2):
             k1, v1 = col1[-1]
             v1_str = f"{v1:.0f}" if v1.is_integer() else f"{v1:.4f}"
-            lines.append(f"  • {k1:<20} {v1_str:>8}")
+            lines.append(f"  * {k1:<20} {v1_str:>8}")
 
         return "\n".join(lines)

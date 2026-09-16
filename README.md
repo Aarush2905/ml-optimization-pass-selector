@@ -190,18 +190,20 @@ ml-optimization-pass-selector/
 - **Clang & LLVM 14**: `sudo apt install clang-14 llvm-14`
 - **Python 3.8+** (standard library only; no external pip packages required)
 
-### 1. Run End-to-End ML Optimization on a Program
+### 1. Launch Interactive Web Dashboard Frontend
 ```bash
-./run_optimizer --input tests/sample.c --strategy ml
+python3 src/main.py --web
 ```
-Or use python directly:
+*Launches an interactive, browser-based dashboard at `http://localhost:8080` featuring live single-program optimization, benchmark suite charts, ML feature importances, and pass ordering search.*
+
+### 2. Run End-to-End ML Optimization on a Program (CLI)
 ```bash
 python3 src/main.py --input tests/programs/matrix_multiply.c --strategy ml
 ```
 
-### 2. Run Pass Ordering Exploration (Beam Search & Order Permutations)
+### 3. Run Pass Ordering Exploration (Beam Search & Order Permutations)
 ```bash
-./run_optimizer --input tests/sample.c --explore-ordering
+python3 src/main.py --input tests/sample.c --explore-ordering
 ```
 
 ### 3. Re-train the Machine Learning Model

@@ -67,17 +67,19 @@ flowchart TD
   - **Control flow**: `branch_count`, `cond_branch_count`, `uncond_branch_count`.
   - **Structural ratios**: `load_store_ratio`, `mem_to_total_ratio`, `arith_to_total_ratio`, `branch_to_bb_ratio`, `phi_to_bb_ratio`.
 
-### 2.3 Pass Pool & Sequence Exploration (`src/optimization/`)
-- **`pass_pool.py`**: Declares 16 verified LLVM 14 passes across scalar cleanup, loop transforms, redundancy elimination, and control flow.
-- **`sequence_generator.py`**: Manages coherent strategies:
-  - `scalar_cleanup`: `mem2reg,instcombine,simplifycfg`
-  - `arithmetic_constant`: `mem2reg,instcombine,reassociate,sccp,dce`
-  - `loop_intensive`: `mem2reg,loop-rotate,licm,loop-unroll,instcombine,simplifycfg`
-  - `memory_redundancy`: `mem2reg,gvn,dse,instcombine,simplifycfg`
-  - `code_size_dce`: `mem2reg,simplifycfg,instcombine,dce,adce`
-  - `tailcall_simplify`: `mem2reg,tailcallelim,simplifycfg,instcombine,dce`
-- **`ordering_search.py` (`PassOrderingExplorer`)**:
-  - Implements Beam Search (Depth $D=4$, Beam Width $B=2$) over the pass pool.
+### 2.4 Machine Learning Engine (`src/ml/`)
+- **`decision_tree.py`**: Pure Python CART Decision Tree classifier implementing Gini Impurity split criteria.
+- **`random_forest.py`**: Ensemble Random Forest with bootstrap aggregating (bagging) and feature sub-sampling.
+- **`model_wrapper.py`**: Serializes trained weights to JSON and provides feature vector normalization and inference.
+
+### 2.5 Web Dashboard & REST API (`src/web/`)
+- **`server.py` (`WebDashboardHandler`)**:
+  - Built with standard library `http.server` (zero external pip requirements).
+  - Provides REST API endpoints (`/api/optimize`, `/api/programs`, `/api/baseline_summary`, `/api/dataset`, `/api/ordering`).
+  - Automatically opens default browser to `http://localhost:8080`.
+- **Frontend SPA (`src/web/static/`)**:
+  - Interactive HTML5/CSS3/JS single page application featuring live optimization pipeline, 23-feature metrics display, Chart.js multi-program comparisons, feature importance visualizer, and LLVM IR code diff viewer.
+
   - Implements permutation ordering sensitivity analysis to measure instruction reduction under different pass orders.
 
 ### 2.4 Machine Learning Engine (`src/ml/`)

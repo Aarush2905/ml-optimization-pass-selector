@@ -19,11 +19,17 @@ class BenchmarkEngine:
         self.warmup_runs = warmup_runs
         self.timeout_sec = timeout_sec
 
+    def _resolve_binary_path(self, binary_path: str) -> str:
+        if not os.path.exists(binary_path) and os.path.exists(binary_path + ".exe"):
+            return binary_path + ".exe"
+        return binary_path
+
     def measure_binary_size(self, binary_path: str) -> int:
         """Returns the file size of the executable in bytes."""
-        if not os.path.exists(binary_path):
+        resolved = self._resolve_binary_path(binary_path)
+        if not os.path.exists(resolved):
             return 0
-        return os.path.getsize(binary_path)
+        return os.path.getsize(resolved)
 
     def measure_ir_metrics(self, ir_path: str) -> Dict[str, int]:
         """Counts text lines and non-comment instructions in an LLVM IR file."""
@@ -46,6 +52,7 @@ class BenchmarkEngine:
         Executes the binary across multiple iterations and computes timing statistics.
         Returns time in milliseconds (ms).
         """
+        binary_path = self._resolve_binary_path(binary_path)
         if not os.path.exists(binary_path):
             return {
                 "success": False,

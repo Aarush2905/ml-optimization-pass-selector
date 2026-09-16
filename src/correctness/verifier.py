@@ -20,13 +20,16 @@ class CorrectnessVerifier:
         Executes a binary and captures exit code, stdout, and stderr.
         """
         if not os.path.exists(binary_path):
-            return {
-                "success": False,
-                "exit_code": -1,
-                "stdout": "",
-                "stderr": f"Binary not found: {binary_path}",
-                "error": "not_found"
-            }
+            if os.path.exists(binary_path + ".exe"):
+                binary_path = binary_path + ".exe"
+            else:
+                return {
+                    "success": False,
+                    "exit_code": -1,
+                    "stdout": "",
+                    "stderr": f"Binary not found: {binary_path}",
+                    "error": "not_found"
+                }
 
         try:
             res = subprocess.run(
