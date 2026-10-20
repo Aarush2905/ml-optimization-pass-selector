@@ -59,7 +59,10 @@ class IRFeatureExtractor:
         "mem_to_total_ratio",
         "arith_to_total_ratio",
         "branch_to_bb_ratio",
-        "phi_to_bb_ratio"
+        "phi_to_bb_ratio",
+        # Structural features (call graph / per-function CFG)
+        "is_recursive",
+        "max_branch_depth"
     ]
 
     def __init__(self):
@@ -106,6 +109,15 @@ class IRFeatureExtractor:
         bb_order: List[str] = []
         cfg_successors: Dict[str, Set[str]] = {}
 
+        # Per-function CFG and call graph (block labels like %4 repeat across functions)
+        current_func: Optional[str] = None
+        func_cfgs: Dict[str, Dict[str, Set[str]]] = {}
+        func_entry: Dict[str, str] = {}
+        func_cond_blocks: Dict[str, Set[str]] = {}
+        call_graph: Dict[str, Set[str]] = {}
+        entry_has_inst = False
+        in_switch = False  # inside the "[ ... ]" case list of a multi-line switch
+
         for line in lines:
             stripped = line.strip()
 
@@ -121,11 +133,21 @@ class IRFeatureExtractor:
                 bb_order.append(current_bb)
                 cfg_successors[current_bb] = set()
                 basic_block_count += 1
+
+                name_match = re.search(r"@([\w\.\$\"-]+)\s*\(", stripped)
+                current_func = name_match.group(1).strip('"') if name_match else f"__func{function_count}"
+                func_cfgs[current_func] = {"entry": set()}
+                func_entry[current_func] = "entry"
+                func_cond_blocks[current_func] = set()
+                call_graph.setdefault(current_func, set())
+                entry_has_inst = False
                 continue
 
             if stripped == "}":
                 in_function = False
+                in_switch = False
                 current_bb = None
+                current_func = None
                 continue
 
             if not in_function:
@@ -139,11 +161,33 @@ class IRFeatureExtractor:
                 bb_order.append(current_bb)
                 cfg_successors[current_bb] = set()
                 basic_block_count += 1
+
+                if current_func:
+                    fcfg = func_cfgs[current_func]
+                    # An explicit first label replaces the empty implicit entry block
+                    if not entry_has_inst and func_entry[current_func] == "entry" and len(fcfg) == 1:
+                        del fcfg["entry"]
+                        func_entry[current_func] = current_bb
+                    fcfg.setdefault(current_bb, set())
+                    entry_has_inst = True
                 continue
 
             # Strip inline comments for instruction parsing
             inst_code = stripped.split(";")[0].strip()
             if not inst_code:
+                continue
+            entry_has_inst = True
+
+            # Case lines of a multi-line switch ("i32 0, label %8" ... "]") are
+            # successor edges of the switch, not separate instructions
+            if in_switch:
+                targets = re.findall(r"label\s+%([a-zA-Z0-9_\.]+)", inst_code)
+                if current_bb:
+                    cfg_successors[current_bb].update(targets)
+                    if current_func:
+                        func_cfgs[current_func].setdefault(current_bb, set()).update(targets)
+                if "]" in inst_code:
+                    in_switch = False
                 continue
 
             # Instruction token parsing
@@ -224,6 +268,21 @@ class IRFeatureExtractor:
                 if current_bb:
                     for tgt in targets:
                         cfg_successors[current_bb].add(tgt)
+                if "[" in inst_code and "]" not in inst_code:
+                    in_switch = True
+
+            if current_func and current_bb:
+                # Per-function CFG edges for branch-depth analysis
+                if opcode in ("br", "switch"):
+                    targets = re.findall(r"label\s+%([a-zA-Z0-9_\.]+)", inst_code)
+                    func_cfgs[current_func].setdefault(current_bb, set()).update(targets)
+                    if opcode == "switch" or (len(tokens) > 1 and tokens[1].startswith("i1")):
+                        func_cond_blocks[current_func].add(current_bb)
+                # Direct call edges for recursion detection
+                elif re.search(r"\b(call|invoke)\b", right_hand):
+                    callee = re.search(r"@([\w\.\$\"-]+)\s*\(", right_hand)
+                    if callee:
+                        call_graph[current_func].add(callee.group(1).strip('"'))
 
         # Estimate loop count by detecting back-edges in CFG
         # A back-edge is an edge from u to v where v appears at or before u in topological/natural order
@@ -252,6 +311,12 @@ class IRFeatureExtractor:
         branch_to_bb_ratio = float(branch_count) / total_bb
         phi_to_bb_ratio = float(phi_count) / total_bb
 
+        is_recursive = self._has_recursion(call_graph)
+        max_branch_depth = 0
+        for fname, fcfg in func_cfgs.items():
+            depth = self._max_branch_depth(fcfg, func_entry[fname], func_cond_blocks[fname])
+            max_branch_depth = max(max_branch_depth, depth)
+
         features = {
             "instruction_count": float(instruction_count),
             "basic_block_count": float(basic_block_count),
@@ -276,9 +341,70 @@ class IRFeatureExtractor:
             "arith_to_total_ratio": round(arith_to_total_ratio, 4),
             "branch_to_bb_ratio": round(branch_to_bb_ratio, 4),
             "phi_to_bb_ratio": round(phi_to_bb_ratio, 4),
+            "is_recursive": float(is_recursive),
+            "max_branch_depth": float(max_branch_depth),
         }
 
         return features
+
+    @staticmethod
+    def _has_recursion(call_graph: Dict[str, Set[str]]) -> bool:
+        """True if any defined function can reach itself through direct calls (self or mutual recursion)."""
+        for start in call_graph:
+            stack = list(call_graph[start])
+            seen: Set[str] = set()
+            while stack:
+                fn = stack.pop()
+                if fn == start:
+                    return True
+                if fn in seen or fn not in call_graph:
+                    continue
+                seen.add(fn)
+                stack.extend(call_graph[fn])
+        return False
+
+    @staticmethod
+    def _max_branch_depth(cfg: Dict[str, Set[str]], entry: str, cond_blocks: Set[str]) -> int:
+        """
+        Largest number of conditional branches along any acyclic path from the entry block.
+        Back-edges (loop latches) are discovered via DFS and ignored so the CFG becomes a DAG.
+        """
+        if entry not in cfg:
+            return 0
+
+        # Iterative DFS: record post-order and back-edges (edges to a node still on the stack)
+        post_order: List[str] = []
+        back_edges: Set[tuple] = set()
+        state: Dict[str, int] = {entry: 1}  # 1 = on stack, 2 = finished
+        stack = [(entry, iter(sorted(cfg.get(entry, ()))))]
+        while stack:
+            node, succ_iter = stack[-1]
+            advanced = False
+            for succ in succ_iter:
+                if succ not in cfg:
+                    continue
+                s = state.get(succ, 0)
+                if s == 1:
+                    back_edges.add((node, succ))
+                elif s == 0:
+                    state[succ] = 1
+                    stack.append((succ, iter(sorted(cfg.get(succ, ())))))
+                    advanced = True
+                    break
+            if not advanced:
+                state[node] = 2
+                post_order.append(node)
+                stack.pop()
+
+        # Longest path on the DAG; post-order visits successors before predecessors
+        depth: Dict[str, int] = {}
+        for node in post_order:
+            best = 0
+            for succ in cfg.get(node, ()):
+                if succ in depth and (node, succ) not in back_edges:
+                    best = max(best, depth[succ])
+            depth[node] = best + (1 if node in cond_blocks else 0)
+        return depth.get(entry, 0)
 
     def to_feature_vector(self, features: Dict[str, float]) -> List[float]:
         """Converts feature dictionary to an ordered list of floats for ML models."""

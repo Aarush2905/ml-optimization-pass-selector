@@ -44,6 +44,14 @@ class TestLLVMPassRunner(unittest.TestCase):
         ok, _ = self.pass_runner.run_passes("tests/does_not_exist.ll", out_ir, ["dce"])
         self.assertFalse(ok)
 
+    def test_licm_wrapped_in_loop_mssa(self):
+        # LLVM 14 new PM rejects a bare "licm"; it must run inside loop-mssa(...)
+        self.assertEqual(
+            PassRunner._normalize_passes(["mem2reg", "loop-rotate", "licm", "instcombine"]),
+            "mem2reg,loop-rotate,loop-mssa(licm),instcombine")
+        self.assertEqual(PassRunner._normalize_passes("mem2reg,licm"), "mem2reg,loop-mssa(licm)")
+        self.assertEqual(PassRunner._normalize_passes("default<O2>"), "default<O2>")
+
 
 if __name__ == "__main__":
     unittest.main()

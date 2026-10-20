@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (btn.dataset.tab === "tab-suite") {
         loadBenchmarkSuite();
+        loadFeatureSummary();
       } else if (btn.dataset.tab === "tab-ml") {
         loadMLAnalytics();
       } else if (btn.dataset.tab === "tab-ordering") {
@@ -42,10 +43,18 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+
+  // Feature dimension select change
+  const dimSelect = document.getElementById("feature-dim-select");
+  if (dimSelect) {
+    dimSelect.addEventListener("change", () => renderFeatureSummary(dimSelect.value));
+  }
 });
 
 let speedupChart = null;
 let importanceChart = null;
+let featureChart = null;
+let featureSummaryData = null;
 
 async function loadProgramList() {
   try {
@@ -217,7 +226,7 @@ function renderSuiteCharts(summaryData) {
         datasets: [
           { label: '-O2 Execution Time (ms)', data: o2Times, backgroundColor: '#f59e0b' },
           { label: '-O3 Execution Time (ms)', data: o3Times, backgroundColor: '#6b7280' },
-          { label: 'ML-Selected Execution Time (ms)', data: mlTimes, backgroundColor: '#10b981' }
+          { label: 'ML (leave-one-out) Execution Time (ms)', data: mlTimes, backgroundColor: '#10b981' }
         ]
       },
       options: {
@@ -233,13 +242,73 @@ function renderSuiteCharts(summaryData) {
   }
 }
 
+async function loadFeatureSummary() {
+  try {
+    const res = await fetch("/api/feature_summary");
+    const data = await res.json();
+    featureSummaryData = data.dimensions || {};
+    const select = document.getElementById("feature-dim-select");
+    renderFeatureSummary(select ? select.value : "recursion");
+  } catch (err) {
+    console.error("Failed to load feature summary:", err);
+  }
+}
+
+function renderFeatureSummary(dimension) {
+  const rows = (featureSummaryData && featureSummaryData[dimension]) || [];
+
+  const tbody = document.getElementById("feature-tbody");
+  if (tbody) {
+    tbody.innerHTML = rows.length ? rows.map(r => `
+      <tr>
+        <td><strong>${r.group}</strong></td>
+        <td title="${r.programs.join(', ')}">${r.n_programs}</td>
+        <td>${r.speedup_vs_o0.toFixed(2)}x</td>
+        <td>${r.speedup_vs_o2.toFixed(2)}x</td>
+        <td>${r.speedup_vs_o3.toFixed(2)}x</td>
+        <td>${(r.win_rate_vs_o2 * 100).toFixed(0)}%</td>
+        <td>${(r.win_rate_vs_o3 * 100).toFixed(0)}%</td>
+      </tr>
+    `).join("") : `<tr><td colspan="7">No feature summary yet. Run plots/generate_plots.py.</td></tr>`;
+  }
+
+  if (typeof Chart === 'undefined') return;
+  const ctx = document.getElementById("chart-feature-speedup");
+  if (!ctx) return;
+  if (featureChart) featureChart.destroy();
+  featureChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: rows.map(r => `${r.group} (n=${r.n_programs})`),
+      datasets: [
+        { label: 'Geomean ML Speedup vs -O2', data: rows.map(r => r.speedup_vs_o2), backgroundColor: '#6366f1' },
+        { label: 'Geomean ML Speedup vs -O3', data: rows.map(r => r.speedup_vs_o3), backgroundColor: '#ec4899' }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: { legend: { labels: { color: '#9ca3af', font: { family: 'Inter' } } } },
+      scales: {
+        x: { ticks: { color: '#9ca3af' }, grid: { color: '#1f2937' } },
+        y: { ticks: { color: '#9ca3af' }, grid: { color: '#1f2937' }, beginAtZero: true }
+      }
+    }
+  });
+}
+
 async function loadMLAnalytics() {
   try {
     const res = await fetch("/api/dataset");
     const data = await res.json();
 
-    document.getElementById("total-samples").innerText = data.total_samples || 75;
-    document.getElementById("cv-acc").innerText = `${((data.cv_accuracy || 0.20) * 100).toFixed(1)}%`;
+    document.getElementById("total-samples").innerText = data.total_samples || "-";
+    const samplesSub = document.getElementById("total-samples-sub");
+    if (samplesSub && data.total_programs) {
+      samplesSub.innerText = `${data.total_programs} Programs x ${Math.round(data.total_samples / data.total_programs)} Pass Pipelines`;
+    }
+    document.getElementById("cv-acc").innerText =
+      typeof data.cv_accuracy === "number" ? `${(data.cv_accuracy * 100).toFixed(1)}%` : "-";
 
     if (data.feature_importances && typeof Chart !== 'undefined') {
       const sorted = Object.entries(data.feature_importances).sort((a,b) => b[1] - a[1]);

@@ -5,6 +5,7 @@ Fully transparent and inspectable for Review 2 viva demonstrations.
 """
 
 import math
+import random
 from typing import List, Dict, Any, Optional, Tuple, Union
 
 
@@ -74,12 +75,15 @@ class DecisionTree:
         task: str = "classification",
         max_depth: int = 6,
         min_samples_split: int = 2,
-        max_features: Optional[Union[int, str]] = None
+        max_features: Optional[Union[int, str]] = None,
+        rng: Optional[random.Random] = None
     ):
         self.task = task
         self.max_depth = max_depth
         self.min_samples_split = min_samples_split
         self.max_features = max_features
+        # Seeded generator for feature sub-sampling so training is reproducible
+        self.rng = rng or random.Random(0)
         self.root: Optional[TreeNode] = None
         self.feature_importances_: Dict[int, float] = {}
 
@@ -189,13 +193,12 @@ class DecisionTree:
             )
 
         # Determine feature candidates for split
-        import random
         if isinstance(self.max_features, int):
             k = min(self.max_features, len(feature_indices))
-            candidate_feats = random.sample(feature_indices, k)
+            candidate_feats = self.rng.sample(feature_indices, k)
         elif self.max_features == "sqrt":
             k = max(1, int(math.sqrt(len(feature_indices))))
-            candidate_feats = random.sample(feature_indices, k)
+            candidate_feats = self.rng.sample(feature_indices, k)
         else:
             candidate_feats = feature_indices
 

@@ -13,7 +13,7 @@ Compilers traditionally employ fixed optimization suites (such as LLVM's `-O2` a
 
 Our objective is to formulate a mapping:
 $$\Phi: \mathcal{X} \rightarrow \mathcal{S}$$
-where $\mathcal{X} \in \mathbb{R}^{23}$ is a 23-dimensional static feature vector extracted from the program's unoptimized LLVM IR, and $\mathcal{S}$ is an ordered sequence of LLVM optimization passes $\langle p_1, p_2, \dots, p_k \rangle$ that maximizes runtime speedup and minimizes binary bloat while preserving functional correctness.
+where $\mathcal{X} \in \mathbb{R}^{25}$ is a 25-dimensional static feature vector extracted from the program's unoptimized LLVM IR, and $\mathcal{S}$ is an ordered sequence of LLVM optimization passes $\langle p_1, p_2, \dots, p_k \rangle$ that maximizes runtime speedup and minimizes binary bloat while preserving functional correctness.
 
 ---
 
@@ -86,6 +86,12 @@ To mitigate overfitting on benchmark programs, we train a Bagging ensemble of $M
 ### 4.3 Feature Importance Computation
 The feature importance for feature $j$ is accumulated across all trees in the ensemble:
 $$\text{Imp}(j) = \frac{\sum_{T} \sum_{n \in T : v(n) = j} N_n \cdot \Delta I_G(n)}{\sum_{j'} \text{Total Imp}(j')}$$
+
+### 4.4 Evaluation Protocol
+1. **Labels**: every program is optimized with each of the 7 candidate strategies, each result is verified against the `-O0` reference output, and the fastest verified strategy (median execution time) becomes the program's training label.
+2. **Baselines**: `-O2` and `-O3` are LLVM's `default<O2>` / `default<O3>` pipelines, lowered with `llc -O2` / `llc -O3`. Candidate strategies are lowered with `llc -O2`, so code generation matches the `-O2` baseline.
+3. **ML result (leave-one-out)**: for each of the 30 programs, a Random Forest is trained on the other 29 and predicts the held-out program's strategy. The measured time of that predicted strategy is the reported ML result, so no program is evaluated by a model that was trained on it. The fraction of programs where the prediction equals the label is the LOOCV accuracy.
+4. **Aggregation**: per-program speedups ($t_{\text{baseline}} / t_{\text{ML}}$) are combined with geometric means, both over all programs and within feature groups (recursion, branch depth, loop count, memory intensity, program size).
 
 ---
 

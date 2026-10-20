@@ -110,7 +110,7 @@ def run_pipeline_for_program(
     # Step 4: Run reference O0 baseline
     print(f"\n[Step 4] Compiling and benchmarking baselines vs ML-guided pipeline...")
     ref_binary = os.path.join(work_dir, f"{prog_name}_O0.out")
-    ok, msg = compiler.ir_to_executable(unopt_ir, ref_binary)
+    ok, msg = compiler.ir_to_executable(unopt_ir, ref_binary, codegen_opt="O0")
     if not ok:
         print(f"  [ERROR] Failed to compile reference binary: {msg}")
         sys.exit(1)
@@ -129,7 +129,7 @@ def run_pipeline_for_program(
         opt_ir = os.path.join(work_dir, f"{prog_name}_{level}.ll")
         opt_bin = os.path.join(work_dir, f"{prog_name}_{level}.out")
         pass_runner.run_standard_pipeline(unopt_ir, opt_ir, level=level)
-        compiler.ir_to_executable(opt_ir, opt_bin)
+        compiler.ir_to_executable(opt_ir, opt_bin, codegen_opt=level)
 
         is_corr, _ = verifier.verify(ref_binary, opt_bin)
         perf = benchmark_engine.measure_execution_time(opt_bin)

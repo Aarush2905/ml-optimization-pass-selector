@@ -107,7 +107,7 @@ int main() {
         <!-- Static IR Features -->
         <div class="glass-card">
           <div class="card-header">
-            <h3 class="card-title">Extracted 23 Static IR Program Features</h3>
+            <h3 class="card-title">Extracted 25 Static IR Program Features</h3>
           </div>
           <div id="features-grid" class="features-grid"></div>
         </div>
@@ -154,7 +154,7 @@ int main() {
     <div id="tab-suite" class="tab-content">
       <div class="glass-card">
         <div class="card-header">
-          <h2 class="card-title">15-Program Benchmark Suite Evaluation</h2>
+          <h2 class="card-title">30-Program Benchmark Suite Evaluation</h2>
         </div>
         <div class="chart-container" style="margin-bottom: 2rem;">
           <canvas id="chart-suite-speedup"></canvas>
@@ -166,14 +166,47 @@ int main() {
               <th>-O0 Time</th>
               <th>-O2 Time</th>
               <th>-O3 Time</th>
-              <th>ML-Selected Time</th>
-              <th>ML Strategy</th>
+              <th>ML Time (leave-one-out)</th>
+              <th>ML Strategy (leave-one-out)</th>
               <th>Speedup vs O2</th>
               <th>Speedup vs O3</th>
               <th>Correctness</th>
             </tr>
           </thead>
           <tbody id="suite-tbody"></tbody>
+        </table>
+      </div>
+
+      <div class="glass-card">
+        <div class="card-header">
+          <h2 class="card-title">Results by Program Feature</h2>
+          <select id="feature-dim-select" style="max-width: 240px;">
+            <option value="recursion">Recursion</option>
+            <option value="branch_depth">Branch Depth</option>
+            <option value="loop_count">Loop Count</option>
+            <option value="memory_intensity">Memory Intensity</option>
+            <option value="program_size">Program Size</option>
+          </select>
+        </div>
+        <p style="color: var(--text-secondary); margin-bottom: 1rem; font-size: 0.85rem;">
+          Programs are grouped by static IR features. Speedups are geometric means across the programs in each group (&gt; 1.0x means ML is faster).
+        </p>
+        <div class="chart-container" style="margin-bottom: 2rem;">
+          <canvas id="chart-feature-speedup"></canvas>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Group</th>
+              <th>Programs</th>
+              <th>Geomean Speedup vs O0</th>
+              <th>Geomean Speedup vs O2</th>
+              <th>Geomean Speedup vs O3</th>
+              <th>ML Wins vs O2</th>
+              <th>ML Wins vs O3</th>
+            </tr>
+          </thead>
+          <tbody id="feature-tbody"></tbody>
         </table>
       </div>
     </div>
@@ -183,12 +216,12 @@ int main() {
       <div class="grid-4" style="margin-bottom: 1.5rem;">
         <div class="metric-card">
           <div class="metric-label">Dataset Records</div>
-          <div id="total-samples" class="metric-value">75</div>
-          <div class="metric-sub">15 Programs x 5 Pass Pipelines</div>
+          <div id="total-samples" class="metric-value">-</div>
+          <div id="total-samples-sub" class="metric-sub">Programs x Pass Pipelines</div>
         </div>
         <div class="metric-card">
           <div class="metric-label">CV Accuracy</div>
-          <div id="cv-acc" class="metric-value">20.0%</div>
+          <div id="cv-acc" class="metric-value">-</div>
           <div class="metric-sub">Leave-One-Out Cross-Validation</div>
         </div>
       </div>

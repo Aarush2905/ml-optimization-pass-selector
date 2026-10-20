@@ -85,34 +85,16 @@ class PassSelectorModel:
         correct = sum(1 for p, actual in zip(preds, y) if p == actual)
         accuracy = correct / len(y) if y else 0.0
 
-        # Leave-One-Out Cross-Validation (LOOCV) for rigorous academic reporting
-        loocv_correct = 0
+        # Leave-One-Out Cross-Validation (LOOCV) for rigorous academic reporting.
+        # The per-program LOO predictions are also saved: they are what the model would pick
+        # for a program it has never seen, and are used for the ML results in the reports.
         n_samples = len(X)
+        loo_predictions: Dict[str, str] = {}
         if n_samples > 2:
-            for i in range(n_samples):
-                X_train = [X[j] for j in range(n_samples) if j != i]
-                y_train = [y[j] for j in range(n_samples) if j != i]
-                x_val = [X[i]]
-                y_val = y[i]
-
-                if self.model_type == "random_forest":
-                    fold_model = RandomForest(
-                        task="classification",
-                        n_estimators=self.model.n_estimators,
-                        max_depth=self.model.max_depth,
-                        random_state=42 + i
-                    )
-                else:
-                    fold_model = DecisionTree(
-                        task="classification",
-                        max_depth=self.model.max_depth
-                    )
-                fold_model.fit(X_train, y_train)
-                val_pred = fold_model.predict(x_val)[0]
-                if val_pred == y_val:
-                    loocv_correct += 1
-
+            loo_preds = self._loo_predict(X, y)
+            loocv_correct = sum(1 for p, actual in zip(loo_preds, y) if p == actual)
             loocv_acc = loocv_correct / n_samples
+            loo_predictions = dict(zip(prog_names, loo_preds))
         else:
             loocv_acc = accuracy
 
@@ -124,10 +106,35 @@ class PassSelectorModel:
             "training_accuracy": round(accuracy, 4),
             "loocv_accuracy": round(loocv_acc, 4),
             "feature_importances": feat_importances,
-            "classes": sorted(list(set(y)))
+            "classes": sorted(list(set(y))),
+            "loo_predictions": loo_predictions
         }
 
         return self.training_metadata
+
+    def _loo_predict(self, X: List[List[float]], y: List[str]) -> List[str]:
+        """For each sample i, trains a fresh model on all other samples and predicts sample i."""
+        n_samples = len(X)
+        preds: List[str] = []
+        for i in range(n_samples):
+            X_train = [X[j] for j in range(n_samples) if j != i]
+            y_train = [y[j] for j in range(n_samples) if j != i]
+
+            if self.model_type == "random_forest":
+                fold_model = RandomForest(
+                    task="classification",
+                    n_estimators=self.model.n_estimators,
+                    max_depth=self.model.max_depth,
+                    random_state=42 + i
+                )
+            else:
+                fold_model = DecisionTree(
+                    task="classification",
+                    max_depth=self.model.max_depth
+                )
+            fold_model.fit(X_train, y_train)
+            preds.append(fold_model.predict([X[i]])[0])
+        return preds
 
     def predict(self, features: Dict[str, float]) -> Dict[str, Any]:
         """

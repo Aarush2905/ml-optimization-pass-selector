@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" width="100%" height="100%" style="background:#ffffff; font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;">
+  <style>
+    .title { font-size: 18px; font-weight: bold; fill: #1e293b; }
+    .axis-label { font-size: 12px; fill: #64748b; font-weight: 500; }
+    .cat-label { font-size: 11px; fill: #334155; }
+    .grid { stroke: #e2e8f0; stroke-dasharray: 3,3; }
+    .bar:hover { opacity: 0.85; }
+  </style>
+  <text x="450.0" y="30" text-anchor="middle" class="title">ML Speedup by Loop Count (geometric mean, > 1.0x = faster)</text>
+  <line x1="80" y1="60.0" x2="740" y2="60.0" class="grid" />
+  <text x="70" y="64.0" text-anchor="end" class="axis-label">1.69</text>
+  <line x1="80" y1="130.0" x2="740" y2="130.0" class="grid" />
+  <text x="70" y="134.0" text-anchor="end" class="axis-label">1.36</text>
+  <line x1="80" y1="200.0" x2="740" y2="200.0" class="grid" />
+  <text x="70" y="204.0" text-anchor="end" class="axis-label">1.02</text>
+  <line x1="80" y1="270.0" x2="740" y2="270.0" class="grid" />
+  <text x="70" y="274.0" text-anchor="end" class="axis-label">0.68</text>
+  <line x1="80" y1="340.0" x2="740" y2="340.0" class="grid" />
+  <text x="70" y="344.0" text-anchor="end" class="axis-label">0.34</text>
+  <line x1="80" y1="410.0" x2="740" y2="410.0" class="grid" />
+  <text x="70" y="414.0" text-anchor="end" class="axis-label">0.00</text>
+  <text transform="rotate(-90)" x="-235.0" y="25" text-anchor="middle" class="axis-label">Geomean Speedup (x) [Higher is Better]</text>
+  <line x1="80" y1="410" x2="740" y2="410" stroke="#94a3b8" stroke-width="1.5" />
+  <text transform="rotate(-35 245.0 425)" x="245.0" y="425" text-anchor="end" class="cat-label">Few loops (1-3) n=14</text>
+  <rect x="129.5" y="200.7" width="69.3" height="209.3" fill="#6366f1" rx="2" class="bar"><title>ML vs -O2 Speedup on Few loops (1-3) n=14: 1.013</title></rect>
+  <rect x="206.5" y="221.4" width="69.3" height="188.6" fill="#ec4899" rx="2" class="bar"><title>ML vs -O3 Speedup on Few loops (1-3) n=14: 0.913</title></rect>
+  <rect x="283.5" y="174.7" width="69.3" height="235.3" fill="#94a3b8" rx="2" class="bar"><title>Best candidate vs -O2 on Few loops (1-3) n=14: 1.139</title></rect>
+  <text transform="rotate(-35 575.0 425)" x="575.0" y="425" text-anchor="end" class="cat-label">Many loops (4+) n=16</text>
+  <rect x="459.5" y="151.1" width="69.3" height="258.9" fill="#6366f1" rx="2" class="bar"><title>ML vs -O2 Speedup on Many loops (4+) n=16: 1.253</title></rect>
+  <rect x="536.5" y="155.0" width="69.3" height="255.0" fill="#ec4899" rx="2" class="bar"><title>ML vs -O3 Speedup on Many loops (4+) n=16: 1.234</title></rect>
+  <rect x="613.5" y="105.7" width="69.3" height="304.3" fill="#94a3b8" rx="2" class="bar"><title>Best candidate vs -O2 on Many loops (4+) n=16: 1.473</title></rect>
+  <rect x="760" y="70" width="14" height="14" fill="#6366f1" rx="3" />
+  <text x="782" y="81" class="axis-label" fill="#1e293b">ML vs -O2 Speedup</text>
+  <rect x="760" y="94" width="14" height="14" fill="#ec4899" rx="3" />
+  <text x="782" y="105" class="axis-label" fill="#1e293b">ML vs -O3 Speedup</text>
+  <rect x="760" y="118" width="14" height="14" fill="#94a3b8" rx="3" />
+  <text x="782" y="129" class="axis-label" fill="#1e293b">Best candidate vs -O2</text>
+</svg>

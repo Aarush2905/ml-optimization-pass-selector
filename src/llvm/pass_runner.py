@@ -25,6 +25,19 @@ class PassRunner:
         self.opt_path = opt_path
         self.clang_path = clang_path
 
+    # Loop passes that must be nested in a MemorySSA-enabled loop adaptor under the
+    # LLVM 14 new pass manager (a bare "licm" fails with "LICM requires MemorySSA").
+    MSSA_LOOP_PASSES = {"licm"}
+
+    @classmethod
+    def _normalize_passes(cls, passes: Union[str, List[str]]) -> str:
+        """Builds the -passes= string, wrapping MemorySSA-dependent loop passes in loop-mssa(...)."""
+        names = passes if isinstance(passes, list) else passes.split(",")
+        # Pipeline strings with nesting (e.g. "default<O2>", "function(...)") are passed through as-is
+        if isinstance(passes, str) and any(c in passes for c in "()<>"):
+            return passes
+        return ",".join(f"loop-mssa({p.strip()})" if p.strip() in cls.MSSA_LOOP_PASSES else p.strip() for p in names)
+
     def _opt_available(self) -> bool:
         if shutil.which(self.opt_path) or os.path.exists(self.opt_path):
             try:
@@ -58,7 +71,7 @@ class PassRunner:
         if self._opt_available():
             cmd = [
                 self.opt_path,
-                f"-passes={pass_str}",
+                f"-passes={self._normalize_passes(passes)}",
                 input_ir,
                 "-S",
                 "-o",

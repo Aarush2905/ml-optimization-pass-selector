@@ -73,6 +73,8 @@ class WebDashboardHandler(BaseHTTPRequestHandler):
             self.handle_get_programs()
         elif path == "/api/baseline_summary":
             self.handle_get_baseline_summary()
+        elif path == "/api/feature_summary":
+            self.handle_get_feature_summary()
         elif path == "/api/dataset":
             self.handle_get_dataset()
         elif path == "/api/ordering":
@@ -147,7 +149,7 @@ class WebDashboardHandler(BaseHTTPRequestHandler):
         # Evaluate O0, O2, O3 vs ML
         results = []
         ref_bin = os.path.join(work_dir, f"{prog_name}_O0.out")
-        ok, _ = compiler.ir_to_executable(unopt_ir, ref_bin)
+        ok, _ = compiler.ir_to_executable(unopt_ir, ref_bin, codegen_opt="O0")
         o0_perf = benchmark.measure_execution_time(ref_bin)
         o0_size = benchmark.measure_binary_size(ref_bin)
         o0_ir_metrics = benchmark.measure_ir_metrics(unopt_ir)
@@ -184,7 +186,7 @@ class WebDashboardHandler(BaseHTTPRequestHandler):
         o3_ir = os.path.join(work_dir, f"{prog_name}_O3.ll")
         o3_bin = os.path.join(work_dir, f"{prog_name}_O3.out")
         pass_runner.run_standard_pipeline(unopt_ir, o3_ir, "O3")
-        compiler.ir_to_executable(o3_ir, o3_bin)
+        compiler.ir_to_executable(o3_ir, o3_bin, codegen_opt="O3")
         o3_perf = benchmark.measure_execution_time(o3_bin)
         o3_size = benchmark.measure_binary_size(o3_bin)
         o3_ir_metrics = benchmark.measure_ir_metrics(o3_ir)
@@ -252,11 +254,30 @@ class WebDashboardHandler(BaseHTTPRequestHandler):
                         "o2_time_ms": float(row.get("o2_time_ms", 0.0)),
                         "o3_time_ms": float(row.get("o3_time_ms", 0.0)),
                         "ml_time_ms": float(row.get("ml_time_ms", 0.0)),
-                        "ml_strategy": row.get("ml_strategy"),
-                        "speedup_vs_o2": float(row.get("speedup_vs_o2", 1.0)),
-                        "speedup_vs_o3": float(row.get("speedup_vs_o3", 1.0))
+                        "ml_strategy": row.get("ml_strategy") or "-",
+                        "speedup_vs_o2": float(row.get("ml_speedup_vs_o2") or 1.0),
+                        "speedup_vs_o3": float(row.get("ml_speedup_vs_o3") or 1.0)
                     })
         self._send_json({"summary": summary_data})
+
+    def handle_get_feature_summary(self):
+        summary_csv = os.path.join(PROJECT_ROOT, "results", "feature_category_summary.csv")
+        dimensions: Dict[str, List[Dict[str, Any]]] = {}
+        if os.path.exists(summary_csv):
+            import csv
+            with open(summary_csv, "r", encoding="utf-8") as f:
+                for row in csv.DictReader(f):
+                    dimensions.setdefault(row["dimension"], []).append({
+                        "group": row["group"],
+                        "n_programs": int(row["n_programs"]),
+                        "programs": row["programs"].split(),
+                        "speedup_vs_o0": float(row["geomean_ml_speedup_vs_o0"]),
+                        "speedup_vs_o2": float(row["geomean_ml_speedup_vs_o2"]),
+                        "speedup_vs_o3": float(row["geomean_ml_speedup_vs_o3"]),
+                        "win_rate_vs_o2": float(row["ml_win_rate_vs_o2"]),
+                        "win_rate_vs_o3": float(row["ml_win_rate_vs_o3"])
+                    })
+        self._send_json({"dimensions": dimensions})
 
     def handle_get_dataset(self):
         model_path = os.path.join(PROJECT_ROOT, "models", "trained_selector.json")
@@ -265,10 +286,22 @@ class WebDashboardHandler(BaseHTTPRequestHandler):
             with open(model_path, "r", encoding="utf-8") as f:
                 model_info = json.load(f)
 
+        dataset_csv = os.path.join(PROJECT_ROOT, "data", "optimization_dataset.csv")
+        total_samples = 0
+        total_programs = 0
+        if os.path.exists(dataset_csv):
+            import csv
+            with open(dataset_csv, "r", encoding="utf-8") as f:
+                rows = list(csv.DictReader(f))
+            total_samples = len(rows)
+            total_programs = len({r["program"] for r in rows})
+
+        metadata = model_info.get("metadata", {})
         self._send_json({
-            "total_samples": 75,
-            "cv_accuracy": model_info.get("cv_accuracy", 0.20),
-            "feature_importances": model_info.get("feature_importances", {}),
+            "total_samples": total_samples,
+            "total_programs": total_programs,
+            "cv_accuracy": metadata.get("loocv_accuracy"),
+            "feature_importances": metadata.get("feature_importances", {}),
             "feature_names": model_info.get("feature_names", [])
         })
 

@@ -68,7 +68,7 @@ def generate_dataset(
 
         # 3. Build reference O0 binary for correctness and baseline speedup
         ref_binary = os.path.join(prog_dir, f"{prog_name}_ref.out")
-        ok, msg = compiler.ir_to_executable(unopt_ir, ref_binary)
+        ok, msg = compiler.ir_to_executable(unopt_ir, ref_binary, codegen_opt="O0")
         if not ok:
             print(f"  [ERROR] Could not compile reference binary: {msg}")
             continue
@@ -87,10 +87,12 @@ def generate_dataset(
 
             ok, msg = pass_runner.run_passes(unopt_ir, opt_ir, pass_list)
             if not ok:
+                print(f"  [WARN] Strategy {strat_name} failed opt on {prog_name}: {msg.strip()[:300]}")
                 continue
 
             ok, msg = compiler.ir_to_executable(opt_ir, opt_bin)
             if not ok:
+                print(f"  [WARN] Strategy {strat_name} failed codegen/link on {prog_name}: {msg.strip()[:300]}")
                 continue
 
             # Verify correctness

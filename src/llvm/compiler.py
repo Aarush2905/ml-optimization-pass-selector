@@ -78,15 +78,47 @@ class LLVMCompiler:
         except subprocess.CalledProcessError as e:
             return False, f"Clang error: {e.stderr}"
 
-    def ir_to_executable(self, ir_path: str, exe_path: str) -> Tuple[bool, str]:
+    def ir_to_executable(self, ir_path: str, exe_path: str, codegen_opt: str = "O2") -> Tuple[bool, str]:
         """
-        Compiles an LLVM IR file to a native executable using clang.
-        Links the standard math library (-lm).
+        Compiles an LLVM IR file to a native executable, linking the standard math library (-lm).
+
+        codegen_opt sets the backend (machine code generation) optimization level:
+        - "O0": clang compiles the IR directly with unoptimized codegen (true -O0 reference).
+        - "O1"/"O2"/"O3": llc generates an object file at that level, then clang links it.
+          llc only performs code generation, so the IR pass sequence under test is not
+          re-optimized, while instruction selection / register allocation match a real -O build.
         """
         if not os.path.exists(ir_path):
             return False, f"IR file does not exist: {ir_path}"
 
         os.makedirs(os.path.dirname(os.path.abspath(exe_path)), exist_ok=True)
+
+        if codegen_opt != "O0":
+            if not (shutil.which(self.llc_path) or os.path.exists(self.llc_path)):
+                return False, f"llc not found (needed for -{codegen_opt} code generation): {self.llc_path}"
+            obj_path = os.path.splitext(exe_path)[0] + ".o"
+            llc_cmd = [
+                self.llc_path,
+                f"-{codegen_opt}",
+                "--relocation-model=pic",
+                "-filetype=obj",
+                ir_path,
+                "-o",
+                obj_path
+            ]
+            link_cmd = [self.clang_path, obj_path, "-lm", "-o", exe_path]
+            if sys.platform == "win32":
+                link_cmd.insert(1, "--target=x86_64-w64-windows-gnu")
+            try:
+                subprocess.run(llc_cmd, capture_output=True, text=True, check=True)
+            except subprocess.CalledProcessError as e:
+                return False, f"llc code generation error: {e.stderr}"
+            try:
+                subprocess.run(link_cmd, capture_output=True, text=True, check=True)
+                return True, exe_path
+            except subprocess.CalledProcessError as e:
+                return False, f"Clang linking error: {e.stderr}"
+
         cmd = [
             self.clang_path,
             ir_path,

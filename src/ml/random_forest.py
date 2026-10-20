@@ -52,7 +52,8 @@ class RandomForest:
                 task=self.task,
                 max_depth=self.max_depth,
                 min_samples_split=self.min_samples_split,
-                max_features=self.max_features
+                max_features=self.max_features,
+                rng=rng
             )
             tree.fit(X_boot, y_boot)
             self.trees.append(tree)

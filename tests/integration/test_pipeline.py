@@ -44,7 +44,7 @@ class TestEndToEndPipeline(unittest.TestCase):
         # 5. Compile binary and verify correctness
         ref_bin = "/tmp/test_integration_ref.out"
         opt_bin = "/tmp/test_integration_opt.out"
-        compiler.ir_to_executable(unopt_ir, ref_bin)
+        compiler.ir_to_executable(unopt_ir, ref_bin, codegen_opt="O0")
         compiler.ir_to_executable(opt_ir, opt_bin)
 
         verifier = CorrectnessVerifier()

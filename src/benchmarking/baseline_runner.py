@@ -45,7 +45,7 @@ class BaselineRunner:
         ref_binary = os.path.join(prog_dir, f"{prog_name}_O0.out")
 
         # 1. Evaluate O0
-        ok, msg = self.compiler.ir_to_executable(unopt_ir, ref_binary)
+        ok, msg = self.compiler.ir_to_executable(unopt_ir, ref_binary, codegen_opt="O0")
         if not ok:
             raise RuntimeError(f"Failed to compile O0 binary: {msg}")
 
@@ -85,7 +85,7 @@ class BaselineRunner:
                 }
                 continue
 
-            ok, msg = self.compiler.ir_to_executable(opt_ir, opt_bin)
+            ok, msg = self.compiler.ir_to_executable(opt_ir, opt_bin, codegen_opt=level)
             if not ok:
                 results[level] = {
                     "program": prog_name,

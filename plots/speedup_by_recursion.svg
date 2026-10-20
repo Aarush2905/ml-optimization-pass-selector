@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" width="100%" height="100%" style="background:#ffffff; font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;">
+  <style>
+    .title { font-size: 18px; font-weight: bold; fill: #1e293b; }
+    .axis-label { font-size: 12px; fill: #64748b; font-weight: 500; }
+    .cat-label { font-size: 11px; fill: #334155; }
+    .grid { stroke: #e2e8f0; stroke-dasharray: 3,3; }
+    .bar:hover { opacity: 0.85; }
+  </style>
+  <text x="450.0" y="30" text-anchor="middle" class="title">ML Speedup by Recursion (geometric mean, > 1.0x = faster)</text>
+  <line x1="80" y1="60.0" x2="740" y2="60.0" class="grid" />
+  <text x="70" y="64.0" text-anchor="end" class="axis-label">1.67</text>
+  <line x1="80" y1="130.0" x2="740" y2="130.0" class="grid" />
+  <text x="70" y="134.0" text-anchor="end" class="axis-label">1.34</text>
+  <line x1="80" y1="200.0" x2="740" y2="200.0" class="grid" />
+  <text x="70" y="204.0" text-anchor="end" class="axis-label">1.00</text>
+  <line x1="80" y1="270.0" x2="740" y2="270.0" class="grid" />
+  <text x="70" y="274.0" text-anchor="end" class="axis-label">0.67</text>
+  <line x1="80" y1="340.0" x2="740" y2="340.0" class="grid" />
+  <text x="70" y="344.0" text-anchor="end" class="axis-label">0.33</text>
+  <line x1="80" y1="410.0" x2="740" y2="410.0" class="grid" />
+  <text x="70" y="414.0" text-anchor="end" class="axis-label">0.00</text>
+  <text transform="rotate(-90)" x="-235.0" y="25" text-anchor="middle" class="axis-label">Geomean Speedup (x) [Higher is Better]</text>
+  <line x1="80" y1="410" x2="740" y2="410" stroke="#94a3b8" stroke-width="1.5" />
+  <text transform="rotate(-35 245.0 425)" x="245.0" y="425" text-anchor="end" class="cat-label">Non-recursive n=22</text>
+  <rect x="129.5" y="154.3" width="69.3" height="255.7" fill="#6366f1" rx="2" class="bar"><title>ML vs -O2 Speedup on Non-recursive n=22: 1.220</title></rect>
+  <rect x="206.5" y="174.8" width="69.3" height="235.2" fill="#ec4899" rx="2" class="bar"><title>ML vs -O3 Speedup on Non-recursive n=22: 1.122</title></rect>
+  <rect x="283.5" y="105.7" width="69.3" height="304.3" fill="#94a3b8" rx="2" class="bar"><title>Best candidate vs -O2 on Non-recursive n=22: 1.452</title></rect>
+  <text transform="rotate(-35 575.0 425)" x="575.0" y="425" text-anchor="end" class="cat-label">Recursive n=8</text>
+  <rect x="459.5" y="214.9" width="69.3" height="195.1" fill="#6366f1" rx="2" class="bar"><title>ML vs -O2 Speedup on Recursive n=8: 0.931</title></rect>
+  <rect x="536.5" y="211.5" width="69.3" height="198.5" fill="#ec4899" rx="2" class="bar"><title>ML vs -O3 Speedup on Recursive n=8: 0.947</title></rect>
+  <rect x="613.5" y="205.6" width="69.3" height="204.4" fill="#94a3b8" rx="2" class="bar"><title>Best candidate vs -O2 on Recursive n=8: 0.975</title></rect>
+  <rect x="760" y="70" width="14" height="14" fill="#6366f1" rx="3" />
+  <text x="782" y="81" class="axis-label" fill="#1e293b">ML vs -O2 Speedup</text>
+  <rect x="760" y="94" width="14" height="14" fill="#ec4899" rx="3" />
+  <text x="782" y="105" class="axis-label" fill="#1e293b">ML vs -O3 Speedup</text>
+  <rect x="760" y="118" width="14" height="14" fill="#94a3b8" rx="3" />
+  <text x="782" y="129" class="axis-label" fill="#1e293b">Best candidate vs -O2</text>
+</svg>
