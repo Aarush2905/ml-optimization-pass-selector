@@ -6,7 +6,7 @@
     .grid { stroke: #e2e8f0; stroke-dasharray: 3,3; }
     .bar:hover { opacity: 0.85; }
   </style>
-  <text x="450.0" y="30" text-anchor="middle" class="title">ML Speedup by Memory Intensity (geometric mean, > 1.0x = faster)</text>
+  <text x="450.0" y="30" text-anchor="middle" class="title">ML Speedup by Memory Intensity (geometric mean, &gt; 1.0x = faster)</text>
   <line x1="80" y1="60.0" x2="740" y2="60.0" class="grid" />
   <text x="70" y="64.0" text-anchor="end" class="axis-label">1.68</text>
   <line x1="80" y1="130.0" x2="740" y2="130.0" class="grid" />
@@ -21,14 +21,14 @@
   <text x="70" y="414.0" text-anchor="end" class="axis-label">0.00</text>
   <text transform="rotate(-90)" x="-235.0" y="25" text-anchor="middle" class="axis-label">Geomean Speedup (x) [Higher is Better]</text>
   <line x1="80" y1="410" x2="740" y2="410" stroke="#94a3b8" stroke-width="1.5" />
-  <text transform="rotate(-35 245.0 425)" x="245.0" y="425" text-anchor="end" class="cat-label">Compute-heavy (<= 0.57) n=16</text>
-  <rect x="129.5" y="194.5" width="69.3" height="215.5" fill="#6366f1" rx="2" class="bar"><title>ML vs -O2 Speedup on Compute-heavy (<= 0.57) n=16: 1.036</title></rect>
-  <rect x="206.5" y="210.5" width="69.3" height="199.5" fill="#ec4899" rx="2" class="bar"><title>ML vs -O3 Speedup on Compute-heavy (<= 0.57) n=16: 0.959</title></rect>
-  <rect x="283.5" y="164.1" width="69.3" height="245.9" fill="#94a3b8" rx="2" class="bar"><title>Best candidate vs -O2 on Compute-heavy (<= 0.57) n=16: 1.182</title></rect>
-  <text transform="rotate(-35 575.0 425)" x="575.0" y="425" text-anchor="end" class="cat-label">Memory-heavy (> 0.57) n=14</text>
-  <rect x="459.5" y="148.1" width="69.3" height="261.9" fill="#6366f1" rx="2" class="bar"><title>ML vs -O2 Speedup on Memory-heavy (> 0.57) n=14: 1.259</title></rect>
-  <rect x="536.5" y="156.4" width="69.3" height="253.6" fill="#ec4899" rx="2" class="bar"><title>ML vs -O3 Speedup on Memory-heavy (> 0.57) n=14: 1.219</title></rect>
-  <rect x="613.5" y="105.7" width="69.3" height="304.3" fill="#94a3b8" rx="2" class="bar"><title>Best candidate vs -O2 on Memory-heavy (> 0.57) n=14: 1.463</title></rect>
+  <text transform="rotate(-35 245.0 425)" x="245.0" y="425" text-anchor="end" class="cat-label">Compute-heavy (&lt;= 0.57) n=16</text>
+  <rect x="129.5" y="194.5" width="69.3" height="215.5" fill="#6366f1" rx="2" class="bar"><title>ML vs -O2 Speedup on Compute-heavy (&lt;= 0.57) n=16: 1.036</title></rect>
+  <rect x="206.5" y="210.5" width="69.3" height="199.5" fill="#ec4899" rx="2" class="bar"><title>ML vs -O3 Speedup on Compute-heavy (&lt;= 0.57) n=16: 0.959</title></rect>
+  <rect x="283.5" y="164.1" width="69.3" height="245.9" fill="#94a3b8" rx="2" class="bar"><title>Best candidate vs -O2 on Compute-heavy (&lt;= 0.57) n=16: 1.182</title></rect>
+  <text transform="rotate(-35 575.0 425)" x="575.0" y="425" text-anchor="end" class="cat-label">Memory-heavy (&gt; 0.57) n=14</text>
+  <rect x="459.5" y="148.1" width="69.3" height="261.9" fill="#6366f1" rx="2" class="bar"><title>ML vs -O2 Speedup on Memory-heavy (&gt; 0.57) n=14: 1.259</title></rect>
+  <rect x="536.5" y="156.4" width="69.3" height="253.6" fill="#ec4899" rx="2" class="bar"><title>ML vs -O3 Speedup on Memory-heavy (&gt; 0.57) n=14: 1.219</title></rect>
+  <rect x="613.5" y="105.7" width="69.3" height="304.3" fill="#94a3b8" rx="2" class="bar"><title>Best candidate vs -O2 on Memory-heavy (&gt; 0.57) n=14: 1.463</title></rect>
   <rect x="760" y="70" width="14" height="14" fill="#6366f1" rx="3" />
   <text x="782" y="81" class="axis-label" fill="#1e293b">ML vs -O2 Speedup</text>
   <rect x="760" y="94" width="14" height="14" fill="#ec4899" rx="3" />

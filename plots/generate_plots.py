@@ -10,6 +10,7 @@ import csv
 import json
 import math
 from typing import Callable, Dict, List, Any, Tuple
+from xml.sax.saxutils import escape
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
@@ -55,7 +56,7 @@ def generate_svg_bar_chart(
         f'    .grid {{ stroke: #e2e8f0; stroke-dasharray: 3,3; }}',
         f'    .bar:hover {{ opacity: 0.85; }}',
         f'  </style>',
-        f'  <text x="{width / 2}" y="30" text-anchor="middle" class="title">{title}</text>',
+        f'  <text x="{width / 2}" y="30" text-anchor="middle" class="title">{escape(title)}</text>',
     ]
 
     # Y-axis grid lines (5 intervals)
@@ -68,7 +69,7 @@ def generate_svg_bar_chart(
 
     # Y-axis label
     svg_lines.append(
-        f'  <text transform="rotate(-90)" x="-{margin_top + plot_h / 2}" y="25" text-anchor="middle" class="axis-label">{y_label}</text>'
+        f'  <text transform="rotate(-90)" x="-{margin_top + plot_h / 2}" y="25" text-anchor="middle" class="axis-label">{escape(y_label)}</text>'
     )
 
     # X-axis line
@@ -83,7 +84,7 @@ def generate_svg_bar_chart(
         # Cat label
         svg_lines.append(
             f'  <text transform="rotate(-35 {group_x + (bar_w * n_series)/2} {margin_top + plot_h + 15})" '
-            f'x="{group_x + (bar_w * n_series)/2}" y="{margin_top + plot_h + 15}" text-anchor="end" class="cat-label">{cat}</text>'
+            f'x="{group_x + (bar_w * n_series)/2}" y="{margin_top + plot_h + 15}" text-anchor="end" class="cat-label">{escape(cat)}</text>'
         )
 
         for s_idx, s_name in enumerate(series_names):
@@ -94,7 +95,7 @@ def generate_svg_bar_chart(
             color = colors.get(s_name, "#3b82f6")
             svg_lines.append(
                 f'  <rect x="{b_x:.1f}" y="{b_y:.1f}" width="{bar_w * 0.9:.1f}" height="{bar_h:.1f}" fill="{color}" rx="2" class="bar">'
-                f'<title>{s_name} on {cat}: {val:.3f}</title></rect>'
+                f'<title>{escape(s_name)} on {escape(cat)}: {val:.3f}</title></rect>'
             )
 
     # Legend
@@ -103,7 +104,7 @@ def generate_svg_bar_chart(
     for idx, s_name in enumerate(series_names):
         c = colors.get(s_name, "#3b82f6")
         svg_lines.append(f'  <rect x="{leg_x}" y="{leg_y + idx * 24}" width="14" height="14" fill="{c}" rx="3" />')
-        svg_lines.append(f'  <text x="{leg_x + 22}" y="{leg_y + idx * 24 + 11}" class="axis-label" fill="#1e293b">{s_name}</text>')
+        svg_lines.append(f'  <text x="{leg_x + 22}" y="{leg_y + idx * 24 + 11}" class="axis-label" fill="#1e293b">{escape(s_name)}</text>')
 
     svg_lines.append('</svg>')
 

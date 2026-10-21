@@ -6,7 +6,7 @@
     .grid { stroke: #e2e8f0; stroke-dasharray: 3,3; }
     .bar:hover { opacity: 0.85; }
   </style>
-  <text x="450.0" y="30" text-anchor="middle" class="title">ML Speedup by Branch Depth (geometric mean, > 1.0x = faster)</text>
+  <text x="450.0" y="30" text-anchor="middle" class="title">ML Speedup by Branch Depth (geometric mean, &gt; 1.0x = faster)</text>
   <line x1="80" y1="60.0" x2="740" y2="60.0" class="grid" />
   <text x="70" y="64.0" text-anchor="end" class="axis-label">1.71</text>
   <line x1="80" y1="130.0" x2="740" y2="130.0" class="grid" />
@@ -21,18 +21,18 @@
   <text x="70" y="414.0" text-anchor="end" class="axis-label">0.00</text>
   <text transform="rotate(-90)" x="-235.0" y="25" text-anchor="middle" class="axis-label">Geomean Speedup (x) [Higher is Better]</text>
   <line x1="80" y1="410" x2="740" y2="410" stroke="#94a3b8" stroke-width="1.5" />
-  <text transform="rotate(-35 190.0 425)" x="190.0" y="425" text-anchor="end" class="cat-label">Shallow (<= 2) n=11</text>
-  <rect x="113.0" y="200.5" width="46.2" height="209.5" fill="#6366f1" rx="2" class="bar"><title>ML vs -O2 Speedup on Shallow (<= 2) n=11: 1.025</title></rect>
-  <rect x="164.3" y="219.9" width="46.2" height="190.1" fill="#ec4899" rx="2" class="bar"><title>ML vs -O3 Speedup on Shallow (<= 2) n=11: 0.930</title></rect>
-  <rect x="215.7" y="180.9" width="46.2" height="229.1" fill="#94a3b8" rx="2" class="bar"><title>Best candidate vs -O2 on Shallow (<= 2) n=11: 1.121</title></rect>
+  <text transform="rotate(-35 190.0 425)" x="190.0" y="425" text-anchor="end" class="cat-label">Shallow (&lt;= 2) n=11</text>
+  <rect x="113.0" y="200.5" width="46.2" height="209.5" fill="#6366f1" rx="2" class="bar"><title>ML vs -O2 Speedup on Shallow (&lt;= 2) n=11: 1.025</title></rect>
+  <rect x="164.3" y="219.9" width="46.2" height="190.1" fill="#ec4899" rx="2" class="bar"><title>ML vs -O3 Speedup on Shallow (&lt;= 2) n=11: 0.930</title></rect>
+  <rect x="215.7" y="180.9" width="46.2" height="229.1" fill="#94a3b8" rx="2" class="bar"><title>Best candidate vs -O2 on Shallow (&lt;= 2) n=11: 1.121</title></rect>
   <text transform="rotate(-35 410.0 425)" x="410.0" y="425" text-anchor="end" class="cat-label">Moderate (2-4] n=12</text>
   <rect x="333.0" y="188.0" width="46.2" height="222.0" fill="#6366f1" rx="2" class="bar"><title>ML vs -O2 Speedup on Moderate (2-4] n=12: 1.086</title></rect>
   <rect x="384.3" y="203.4" width="46.2" height="206.6" fill="#ec4899" rx="2" class="bar"><title>ML vs -O3 Speedup on Moderate (2-4] n=12: 1.011</title></rect>
   <rect x="435.7" y="125.3" width="46.2" height="284.7" fill="#94a3b8" rx="2" class="bar"><title>Best candidate vs -O2 on Moderate (2-4] n=12: 1.393</title></rect>
-  <text transform="rotate(-35 630.0 425)" x="630.0" y="425" text-anchor="end" class="cat-label">Deep (> 4) n=7</text>
-  <rect x="553.0" y="116.7" width="46.2" height="293.3" fill="#6366f1" rx="2" class="bar"><title>ML vs -O2 Speedup on Deep (> 4) n=7: 1.435</title></rect>
-  <rect x="604.3" y="106.7" width="46.2" height="303.3" fill="#ec4899" rx="2" class="bar"><title>ML vs -O3 Speedup on Deep (> 4) n=7: 1.484</title></rect>
-  <rect x="655.7" y="105.7" width="46.2" height="304.3" fill="#94a3b8" rx="2" class="bar"><title>Best candidate vs -O2 on Deep (> 4) n=7: 1.489</title></rect>
+  <text transform="rotate(-35 630.0 425)" x="630.0" y="425" text-anchor="end" class="cat-label">Deep (&gt; 4) n=7</text>
+  <rect x="553.0" y="116.7" width="46.2" height="293.3" fill="#6366f1" rx="2" class="bar"><title>ML vs -O2 Speedup on Deep (&gt; 4) n=7: 1.435</title></rect>
+  <rect x="604.3" y="106.7" width="46.2" height="303.3" fill="#ec4899" rx="2" class="bar"><title>ML vs -O3 Speedup on Deep (&gt; 4) n=7: 1.484</title></rect>
+  <rect x="655.7" y="105.7" width="46.2" height="304.3" fill="#94a3b8" rx="2" class="bar"><title>Best candidate vs -O2 on Deep (&gt; 4) n=7: 1.489</title></rect>
   <rect x="760" y="70" width="14" height="14" fill="#6366f1" rx="3" />
   <text x="782" y="81" class="axis-label" fill="#1e293b">ML vs -O2 Speedup</text>
   <rect x="760" y="94" width="14" height="14" fill="#ec4899" rx="3" />
