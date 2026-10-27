@@ -1,4 +1,4 @@
-# Machine-Learning-Guided LLVM Optimization Pass Selector
+# Machine-Learning-Guided LLVM Optimization Pass Selector:
 
 [![Compiler: LLVM 14](https://img.shields.io/badge/Compiler-LLVM%2FClang%2014.0.0-blue.svg)](https://releases.llvm.org/14.0.0/)
 [![OS: Ubuntu 22.04](https://img.shields.io/badge/OS-Ubuntu%2022.04%20LTS-orange.svg)](https://ubuntu.com/)
